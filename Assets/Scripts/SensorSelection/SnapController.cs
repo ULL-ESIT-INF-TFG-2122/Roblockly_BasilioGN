@@ -28,6 +28,11 @@ public class SnapController : MonoBehaviour
     public delegate void CreateAddedSensorBox(DragObject sensorOfTheBox);
     public CreateAddedSensorBox CreateNewAddedSensorBox;
 
+    public enum Sensors
+    {
+        Ultrasound,
+        Infrarred
+    }
     // Start is called before the first frame update
    void Start()
     {
@@ -90,16 +95,25 @@ public class SnapController : MonoBehaviour
 
         if ((ClosestSnapPoint != null) && (ClosestDistance <= SnapRange))
         {
-            //HasSnappedSensor = true;
             Debug.Log("Ha hecho el snap");
-            // TODO: HACER FUNCIONES CON POSICIÓN PARA CADA TIPO DE SENSOR Y AÑADIR SWITCH
-            sensorToDrag.transform.position = ClosestSnapPoint.transform.position;
+            switch (sensorToDrag.name)
+            {
+                case "SensorUS(Clone)":
+                    SetUltrasoundSensor(sensorToDrag, ClosestSnapPoint);
+                    break;
+                case "SensorTouch":
+                    break;
+                case "SensorIR(Clone)":
+                    break;
+                case "SensorColor(Clone)":
+                    break;
+                default:
+                    Debug.Log("There aren't any sensor of this type");
+                    break;
+            }
+
             sensorToDrag.transform.parent = gameObject.transform;
-            float XCoordinate = sensorToDrag.transform.position.x;
-            float YCoordinate = sensorToDrag.transform.position.y;
-            float ZCoordinate = sensorToDrag.transform.position.z;
-            float offset = 3f;
-            sensorToDrag.transform.position = new Vector3(XCoordinate, YCoordinate + offset, ZCoordinate);
+
             //CreateNewAddedSensorBox(sensorToDrag);
             //CreateAddedSensorBox();
         } 
@@ -113,10 +127,38 @@ public class SnapController : MonoBehaviour
     /// This method is used to set up the position of any Ultrasound sensor 
     /// when it is snapped to the robot.
     /// </summary>
-    private void SetUltrasoundSensor()
+    private void SetUltrasoundSensor(DragObject sensorToDrag, Transform ClosestSnapPoint)
     {
+        Debug.Log ("Es un sensor de ultrasonido");
+        //====== Position transform ================================
+        sensorToDrag.transform.position = ClosestSnapPoint.transform.position;
+        float XPosCoord = sensorToDrag.transform.position.x;
+        float YPosCoord = sensorToDrag.transform.position.y;
+        float ZPosCoord = sensorToDrag.transform.position.z;
+        float offset = 3f;
+        sensorToDrag.transform.position = new Vector3(XPosCoord, YPosCoord + offset, ZPosCoord);
 
+        //====== Rotation transform ================================
+        sensorToDrag.transform.rotation = ClosestSnapPoint.transform.rotation;
+        switch (ClosestSnapPoint.tag)
+        {
+            case "FrontSnap":
+                sensorToDrag.transform.Rotate(0.0f, 90.0f, 0.0f);
+                break;
+            case "BackSnap":
+                sensorToDrag.transform.Rotate(0.0f, -90.0f, 0.0f);
+                break;
+            case "LeftSnap":
+                sensorToDrag.transform.Rotate(0.0f, 180.0f, 0.0f);
+                break;
+            default: // There is no right sensor because initial sensor         
+                     // rotation is clockwise by default.
+                sensorToDrag.transform.Rotate(0.0f, 0.0f, 0.0f);
+                break;
+        }
     }
+
+
 
     /*void CreateAddedSensorBox()
     {

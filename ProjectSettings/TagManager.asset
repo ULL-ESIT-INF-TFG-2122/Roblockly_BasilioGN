@@ -17,6 +17,14 @@ TagManager:
   - SensorBox2
   - SensorBox3
   - SensorBox4
+  - Touch
+  - Contacto
+  - Laser
+  - IR
+  - FrontSnap
+  - BackSnap
+  - RightSnap
+  - LeftSnap
   layers:
   - Default
   - TransparentFX
