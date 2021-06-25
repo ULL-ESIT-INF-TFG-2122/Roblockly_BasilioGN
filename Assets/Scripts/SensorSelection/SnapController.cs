@@ -27,12 +27,8 @@ public class SnapController : MonoBehaviour
     public GameObject[] AddedSensorBoxes;
     public delegate void CreateAddedSensorBox(DragObject sensorOfTheBox);
     public CreateAddedSensorBox CreateNewAddedSensorBox;
+    private Transform[] UsedSnapPoints;
 
-    public enum Sensors
-    {
-        Ultrasound,
-        Infrarred
-    }
     // Start is called before the first frame update
    void Start()
     {
@@ -90,34 +86,42 @@ public class SnapController : MonoBehaviour
             }
         }
 
-        Debug.Log("ClosestSnapPoint = " + ClosestSnapPoint);
-        Debug.Log("ClosestDistance = " + ClosestDistance);
-
-        if ((ClosestSnapPoint != null) && (ClosestDistance <= SnapRange))
+        bool used = false;
+        if ((UsedSnapPoints.Length > 0) && (System.Array.IndexOf(UsedSnapPoints, ClosestSnapPoint) != -1))
         {
-            Debug.Log("Ha hecho el snap");
-            switch (sensorToDrag.name)
-            {
-                case "SensorUS(Clone)":
-                    SetUltrasoundSensor(sensorToDrag, ClosestSnapPoint);
-                    break;
-                case "SensorTouch":
-                    break;
-                case "SensorIR(Clone)":
-                    break;
-                case "SensorColor(Clone)":
-                    break;
-                default:
-                    Debug.Log("There aren't any sensor of this type");
-                    break;
-            }
-
-            sensorToDrag.transform.parent = gameObject.transform;
-
-            //CreateNewAddedSensorBox(sensorToDrag);
-            //CreateAddedSensorBox();
+            used = true;
         } 
-        else 
+        if (!used) // If the Closest Sanp Point is free
+        {
+            UsedSnapPoints.Add(ClosestSnapPoint);
+            Debug.Log("ClosestSnapPoint = " + ClosestSnapPoint);
+            Debug.Log("ClosestDistance = " + ClosestDistance);
+
+            if ((ClosestSnapPoint != null) && (ClosestDistance <= SnapRange))
+            {
+                Debug.Log("Ha hecho el snap");
+                switch (sensorToDrag.name)
+                {
+                    case "SensorUS(Clone)":
+                        SetUltrasoundSensor(sensorToDrag, ClosestSnapPoint);
+                        break;
+                    case "SensorTouch":
+                        break;
+                    case "SensorIR(Clone)":
+                        break;
+                    case "SensorColor(Clone)":
+                        break;
+                    default:
+                        Debug.Log("There aren't any sensor of this type");
+                        break;
+                }
+
+                sensorToDrag.transform.parent = gameObject.transform;
+                //CreateNewAddedSensorBox(sensorToDrag);
+                //CreateAddedSensorBox();
+            }
+        } 
+        else // If the sensor doesn't snaps any point.
         {
             Destroy(sensorToDrag.gameObject);
         }
@@ -129,6 +133,7 @@ public class SnapController : MonoBehaviour
     /// </summary>
     private void SetUltrasoundSensor(DragObject sensorToDrag, Transform ClosestSnapPoint)
     {
+
         Debug.Log ("Es un sensor de ultrasonido");
         //====== Position transform ================================
         sensorToDrag.transform.position = ClosestSnapPoint.transform.position;
