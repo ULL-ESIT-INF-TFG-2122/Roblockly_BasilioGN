@@ -24,7 +24,7 @@ public class SnapController : MonoBehaviour
     //bool HasSnappedSensor = false;
     DragObject[] SensorsToDrag; // Contains all the draggable
                                 // sensors;
-    public GameObject[] AddedSensorBoxes;
+    // public GameObject[] AddedSensorBoxes;
     public delegate void CreateAddedSensorBox(DragObject sensorOfTheBox);
     public static event CreateAddedSensorBox CreateNewAddedSensorBox;
 
@@ -115,7 +115,7 @@ public class SnapController : MonoBehaviour
                     case "SensorUS(Clone)":
                         SetUltrasoundSensor(sensorToDrag, ClosestSnapPoint);
                         break;
-                    case "SensorTouch":
+                    case "SensorTouch(Clone)":
                         break;
                     case "SensorIR(Clone)":
                         break;
