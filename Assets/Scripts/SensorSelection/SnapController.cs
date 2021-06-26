@@ -26,7 +26,8 @@ public class SnapController : MonoBehaviour
                                 // sensors;
     public GameObject[] AddedSensorBoxes;
     public delegate void CreateAddedSensorBox(DragObject sensorOfTheBox);
-    public CreateAddedSensorBox CreateNewAddedSensorBox;
+    public static event CreateAddedSensorBox CreateNewAddedSensorBox;
+
     private List<Transform> UsedSnapPoints = new List<Transform>();
 
     // Start is called before the first frame update
@@ -86,10 +87,12 @@ public class SnapController : MonoBehaviour
             }
         }
 
-        bool used = false; // Auxiliary variable to check if the closest snap 
+        /*bool used = false; // Auxiliary variable to check if the closest snap 
                            // point has been used.
         if (UsedSnapPoints.Count  > 0)
         {
+
+            Debug.Log("UsedSanpPoints.Count: " + UsedSnapPoints.Count);
             for (int i = 0; i < UsedSnapPoints.Count; i++)
             {
                 if(UsedSnapPoints[i] == ClosestSnapPoint)
@@ -100,7 +103,7 @@ public class SnapController : MonoBehaviour
         }
 
         if (!used) // If the Closest Sanp Point is free
-        {
+        {*/
             UsedSnapPoints.Add(ClosestSnapPoint);
             Debug.Log("ClosestSnapPoint = " + ClosestSnapPoint);
             Debug.Log("ClosestDistance = " + ClosestDistance);
@@ -128,7 +131,7 @@ public class SnapController : MonoBehaviour
                 //CreateNewAddedSensorBox(sensorToDrag);
                 //CreateAddedSensorBox();
             }
-        } 
+       // } 
         else // If the sensor doesn't snaps any point.
         {
             Destroy(sensorToDrag.gameObject);
@@ -173,7 +176,7 @@ public class SnapController : MonoBehaviour
 
 
 
-    /*void CreateAddedSensorBox()
+    /*void CreateNewAddedSensorBox(DragObject sensorOfTheBox)
     {
         Debug.Log("Ha entrado en el CreateAddedSensorBox");
         Debug.Log(AddedSensorBoxes);

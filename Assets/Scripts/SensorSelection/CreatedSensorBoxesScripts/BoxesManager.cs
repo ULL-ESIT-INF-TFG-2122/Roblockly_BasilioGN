@@ -7,16 +7,20 @@ public class BoxesManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        for (int i = 0; i < transform.childCount; i++)
-        {
-            //Debug.Log(transform.GetChild(i).gameObject.name);
-        }
     }
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+
+    /// <summary>
+    /// This function is called when the object becomes enabled and active.
+    /// </summary>
+    void OnEnable()
+    {
+        //SnapController.CreateNewAddedSensorBox += OnActivation;
     }
 
     private void OnActivation(DragObject selectedSensor)

@@ -1889,7 +1889,7 @@ PrefabInstance:
     - target: {fileID: 7711495637746178334, guid: 6415a7184baf46c4d88e195d45e3d9b1,
         type: 3}
       propertyPath: m_TagString
-      value: BackSnap
+      value: FrontSnap
       objectReference: {fileID: 0}
     - target: {fileID: 7711495637746178334, guid: 6415a7184baf46c4d88e195d45e3d9b1,
         type: 3}
@@ -1954,7 +1954,7 @@ MonoBehaviour:
   - {fileID: 1741104059}
   - {fileID: 576252634}
   - {fileID: 1738370089}
-  SnapRange: 10
+  SnapRange: 5
   AddedSensorBoxes:
   - {fileID: 233530403}
   - {fileID: 661738090}
