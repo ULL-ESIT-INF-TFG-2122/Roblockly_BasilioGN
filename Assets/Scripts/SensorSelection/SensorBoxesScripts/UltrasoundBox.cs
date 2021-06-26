@@ -42,7 +42,7 @@ public class UltrasoundBox : MonoBehaviour
         }
         */
         DragObject InstantiatedSensor = Instantiate(UltrasoundSensor);
-        Debug.Log("Transform en el ultrasound: " + InstantiatedSensor.transform.position);
+        //Debug.Log("Transform en el ultrasound: " + InstantiatedSensor.transform.position);
         InstantiatedSensor.ManageDrag();
     }
 

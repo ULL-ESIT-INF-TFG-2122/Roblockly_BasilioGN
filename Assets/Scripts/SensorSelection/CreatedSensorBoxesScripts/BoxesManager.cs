@@ -20,7 +20,7 @@ public class BoxesManager : MonoBehaviour
     /// </summary>
     void OnEnable()
     {
-        //SnapController.CreateNewAddedSensorBox += OnActivation;
+        SnapController.CreateNewAddedSensorBox += OnActivation;
     }
 
     private void OnActivation(DragObject selectedSensor)
@@ -30,7 +30,6 @@ public class BoxesManager : MonoBehaviour
             if ((!transform.GetChild(i).gameObject.activeSelf) && (transform.GetChild(i).gameObject.tag == "AddedSensorBox"))
             {
                 transform.GetChild(i).gameObject.SetActive(true);
-
             }   
         }
     }

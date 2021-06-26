@@ -1951,10 +1951,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SnapPoints:
-  - {fileID: 1741104059}
-  - {fileID: 576252634}
   - {fileID: 1738370089}
-  SnapRange: 5
+  - {fileID: 576252634}
+  SnapRange: 10
   AddedSensorBoxes:
   - {fileID: 233530403}
   - {fileID: 661738090}
@@ -4497,12 +4496,6 @@ CanvasRenderer:
 --- !u!4 &1738370089 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3695292901216991229, guid: 6415a7184baf46c4d88e195d45e3d9b1,
-    type: 3}
-  m_PrefabInstance: {fileID: 672844843}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &1741104059 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 3155129826808523347, guid: 6415a7184baf46c4d88e195d45e3d9b1,
     type: 3}
   m_PrefabInstance: {fileID: 672844843}
   m_PrefabAsset: {fileID: 0}

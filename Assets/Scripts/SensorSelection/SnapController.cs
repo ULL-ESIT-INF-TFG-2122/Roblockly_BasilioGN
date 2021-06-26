@@ -87,12 +87,11 @@ public class SnapController : MonoBehaviour
             }
         }
 
-        /*bool used = false; // Auxiliary variable to check if the closest snap 
+        bool used = false; // Auxiliary variable to check if the closest snap 
                            // point has been used.
-        if (UsedSnapPoints.Count  > 0)
+        if (UsedSnapPoints.Count > 0)
         {
-
-            Debug.Log("UsedSanpPoints.Count: " + UsedSnapPoints.Count);
+            //Debug.Log("UsedSanpPoints.Count: " + UsedSnapPoints.Count);
             for (int i = 0; i < UsedSnapPoints.Count; i++)
             {
                 if(UsedSnapPoints[i] == ClosestSnapPoint)
@@ -103,13 +102,13 @@ public class SnapController : MonoBehaviour
         }
 
         if (!used) // If the Closest Sanp Point is free
-        {*/
-            UsedSnapPoints.Add(ClosestSnapPoint);
-            Debug.Log("ClosestSnapPoint = " + ClosestSnapPoint);
-            Debug.Log("ClosestDistance = " + ClosestDistance);
+        {
+            //Debug.Log("ClosestSnapPoint = " + ClosestSnapPoint);
+            //Debug.Log("ClosestDistance = " + ClosestDistance);
 
             if ((ClosestSnapPoint != null) && (ClosestDistance <= SnapRange))
             {
+                UsedSnapPoints.Add(ClosestSnapPoint);
                 Debug.Log("Ha hecho el snap");
                 switch (sensorToDrag.name)
                 {
@@ -126,12 +125,15 @@ public class SnapController : MonoBehaviour
                         Debug.Log("There aren't any sensor of this type");
                         break;
                 }
-
                 sensorToDrag.transform.parent = gameObject.transform;
-                //CreateNewAddedSensorBox(sensorToDrag);
+                CreateNewAddedSensorBox(sensorToDrag);
                 //CreateAddedSensorBox();
             }
-       // } 
+            else // If the sensor doesn't snaps any point.
+            {
+                Destroy(sensorToDrag.gameObject);
+            }
+        }
         else // If the sensor doesn't snaps any point.
         {
             Destroy(sensorToDrag.gameObject);
@@ -145,7 +147,7 @@ public class SnapController : MonoBehaviour
     private void SetUltrasoundSensor(DragObject sensorToDrag, Transform ClosestSnapPoint)
     {
 
-        Debug.Log ("Es un sensor de ultrasonido");
+        //Debug.Log ("Es un sensor de ultrasonido");
         //====== Position transform ================================
         sensorToDrag.transform.position = ClosestSnapPoint.transform.position;
         float XPosCoord = sensorToDrag.transform.position.x;
