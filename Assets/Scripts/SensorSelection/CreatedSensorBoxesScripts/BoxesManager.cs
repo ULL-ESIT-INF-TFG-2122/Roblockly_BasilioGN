@@ -14,17 +14,6 @@ using UnityEngine.UI;
 
 public class BoxesManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     /// <summary>
     /// This function is called when the object becomes enabled and active.
     /// </summary>
@@ -42,14 +31,11 @@ public class BoxesManager : MonoBehaviour
         bool activated = false;
         int i = 0;
         string sensorType = NewBoxName(selectedSensor);
-        //string auxText;
         while ((!activated) && (i < transform.childCount)) 
         {
             if ((!transform.GetChild(i).gameObject.activeSelf) && (transform.GetChild(i).gameObject.tag == "AddedSensorBox"))
             {
                 transform.GetChild(i).gameObject.SetActive(true);
-                /*auxText = transform.GetChild(i).gameObject.transform.GetChild(0).gameObject.GetComponent<TMPro.TextMeshProUGUI>().text;
-                Debug.Log("auxText = " + auxText);*/
                 transform.GetChild(i).gameObject.transform.GetChild(0).gameObject.GetComponent<TMPro.TextMeshProUGUI>().text = "Sensor " + (i + 1) + ": " + sensorType;
                 activated = true;
             } else {
@@ -58,6 +44,10 @@ public class BoxesManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// This method is called to set up the text inside the box created when a 
+    /// sensor is added to the robot.
+    /// </summary>
     private string NewBoxName(DragObject selectedSensor)
     {
         string nameToReturn;
