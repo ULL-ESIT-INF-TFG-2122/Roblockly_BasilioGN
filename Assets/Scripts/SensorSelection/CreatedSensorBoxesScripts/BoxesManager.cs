@@ -1,4 +1,13 @@
-﻿using System.Collections;
+﻿/**
+* Universidad de La Laguna
+* Author: Basilio Gómez Navarro
+* Email: alu0101049151@ull.edu.es
+* Date: 27/06/2021
+* File: BoxesManager.cs : This file contains the logic to spawn the boxes of 
+* each sensor on the right box of the UI.
+*/
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 

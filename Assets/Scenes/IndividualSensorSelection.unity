@@ -512,6 +512,7 @@ GameObject:
   - component: {fileID: 152400317}
   - component: {fileID: 152400316}
   - component: {fileID: 152400318}
+  - component: {fileID: 152400319}
   m_Layer: 5
   m_Name: SensorBox2
   m_TagString: SensorBox2
@@ -592,7 +593,32 @@ MonoBehaviour:
   - eventID: 2
     callback:
       m_PersistentCalls:
-        m_Calls: []
+        m_Calls:
+        - m_Target: {fileID: 152400319}
+          m_MethodName: SpawnSensor
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!114 &152400319
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 152400314}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b792821ee5f6f504ebfbc9861bace417, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TouchSensor: {fileID: 9079362637001540152, guid: 2d1aed42a327fff479a7473ebf07d366,
+    type: 3}
 --- !u!1001 &152544244
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1496,6 +1522,7 @@ GameObject:
   - component: {fileID: 623713574}
   - component: {fileID: 623713573}
   - component: {fileID: 623713575}
+  - component: {fileID: 623713576}
   m_Layer: 5
   m_Name: SensorBox4
   m_TagString: SensorBox4
@@ -1576,7 +1603,32 @@ MonoBehaviour:
   - eventID: 2
     callback:
       m_PersistentCalls:
-        m_Calls: []
+        m_Calls:
+        - m_Target: {fileID: 623713576}
+          m_MethodName: SpawnSensor
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!114 &623713576
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 623713571}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05c3ea6e46c98c94aa9a97e8e538facd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ColorSensor: {fileID: 2838761639557974730, guid: 9ee792d71f364f848ba53a5663fe9e32,
+    type: 3}
 --- !u!1 &642855519
 GameObject:
   m_ObjectHideFlags: 0
@@ -4963,6 +5015,7 @@ GameObject:
   - component: {fileID: 1915559696}
   - component: {fileID: 1915559695}
   - component: {fileID: 1915559697}
+  - component: {fileID: 1915559698}
   m_Layer: 5
   m_Name: SensorBox3
   m_TagString: SensorBox3
@@ -5043,7 +5096,32 @@ MonoBehaviour:
   - eventID: 2
     callback:
       m_PersistentCalls:
-        m_Calls: []
+        m_Calls:
+        - m_Target: {fileID: 1915559698}
+          m_MethodName: SpawnSensor
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!114 &1915559698
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1915559693}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9149661bce48df43bdc86a4d633d7e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  InfraredSensor: {fileID: 6824774606192607362, guid: 8a1c1a150de4aa844a2319bd4a5779b9,
+    type: 3}
 --- !u!1 &1939244346
 GameObject:
   m_ObjectHideFlags: 0

@@ -11,10 +11,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Class used to manage the Ultrasound Box of the "SensorSelection" scene UI.
+/// </summary>
 public class UltrasoundBox : MonoBehaviour
 {
     public DragObject UltrasoundSensor = null;
 
+    /// <summary>
+    /// This function is called when the user clicks on the ultrasound sensor 
+    /// box.
+    /// </summary>
     public void SpawnSensor()
     {
        // if (Input.GetMouseButtonDown(0))
