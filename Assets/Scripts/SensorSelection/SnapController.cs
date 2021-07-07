@@ -146,7 +146,6 @@ public class SnapController : MonoBehaviour
     /// </summary>
     private void SetUltrasoundSensor(DragObject sensorToDrag, Transform ClosestSnapPoint)
     {
-
         //Debug.Log ("Es un sensor de ultrasonido");
         //====== Position transform ================================
         sensorToDrag.transform.position = ClosestSnapPoint.transform.position;
