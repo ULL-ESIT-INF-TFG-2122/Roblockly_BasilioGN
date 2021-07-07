@@ -107,7 +107,7 @@ public class SnapController : MonoBehaviour
             //Debug.Log("ClosestDistance = " + ClosestDistance);
 
             if ((ClosestSnapPoint != null) && (ClosestDistance <= SnapRange))
-            {
+            { // If the snap was successful:
                 UsedSnapPoints.Add(ClosestSnapPoint);
                 Debug.Log("Ha hecho el snap");
                 switch (sensorToDrag.name)

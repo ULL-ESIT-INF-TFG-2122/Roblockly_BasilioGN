@@ -34,12 +34,24 @@ public class BoxesManager : MonoBehaviour
 
     private void OnActivation(DragObject selectedSensor)
     {
-        for (int i = 0; i < transform.childCount; i++)
+        bool activated = false;
+        int i = 0;
+        /*for (int i = 0; i < transform.childCount; i++)
         {
             if ((!transform.GetChild(i).gameObject.activeSelf) && (transform.GetChild(i).gameObject.tag == "AddedSensorBox"))
             {
                 transform.GetChild(i).gameObject.SetActive(true);
             }   
+        }*/
+        while ((!activated) && (i < transform.childCount)) 
+        {
+            if ((!transform.GetChild(i).gameObject.activeSelf) && (transform.GetChild(i).gameObject.tag == "AddedSensorBox"))
+            {
+                transform.GetChild(i).gameObject.SetActive(true);
+                activated = true;
+            } else {
+                i++;
+            }
         }
     }
 }
