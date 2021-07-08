@@ -103,8 +103,8 @@ public class SnapController : MonoBehaviour
 
         if (!used) // If the Closest Sanp Point is free
         {
-            //Debug.Log("ClosestSnapPoint = " + ClosestSnapPoint);
-            //Debug.Log("ClosestDistance = " + ClosestDistance);
+            Debug.Log("ClosestSnapPoint = " + ClosestSnapPoint);
+            Debug.Log("ClosestDistance = " + ClosestDistance);
 
             if ((ClosestSnapPoint != null) && (ClosestDistance <= SnapRange))
             { // If the snap was successful:
@@ -116,6 +116,7 @@ public class SnapController : MonoBehaviour
                         SetUltrasoundSensor(sensorToDrag, ClosestSnapPoint);
                         break;
                     case "SensorTouch(Clone)":
+                        SetTouchSensor(sensorToDrag, ClosestSnapPoint);
                         break;
                     case "SensorIR(Clone)":
                         break;
@@ -171,6 +172,52 @@ public class SnapController : MonoBehaviour
             default: // There is no right sensor because initial sensor         
                      // rotation is clockwise by default.
                 sensorToDrag.transform.Rotate(0.0f, 0.0f, 0.0f);
+                break;
+        }
+    }
+    
+    /// <summary>
+    /// This method is used to set up the position of any Touch sensor 
+    /// when it is snapped to the robot.
+    /// </summary>
+    private void SetTouchSensor(DragObject sensorToDrag, Transform ClosestSnapPoint)
+    {
+        //====== Position transform ================================
+        sensorToDrag.transform.position = ClosestSnapPoint.transform.position;
+        float XPosCoord = sensorToDrag.transform.position.x;
+        float YPosCoord = sensorToDrag.transform.position.y;
+        float ZPosCoord = sensorToDrag.transform.position.z;
+        float offset;
+
+        //====== Rotation transform ================================
+        sensorToDrag.transform.rotation = ClosestSnapPoint.transform.rotation;
+        switch (ClosestSnapPoint.tag)
+        {
+            case "FrontSnap":
+                offset = 1.5f;
+                sensorToDrag.transform.position = new Vector3(XPosCoord, YPosCoord + offset, ZPosCoord);
+                sensorToDrag.transform.Rotate(0.0f, 90.0f, 0.0f);
+                break;
+            case "TopFrontSnap":
+                offset = 1.5f;
+                sensorToDrag.transform.position = new Vector3(XPosCoord, YPosCoord + offset, ZPosCoord);
+                sensorToDrag.transform.Rotate(-5.0f, 4.0f, 0.0f);
+                break;
+            case "BackSnap":
+                offset = 1.5f;
+                sensorToDrag.transform.position = new Vector3(XPosCoord, YPosCoord + offset, ZPosCoord);
+                sensorToDrag.transform.Rotate(0.0f, -90.0f, 0.0f);
+                break;
+            case "LeftSnap":
+                offset = 0.5f;
+                sensorToDrag.transform.position = new Vector3(XPosCoord, YPosCoord + offset, ZPosCoord);
+                sensorToDrag.transform.Rotate(0.0f, 0.0f, -60.0f);
+                break;
+            default: // There is no right sensor because initial sensor         
+                     // rotation is clockwise by default.
+                offset = 0.5f;
+                sensorToDrag.transform.position = new Vector3(XPosCoord, YPosCoord + offset, ZPosCoord);
+                sensorToDrag.transform.Rotate(0.0f, 90.0f, -60.0f);
                 break;
         }
     }

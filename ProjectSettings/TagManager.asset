@@ -25,6 +25,7 @@ TagManager:
   - BackSnap
   - RightSnap
   - LeftSnap
+  - TopFrontSnap
   layers:
   - Default
   - TransparentFX
