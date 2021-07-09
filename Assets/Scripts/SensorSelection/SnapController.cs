@@ -33,6 +33,8 @@ public class SnapController : MonoBehaviour
     // Start is called before the first frame update
    void Start()
     {
+        AddedSensorBoxScript.DeleteSensorEvent += SetFreeSnapPoint;
+
         //AddedSensorBoxes = GameObject.FindGameObjectsWithTag("AddedSensorBox");
         /*foreach (DragObject currentSensor in SensorsToDrag)
         {
@@ -89,7 +91,7 @@ public class SnapController : MonoBehaviour
 
         bool used = false; // Auxiliary variable to check if the closest snap 
                            // point has been used.
-        if (UsedSnapPoints.Count > 0)
+        if (UsedSnapPoints.Count > 0) // Check if any snap point has been used.
         {
             //Debug.Log("UsedSanpPoints.Count: " + UsedSnapPoints.Count);
             for (int i = 0; i < UsedSnapPoints.Count; i++)
@@ -103,13 +105,14 @@ public class SnapController : MonoBehaviour
 
         if (!used) // If the Closest Sanp Point is free
         {
-            Debug.Log("ClosestSnapPoint = " + ClosestSnapPoint);
-            Debug.Log("ClosestDistance = " + ClosestDistance);
+            //Debug.Log("ClosestSnapPoint = " + ClosestSnapPoint);
+            //Debug.Log("ClosestDistance = " + ClosestDistance);
 
             if ((ClosestSnapPoint != null) && (ClosestDistance <= SnapRange))
             { // If the snap was successful:
                 UsedSnapPoints.Add(ClosestSnapPoint);
-                Debug.Log("Ha hecho el snap");
+                sensorToDrag.SnappedPoint = ClosestSnapPoint;
+                //Debug.Log("Ha hecho el snap");
                 switch (sensorToDrag.name)
                 {
                     case "SensorUS(Clone)":
@@ -126,7 +129,7 @@ public class SnapController : MonoBehaviour
                         Debug.Log("There aren't any sensor of this type");
                         break;
                 }
-                sensorToDrag.transform.parent = gameObject.transform;
+                sensorToDrag.transform.parent = gameObject.transform; // Adds the sensor as a child of the robot.
                 CreateNewAddedSensorBox(sensorToDrag);
                 //CreateAddedSensorBox();
             }
@@ -223,6 +226,16 @@ public class SnapController : MonoBehaviour
     }
 
 
+    void SetFreeSnapPoint(Transform snappedPoint)
+    {
+        for (int i = 0; i < UsedSnapPoints.Count; i++)
+        {
+            if (UsedSnapPoints[i] == snappedPoint)
+            {
+                UsedSnapPoints.Remove(UsedSnapPoints[i]);
+            }
+        }
+    }
 
     /*void CreateNewAddedSensorBox(DragObject sensorOfTheBox)
     {

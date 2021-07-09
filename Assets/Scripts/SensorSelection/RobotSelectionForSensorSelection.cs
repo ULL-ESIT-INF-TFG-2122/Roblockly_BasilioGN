@@ -29,6 +29,7 @@ public class RobotSelectionForSensorSelection : MonoBehaviour
             {
                 selectedRobot = Instantiate(transform.GetChild(i).gameObject, 
                     transform.GetChild(i).gameObject.transform.position, transform.GetChild(i).gameObject.transform.rotation);
+                    selectedRobot.gameObject.tag = "SelectedRobot";
                 selectedRobot.SetActive(true);
             }
         }

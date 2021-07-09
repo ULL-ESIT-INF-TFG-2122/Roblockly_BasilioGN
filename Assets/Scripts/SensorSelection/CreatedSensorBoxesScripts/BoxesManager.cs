@@ -26,7 +26,8 @@ public class BoxesManager : MonoBehaviour
     /// This function is called when a sensor is added to the robot in order to 
     /// spawn the box on the "Sensors Added" box on the right part of the UI.
     /// </summary>
-    private void OnActivation(DragObject selectedSensor)
+    private
+     void OnActivation(DragObject selectedSensor)
     {
         bool activated = false;
         int i = 0;
@@ -36,8 +37,12 @@ public class BoxesManager : MonoBehaviour
             if ((!transform.GetChild(i).gameObject.activeSelf) && (transform.GetChild(i).gameObject.tag == "AddedSensorBox"))
             {
                 transform.GetChild(i).gameObject.SetActive(true);
-                transform.GetChild(i).gameObject.transform.GetChild(0).gameObject.GetComponent<TMPro.TextMeshProUGUI>().text = "Sensor " + (i + 1) + ": " + sensorType;
+                Debug.Log(transform.GetChild(i).gameObject
+                );
+                //transform.GetChild(i).GetComponent<AddedSensorBoxScript>().SetAssociatedSensor(selectedSensor);
+                transform.GetChild(i).gameObject.transform.GetChild(0).gameObject.GetComponent<TMPro.TextMeshProUGUI>().text = "Sensor " + (i + 1) + ": " + sensorType; // Used to write the sensor type in the box text.
                 activated = true;
+                selectedSensor.transform.name = "Sensor " + (i + 1) + ": " + sensorType;
             } else {
                 i++;
             }

@@ -2562,7 +2562,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 755956030}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1104692352}
+        m_MethodName: Desactivate
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &755956030
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3371,6 +3382,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 830370690}
   m_CullTransparentMesh: 0
+--- !u!114 &859311924 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4759049601568015351, guid: 9150e8ba8dd72d2418756a7c27aba9eb,
+    type: 3}
+  m_PrefabInstance: {fileID: 8122236884752234258}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89fb5e98bad8a26499ea9462f8888374, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &917593559
 GameObject:
   m_ObjectHideFlags: 0
@@ -3383,7 +3406,7 @@ GameObject:
   - component: {fileID: 917593562}
   - component: {fileID: 917593561}
   m_Layer: 5
-  m_Name: CancelarText (TMP)
+  m_Name: EliminarText (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4261,7 +4284,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1104692349
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5631,7 +5654,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1772489226}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 859311924}
+        m_MethodName: DestroySensor
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1772489226
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5681,7 +5715,7 @@ GameObject:
   - component: {fileID: 1795094962}
   - component: {fileID: 1795094961}
   m_Layer: 5
-  m_Name: EliminarText (TMP)
+  m_Name: CancelarText (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7117,7 +7151,7 @@ PrefabInstance:
     - target: {fileID: 8122236884678087473, guid: 9150e8ba8dd72d2418756a7c27aba9eb,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8122236884678087473, guid: 9150e8ba8dd72d2418756a7c27aba9eb,
         type: 3}

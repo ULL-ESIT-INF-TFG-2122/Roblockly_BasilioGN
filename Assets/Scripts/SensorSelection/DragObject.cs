@@ -8,6 +8,9 @@ public class DragObject : MonoBehaviour
     public DraggEnded DragFinished;
     //private Vector3 MouseOffset; 
     private float MouseZCoord; // Stores the Z coordinate of the mouse in a screen point.
+    
+    public Transform SnappedPoint; // Is the point which it has been snapped.
+    // This variable is set in the "SnapController" script, when the sensor is snapped.
 
     private bool dragged = false; // True if the sensor is dragged.
 
