@@ -199,9 +199,9 @@ public class SnapController : MonoBehaviour
                 sensorToDrag.transform.Rotate(0.0f, 90.0f, 0.0f);
                 break;
             case "TopFrontSnap":
-                offset = 1.5f;
+                offset = 0.5f;
                 sensorToDrag.transform.position = new Vector3(XPosCoord, YPosCoord + offset, ZPosCoord);
-                sensorToDrag.transform.Rotate(-5.0f, 4.0f, 0.0f);
+                sensorToDrag.transform.Rotate(0.0f, 90.0f, -60.0f);
                 break;
             case "BackSnap":
                 offset = 1.5f;
