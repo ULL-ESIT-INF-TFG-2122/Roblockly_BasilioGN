@@ -14,6 +14,16 @@ using UnityEngine.UI;
 
 public class BoxesManager : MonoBehaviour
 {
+    private int activatedBoxes = 0;
+    /// <summary>
+    /// Start is called on the frame when a script is enabled just before
+    /// any of the Update methods is called the first time.
+    /// </summary>
+    void Start()
+    {
+        
+    }
+
     /// <summary>
     /// This function is called when the object becomes enabled and active.
     /// </summary>
@@ -42,6 +52,7 @@ public class BoxesManager : MonoBehaviour
                 //transform.GetChild(i).GetComponent<AddedSensorBoxScript>().SetAssociatedSensor(selectedSensor);
                 transform.GetChild(i).gameObject.transform.GetChild(0).gameObject.GetComponent<TMPro.TextMeshProUGUI>().text = "Sensor " + (i + 1) + ": " + sensorType; // Used to write the sensor type in the box text.
                 activated = true;
+                activatedBoxes++;
                 selectedSensor.transform.name = "Sensor " + (i + 1) + ": " + sensorType;
             } else {
                 i++;
@@ -75,5 +86,19 @@ public class BoxesManager : MonoBehaviour
                 break;
         }
         return nameToReturn;
+    }
+
+    private void UpdateAddedSensorsPanel(GameObject CurrentPanel)
+    {
+        if (activatedBoxes == 1)
+        {
+            // TODO:
+            // - Desactivar el cuadro que está activado.
+            // gameObject.SetActive(false);
+
+        } else {
+            // TODO:
+            //  - Rodar las otras cajas
+        }
     }
 }

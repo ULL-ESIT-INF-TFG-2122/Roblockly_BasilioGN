@@ -230,7 +230,7 @@ public class SnapController : MonoBehaviour
     /// This method is used to set up the position of any Touch sensor 
     /// when it is snapped to the robot.
     /// </summary>
-    void SetFreeSnapPoint(Transform snappedPoint)
+    private void SetFreeSnapPoint(Transform snappedPoint)
     {
         for (int i = 0; i < UsedSnapPoints.Count; i++)
         {
