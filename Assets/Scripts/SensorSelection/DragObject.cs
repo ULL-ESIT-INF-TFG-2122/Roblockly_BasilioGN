@@ -6,6 +6,9 @@ public class DragObject : MonoBehaviour
 {
     public delegate void DraggEnded(DragObject sensorToDrag);
     public DraggEnded DragFinished;
+    
+    public delegate void ChangeSnapPointsColor();
+    public ChangeSnapPointsColor ActiveSnapPointsColor;
     //private Vector3 MouseOffset; 
     private float MouseZCoord; // Stores the Z coordinate of the mouse in a screen point.
     
@@ -33,8 +36,9 @@ public class DragObject : MonoBehaviour
         {
             dragged = false;
             DragFinished(this); // Call delegate for snap the sensor.
-        } else if (dragged)
+        } else if (dragged) // If it stills being dragged
         {
+            ActiveSnapPointsColor();
             transform.position = GetMouseWorldPos();
         }
     }

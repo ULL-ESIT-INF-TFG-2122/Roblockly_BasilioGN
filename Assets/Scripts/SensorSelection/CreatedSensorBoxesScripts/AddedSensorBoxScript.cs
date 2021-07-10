@@ -9,12 +9,6 @@ public class AddedSensorBoxScript : MonoBehaviour
 
     public delegate void UpdateAddedSensorsPanel(string currentPanelText);
     public static UpdateAddedSensorsPanel UpdateAddedSensors;
-    private DragObject associatedSensor;
-
-    public void SetAssociatedSensor(DragObject newSensor)
-    {
-        associatedSensor = newSensor;
-    }
 
     public void DestroySensor()
     {
@@ -35,9 +29,5 @@ public class AddedSensorBoxScript : MonoBehaviour
         string auxString = gameObject.transform.GetChild(0).gameObject.GetComponent<TMPro.TextMeshProUGUI>().text;
         UpdateAddedSensors(auxString);
     }
-
-    public void aux()
-    {
-        Debug.Log("Hola aux");
-    }
+    
 }

@@ -1,4 +1,4 @@
-﻿/**
+/**
 * Universidad de La Laguna
 * Author: Basilio Gómez Navarro
 * Email: alu0101049151@ull.edu.es
@@ -34,6 +34,7 @@ public class SnapController : MonoBehaviour
    void Start()
     {
         AddedSensorBoxScript.SetFreeSnappedPoint = SetFreeSnapPoint;
+        DragObject.ChangeSnapPointsColor = ActiveSnapPoints();
 
         //AddedSensorBoxes = GameObject.FindGameObjectsWithTag("AddedSensorBox");
         /*foreach (DragObject currentSensor in SensorsToDrag)
@@ -241,6 +242,13 @@ public class SnapController : MonoBehaviour
         }
     }
 
+    private void ActivateSnapPoints()
+    {
+        for (int i = 0; i < SnapPoints.Count; i++)
+        {
+            SnapPoints[i].gameObject;
+        }
+    }
     /*void CreateNewAddedSensorBox(DragObject sensorOfTheBox)
     {
         Debug.Log("Ha entrado en el CreateAddedSensorBox");
