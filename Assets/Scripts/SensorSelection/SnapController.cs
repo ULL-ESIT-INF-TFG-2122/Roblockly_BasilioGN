@@ -33,7 +33,7 @@ public class SnapController : MonoBehaviour
     // Start is called before the first frame update
    void Start()
     {
-        AddedSensorBoxScript.DeleteSensorEvent += SetFreeSnapPoint;
+        AddedSensorBoxScript.SetFreeSnappedPoint = SetFreeSnapPoint;
 
         //AddedSensorBoxes = GameObject.FindGameObjectsWithTag("AddedSensorBox");
         /*foreach (DragObject currentSensor in SensorsToDrag)

@@ -21,7 +21,7 @@ public class BoxesManager : MonoBehaviour
     /// </summary>
     void Start()
     {
-        
+        AddedSensorBoxScript.UpdateAddedSensors = UpdateRightSensorsPanel;
     }
 
     /// <summary>
@@ -88,17 +88,37 @@ public class BoxesManager : MonoBehaviour
         return nameToReturn;
     }
 
-    private void UpdateAddedSensorsPanel(GameObject CurrentPanel)
+    private void UpdateRightSensorsPanel(string currentPanelText)
     {
-        if (activatedBoxes == 1)
+        if (activatedBoxes == 1) // If only the first box is activated.
         {
-            // TODO:
-            // - Desactivar el cuadro que está activado.
-            // gameObject.SetActive(false);
-
+            gameObject.transform.GetChild(0).gameObject.SetActive(false);
+            activatedBoxes--;
         } else {
-            // TODO:
-            //  - Rodar las otras cajas
+            bool found = false;
+            bool stop = false;
+            int i = 0;
+            while ((!stop) && (i < gameObject.transform.childCount))
+            {
+                string auxiliarText = gameObject.transform.GetChild(i).gameObject.transform.GetChild(0).gameObject.GetComponent<TMPro.TextMeshProUGUI>().text; // Is an auxiliar GameObject used to do the swap between the other boxes;
+                if ((auxiliarText == currentPanelText) && (gameObject.transform.GetChild(i).gameObject.activeSelf))
+                {
+                    found = true;
+                }
+                if (found)
+                {
+                    if ((!gameObject.transform.GetChild(i + 1).gameObject.activeSelf) || (gameObject.transform.GetChild(i + 1).gameObject == null))
+                    {   activatedBoxes--;
+                        stop = true ;
+                        gameObject.transform.GetChild(i).gameObject.SetActive(false);
+                    } else {
+                        auxiliarText = gameObject.transform.GetChild(i + 1).gameObject.transform.GetChild(0).gameObject.GetComponent<TMPro.TextMeshProUGUI>().text;
+
+                        gameObject.transform.GetChild(i).gameObject.transform.GetChild(0).gameObject.GetComponent<TMPro.TextMeshProUGUI>().text = auxiliarText;
+                    }
+                }
+                i++; 
+            }
         }
     }
 }
