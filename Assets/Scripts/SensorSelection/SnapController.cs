@@ -123,8 +123,10 @@ public class SnapController : MonoBehaviour
                         SetTouchSensor(sensorToDrag, ClosestSnapPoint);
                         break;
                     case "SensorIR(Clone)":
+                        SetInfraredColorSensor(sensorToDrag, ClosestSnapPoint);
                         break;
                     case "SensorColor(Clone)":
+                        SetInfraredColorSensor(sensorToDrag, ClosestSnapPoint);
                         break;
                     default:
                         Debug.Log("There aren't any sensor of this type");
@@ -136,13 +138,13 @@ public class SnapController : MonoBehaviour
             }
             else // If the sensor doesn't snaps any point.
             {
-                ActivateSnapPoints(false);
+                ActivateSnapPoints(false); // Turn off color in the snap points.
                 Destroy(sensorToDrag.gameObject);
             }
         }
         else // If the sensor doesn't snaps any point.
         {
-            ActivateSnapPoints(false);
+            ActivateSnapPoints(false); // Turn off color in the snap points.
             Destroy(sensorToDrag.gameObject);
         }
     }
@@ -159,28 +161,41 @@ public class SnapController : MonoBehaviour
         float XPosCoord = sensorToDrag.transform.position.x;
         float YPosCoord = sensorToDrag.transform.position.y;
         float ZPosCoord = sensorToDrag.transform.position.z;
-        float offset = 3f;
-        sensorToDrag.transform.position = new Vector3(XPosCoord, YPosCoord + offset, ZPosCoord);
+        float offset;
 
         //====== Rotation transform ================================
         sensorToDrag.transform.rotation = ClosestSnapPoint.transform.rotation;
         switch (ClosestSnapPoint.tag)
         {
             case "FrontSnap":
+                offset = 3f;
+                sensorToDrag.transform.position = new Vector3(XPosCoord, YPosCoord + offset, ZPosCoord);
                 sensorToDrag.transform.Rotate(0.0f, 90.0f, 0.0f);
                 break;
             case "TopFrontSnap":
-                sensorToDrag.transform.Rotate(0.0f, 90.0f, 0.0f);
+                offset = 1.5f;
+                sensorToDrag.transform.position = new Vector3(XPosCoord, YPosCoord + offset, ZPosCoord);
+                sensorToDrag.transform.Rotate(0.0f, 90.0f, -60.0f);
                 break;
             case "BackSnap":
+                offset = 3f;
+                sensorToDrag.transform.position = new Vector3(XPosCoord, YPosCoord + offset, ZPosCoord);
                 sensorToDrag.transform.Rotate(0.0f, -90.0f, 0.0f);
                 break;
             case "LeftSnap":
-                sensorToDrag.transform.Rotate(0.0f, 180.0f, 0.0f);
+                offset = 1.5f;
+                sensorToDrag.transform.position = new Vector3(XPosCoord, YPosCoord + offset, ZPosCoord);
+                sensorToDrag.transform.Rotate(0.0f, 5.0f, -60.0f);
                 break;
-            default: // There is no right sensor because initial sensor         
-                     // rotation is clockwise by default.
-                sensorToDrag.transform.Rotate(0.0f, 0.0f, 0.0f);
+            case "RigthSnap":
+                offset = 1.5f;
+                sensorToDrag.transform.position = new Vector3(XPosCoord, YPosCoord + offset, ZPosCoord);
+                sensorToDrag.transform.Rotate(0.0f, 90.0f, -60.0f);
+                break;
+            default: // Set up the sensor to the front by default;
+                offset = 1.5f;
+                sensorToDrag.transform.position = new Vector3(XPosCoord, YPosCoord + offset, ZPosCoord);
+                sensorToDrag.transform.Rotate(0.0f, 90.0f, -60.0f);
                 break;
         }
     }
@@ -222,15 +237,68 @@ public class SnapController : MonoBehaviour
                 sensorToDrag.transform.position = new Vector3(XPosCoord, YPosCoord + offset, ZPosCoord);
                 sensorToDrag.transform.Rotate(0.0f, 0.0f, -60.0f);
                 break;
-            default: // There is no right sensor because initial sensor         
-                     // rotation is clockwise by default.
+            case "RightSnap":
                 offset = 0.5f;
+                sensorToDrag.transform.position = new Vector3(XPosCoord, YPosCoord + offset, ZPosCoord);
+                sensorToDrag.transform.Rotate(0.0f, 90.0f, -60.0f);
+                break;
+            default: // Set up the sensor to the front by default;
+                offset = 1.5f;
+                sensorToDrag.transform.position = new Vector3(XPosCoord, YPosCoord + offset, ZPosCoord);
+                sensorToDrag.transform.Rotate(0.0f, 90.0f, 0.0f);
+                break;
+        }
+    }
+
+    /// <summary>
+    /// This method is used to set up the position of any Infrared or Color
+    /// sensor when it is snapped to the robot.
+    /// </summary>
+    private void SetInfraredColorSensor(DragObject sensorToDrag, Transform ClosestSnapPoint)
+    {
+        //====== Position transform ================================
+        sensorToDrag.transform.position = ClosestSnapPoint.transform.position;
+        float XPosCoord = sensorToDrag.transform.position.x;
+        float YPosCoord = sensorToDrag.transform.position.y;
+        float ZPosCoord = sensorToDrag.transform.position.z;
+        float offset;
+
+        //====== Rotation transform ================================
+        sensorToDrag.transform.rotation = ClosestSnapPoint.transform.rotation;
+        switch (ClosestSnapPoint.tag)
+        {
+            case "FrontSnap":
+                offset = -1.0f;
+                sensorToDrag.transform.position = new Vector3(XPosCoord, YPosCoord + offset, ZPosCoord);
+                sensorToDrag.transform.Rotate(70.0f, 180.0f, 0.0f);
+                break;
+            case "TopFrontSnap":
+                offset = -1.0f;
+                sensorToDrag.transform.position = new Vector3(XPosCoord, YPosCoord + offset, ZPosCoord);
+                sensorToDrag.transform.Rotate(110.0f, 0.0f, 180.0f);
+                break;
+            case "BackSnap":
+                offset = -1.0f;
+                sensorToDrag.transform.position = new Vector3(XPosCoord, YPosCoord + offset, ZPosCoord);
+                sensorToDrag.transform.Rotate(60.0f, 0.0f, 0.0f);
+                break;
+            case "LeftSnap":
+                offset = -1.0f;
+                sensorToDrag.transform.position = new Vector3(XPosCoord, YPosCoord + offset, ZPosCoord);
+                sensorToDrag.transform.Rotate(60.0f, 90.0f, 0.0f);
+                break;
+            case "RightSnap":
+                offset = -1.0f;
+                sensorToDrag.transform.position = new Vector3(XPosCoord, YPosCoord + offset, ZPosCoord);
+                sensorToDrag.transform.Rotate(60.0f, 180.0f, 0.0f);
+                break;
+            default: // Set up the sensor to the front by default;
+                offset = 1.5f;
                 sensorToDrag.transform.position = new Vector3(XPosCoord, YPosCoord + offset, ZPosCoord);
                 sensorToDrag.transform.Rotate(0.0f, 90.0f, -60.0f);
                 break;
         }
     }
-
 
     /// <summary>
     /// This method is used to set up the position of any Touch sensor 

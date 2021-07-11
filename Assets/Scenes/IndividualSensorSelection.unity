@@ -137,7 +137,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!108 &21722785
 Light:
   m_ObjectHideFlags: 0
@@ -11378,40 +11378,45 @@ PrefabInstance:
       propertyPath: m_TagString
       value: LeftSnap
       objectReference: {fileID: 0}
+    - target: {fileID: 4125317641088053015, guid: 323916c4e5c1ca64995e04feacda3e9a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4688463966580618817, guid: 323916c4e5c1ca64995e04feacda3e9a,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.49195144
+      value: -0.49236807
       objectReference: {fileID: 0}
     - target: {fileID: 4688463966580618817, guid: 323916c4e5c1ca64995e04feacda3e9a,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.87030286
+      value: -0.86992574
       objectReference: {fileID: 0}
     - target: {fileID: 4688463966580618817, guid: 323916c4e5c1ca64995e04feacda3e9a,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.008317905
+      value: 0.0059289844
       objectReference: {fileID: 0}
     - target: {fileID: 4688463966580618817, guid: 323916c4e5c1ca64995e04feacda3e9a,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.022081647
+      value: 0.027708739
       objectReference: {fileID: 0}
     - target: {fileID: 4688463966580618817, guid: 323916c4e5c1ca64995e04feacda3e9a,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 0.41500002
+      value: -0.97200006
       objectReference: {fileID: 0}
     - target: {fileID: 4688463966580618817, guid: 323916c4e5c1ca64995e04feacda3e9a,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 177.328
+      value: 183.099
       objectReference: {fileID: 0}
     - target: {fileID: 4688463966580618817, guid: 323916c4e5c1ca64995e04feacda3e9a,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 418.946
+      value: 418.992
       objectReference: {fileID: 0}
     - target: {fileID: 4985642609777824612, guid: 323916c4e5c1ca64995e04feacda3e9a,
         type: 3}
