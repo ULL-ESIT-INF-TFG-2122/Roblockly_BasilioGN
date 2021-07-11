@@ -629,7 +629,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -3.1, y: 1.2}
+  m_AnchoredPosition: {x: -3.0999985, y: 1.1999998}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &70064829
@@ -926,7 +926,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &122076291
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1320,7 +1320,7 @@ PrefabInstance:
     - target: {fileID: 8122236884678087473, guid: 9150e8ba8dd72d2418756a7c27aba9eb,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8122236884678087473, guid: 9150e8ba8dd72d2418756a7c27aba9eb,
         type: 3}
@@ -2200,7 +2200,7 @@ PrefabInstance:
     - target: {fileID: 8122236884678087473, guid: 9150e8ba8dd72d2418756a7c27aba9eb,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8122236884678087473, guid: 9150e8ba8dd72d2418756a7c27aba9eb,
         type: 3}
@@ -3214,7 +3214,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 859311924}
+      - m_Target: {fileID: 1418245927}
         m_MethodName: DestroySensor
         m_Mode: 1
         m_Arguments:
@@ -4708,6 +4708,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   RotationSpeed: 30
+--- !u!114 &795513458 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4759049601568015351, guid: 9150e8ba8dd72d2418756a7c27aba9eb,
+    type: 3}
+  m_PrefabInstance: {fileID: 69086215}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89fb5e98bad8a26499ea9462f8888374, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &803170438
 GameObject:
   m_ObjectHideFlags: 0
@@ -5139,6 +5151,18 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4759049601568015351, guid: 9150e8ba8dd72d2418756a7c27aba9eb,
     type: 3}
   m_PrefabInstance: {fileID: 8122236884752234258}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89fb5e98bad8a26499ea9462f8888374, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &871511484 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4759049601568015351, guid: 9150e8ba8dd72d2418756a7c27aba9eb,
+    type: 3}
+  m_PrefabInstance: {fileID: 1376769961}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
@@ -6661,7 +6685,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1104692349
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6947,7 +6971,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 859311924}
+      - m_Target: {fileID: 795513458}
         m_MethodName: DestroySensor
         m_Mode: 1
         m_Arguments:
@@ -7077,7 +7101,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 859311924}
+      - m_Target: {fileID: 1665930198}
         m_MethodName: DestroySensor
         m_Mode: 1
         m_Arguments:
@@ -7679,6 +7703,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a3985176a8edc74d9f85a56009ebfe6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1418245927 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4759049601568015351, guid: 9150e8ba8dd72d2418756a7c27aba9eb,
+    type: 3}
+  m_PrefabInstance: {fileID: 157908282}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89fb5e98bad8a26499ea9462f8888374, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1431421296
 GameObject:
   m_ObjectHideFlags: 0
@@ -8000,7 +8036,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1501511735
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8108,7 +8144,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -2.7, y: 0.8}
+  m_AnchoredPosition: {x: -2.7000008, y: 0.8000002}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1582705706
@@ -8893,6 +8929,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1617197927}
   m_CullTransparentMesh: 0
+--- !u!114 &1665930198 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4759049601568015351, guid: 9150e8ba8dd72d2418756a7c27aba9eb,
+    type: 3}
+  m_PrefabInstance: {fileID: 328049568}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89fb5e98bad8a26499ea9462f8888374, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1743257291
 GameObject:
   m_ObjectHideFlags: 0
@@ -10110,7 +10158,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 859311924}
+      - m_Target: {fileID: 871511484}
         m_MethodName: DestroySensor
         m_Mode: 1
         m_Arguments:
@@ -11526,7 +11574,7 @@ PrefabInstance:
     - target: {fileID: 8122236884678087473, guid: 9150e8ba8dd72d2418756a7c27aba9eb,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8122236884678087473, guid: 9150e8ba8dd72d2418756a7c27aba9eb,
         type: 3}

@@ -34,7 +34,7 @@ public class SnapController : MonoBehaviour
    void Start()
     {
         AddedSensorBoxScript.SetFreeSnappedPoint = SetFreeSnapPoint;
-        DragObject.ChangeSnapPointsColor = ActiveSnapPoints();
+        DragObject.ActiveSnapPointsColor = ActivateSnapPoints;
 
         //AddedSensorBoxes = GameObject.FindGameObjectsWithTag("AddedSensorBox");
         /*foreach (DragObject currentSensor in SensorsToDrag)
@@ -136,11 +136,13 @@ public class SnapController : MonoBehaviour
             }
             else // If the sensor doesn't snaps any point.
             {
+                ActivateSnapPoints(false);
                 Destroy(sensorToDrag.gameObject);
             }
         }
         else // If the sensor doesn't snaps any point.
         {
+            ActivateSnapPoints(false);
             Destroy(sensorToDrag.gameObject);
         }
     }
@@ -242,13 +244,24 @@ public class SnapController : MonoBehaviour
         }
     }
 
-    private void ActivateSnapPoints()
+    private void ActivateSnapPoints(bool activation)
     {
-        for (int i = 0; i < SnapPoints.Count; i++)
+        if (activation)
         {
-            SnapPoints[i].gameObject;
+            Debug.Log("Activation: true");
+            for (int i = 0; i < SnapPoints.Count; i++)
+            {
+                SnapPoints[i].GetComponent<Renderer>().material.SetColor("_Color", new Color(1, 0, 0, 1));
+            }
+        } else {
+            Debug.Log("Activation: false");
+            for (int i = 0; i < SnapPoints.Count; i++)
+            {
+                SnapPoints[i].GetComponent<Renderer>().material.SetColor("_Color", new Color(0, 0, 0, 0));
+            }
         }
     }
+
     /*void CreateNewAddedSensorBox(DragObject sensorOfTheBox)
     {
         Debug.Log("Ha entrado en el CreateAddedSensorBox");
