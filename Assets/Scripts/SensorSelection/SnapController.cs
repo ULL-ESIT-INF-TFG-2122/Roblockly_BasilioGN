@@ -169,6 +169,9 @@ public class SnapController : MonoBehaviour
             case "FrontSnap":
                 sensorToDrag.transform.Rotate(0.0f, 90.0f, 0.0f);
                 break;
+            case "TopFrontSnap":
+                sensorToDrag.transform.Rotate(0.0f, 90.0f, 0.0f);
+                break;
             case "BackSnap":
                 sensorToDrag.transform.Rotate(0.0f, -90.0f, 0.0f);
                 break;
