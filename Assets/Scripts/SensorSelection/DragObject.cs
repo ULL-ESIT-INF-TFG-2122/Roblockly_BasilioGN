@@ -1,31 +1,33 @@
-﻿using System.Collections;
+﻿/**
+* "Roblockly: Fostering computational thinking through educational robotics
+* Universidad de La Laguna"
+* Author: Basilio Gómez Navarro
+* Email: alu0101049151@ull.edu.es
+* Date: 25/06/2021
+* File: DragObject.cs : This file contains a class that allows each sensor to 
+*       be dragged and dropped
+*/
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class DragObject : MonoBehaviour
 {
+    // Delegate to manage the drag of the objects.
     public delegate void DraggEnded(DragObject sensorToDrag);
     public DraggEnded DragFinished;
     
+    // Delegate for managing the color change of snap points when the user 
+    // selects a sensor, in such a way that the available snap points are 
+    // displayed.
     public delegate void ChangeSnapPointsColor(bool activation);
     public static ChangeSnapPointsColor ActiveSnapPointsColor;
-    //private Vector3 MouseOffset; 
-    private float MouseZCoord; // Stores the Z coordinate of the mouse in a screen point.
     
+    private float MouseZCoord; // Stores the Z coordinate of the mouse in a screen point.
     public Transform SnappedPoint; // Is the point which it has been snapped.
     // This variable is set in the "SnapController" script, when the sensor is snapped.
-
     private bool dragged = false; // True if the sensor is dragged.
-
-    /// <summary>
-    /// OnMouseDown is called when the user has pressed the mouse button while
-    /// over the GUIElement or Collider.
-    /// </summary>
-    /*void OnMouseDown()
-    {
-        MouseZCoord = Camera.main.WorldToScreenPoint(gameObject.transform.position).z;
-        MouseOffset = gameObject.transform.position - GetMouseWorldPos();
-    }*/
 
     /// <summary>
     /// Update is called every frame, if the MonoBehaviour is enabled.
@@ -35,11 +37,11 @@ public class DragObject : MonoBehaviour
         if (!Input.GetMouseButton(0) && dragged) // If drag ends.
         {
             dragged = false;
-            ActiveSnapPointsColor(false);
+            ActiveSnapPointsColor(false); // If the drag ends, snap points stop displaying.
             DragFinished(this); // Call delegate for snap the sensor.
         } else if (dragged) // If it stills being dragged
         {
-            ActiveSnapPointsColor(true);
+            ActiveSnapPointsColor(true); // If the drag start, snap points are displayed.
             transform.position = GetMouseWorldPos();
         }
     }
@@ -68,24 +70,4 @@ public class DragObject : MonoBehaviour
         MousePoint.z = MouseZCoord;
         return Camera.main.ScreenToWorldPoint(MousePoint);
     }
-
-    /// <summary>
-    /// OnMouseDrag is called when the user has clicked on a GUIElement or 
-    /// Collider
-    /// and is still holding down the mouse.
-    /// </summary>
-    /*void OnMouseDrag()
-    {
-        transform.position = GetMouseWorldPos();
-    }*/
-
-    /// <summary>
-    /// OnMouseUp is called when the user has released the mouse button.
-    /// </summary>
-    /*void OnMouseUp()
-    {
-        Debug.Log("Mouse up");
-        dragged = false;
-        DragFinished(this);
-    }*/
 }

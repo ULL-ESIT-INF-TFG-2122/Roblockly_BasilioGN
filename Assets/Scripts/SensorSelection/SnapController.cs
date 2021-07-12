@@ -21,26 +21,22 @@ public class SnapController : MonoBehaviour
     public List<Transform> SnapPoints; // Contains all the snap points of each 
                                        // robot.
     public float SnapRange = 2.0f;
-    //bool HasSnappedSensor = false;
     DragObject[] SensorsToDrag; // Contains all the draggable
                                 // sensors;
-    // public GameObject[] AddedSensorBoxes;
+
+    // The delegate below is used to create a new box in the "Sensores añadidos" panel. This deletate is used in the "BoxesManager.cs" script.
     public delegate void CreateAddedSensorBox(DragObject sensorOfTheBox);
     public static event CreateAddedSensorBox CreateNewAddedSensorBox;
 
     private List<Transform> UsedSnapPoints = new List<Transform>();
 
+    /// <summary>
     // Start is called before the first frame update
+    /// </summary>
    void Start()
     {
         AddedSensorBoxScript.SetFreeSnappedPoint = SetFreeSnapPoint;
         DragObject.ActiveSnapPointsColor = ActivateSnapPoints;
-
-        //AddedSensorBoxes = GameObject.FindGameObjectsWithTag("AddedSensorBox");
-        /*foreach (DragObject currentSensor in SensorsToDrag)
-        {
-            currentSensor.DragFinished = OnDragEnded;
-        }*/
     }
 
     /// <summary>
@@ -315,6 +311,10 @@ public class SnapController : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// This method is used to activate and deactivate the snap points when the 
+    /// user drags and drops a sensor. 
+    /// </summary>
     private void ActivateSnapPoints(bool activation)
     {
         if (activation)
@@ -322,34 +322,14 @@ public class SnapController : MonoBehaviour
             Debug.Log("Activation: true");
             for (int i = 0; i < SnapPoints.Count; i++)
             {
-                SnapPoints[i].GetComponent<Renderer>().material.SetColor("_Color", new Color(1, 0, 0, 1));
+                SnapPoints[i].GetComponent<Renderer>().material.SetColor("_Color", new Color(1, 0, 0, 1)); // Change color to red.
             }
         } else {
             Debug.Log("Activation: false");
             for (int i = 0; i < SnapPoints.Count; i++)
             {
-                SnapPoints[i].GetComponent<Renderer>().material.SetColor("_Color", new Color(0, 0, 0, 0));
+                SnapPoints[i].GetComponent<Renderer>().material.SetColor("_Color", new Color(0, 0, 0, 0)); // Changes back the color to transparent.
             }
         }
     }
-
-    /*void CreateNewAddedSensorBox(DragObject sensorOfTheBox)
-    {
-        Debug.Log("Ha entrado en el CreateAddedSensorBox");
-        Debug.Log(AddedSensorBoxes);
-
-        if (AddedSensorBoxes.Length == 0)
-        {
-            Debug.Log("Está vacio");
-        }
-        foreach (GameObject CurrentBox in AddedSensorBoxes)
-        {
-            Debug.Log("Ha entrado en el for");
-            if (!CurrentBox.activeSelf)
-            {
-                Debug.Log("Ha entrado en el if");
-                CurrentBox.SetActive(true);
-            }
-        }
-    }*/
 }

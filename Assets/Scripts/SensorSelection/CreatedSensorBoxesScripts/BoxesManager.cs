@@ -88,6 +88,10 @@ public class BoxesManager : MonoBehaviour
         return nameToReturn;
     }
 
+    /// <summary>
+    /// This method is called by the delegate on the "AddedSensorBoxScript.cs" 
+    /// script when the user deletes a sensor from the robot.
+    /// </summary>
     private void UpdateRightSensorsPanel(string currentPanelText)
     {
         if (activatedBoxes == 1) // If only the first box is activated.
@@ -107,13 +111,16 @@ public class BoxesManager : MonoBehaviour
                 }
                 if (found)
                 {
+                    // If the current box is the last one on the list or the last one activated, the current box is deactivated.
                     if ((!gameObject.transform.GetChild(i + 1).gameObject.activeSelf) || (gameObject.transform.GetChild(i + 1).gameObject == null))
                     {   activatedBoxes--;
                         stop = true ;
                         gameObject.transform.GetChild(i).gameObject.SetActive(false);
                     } else {
+                        // First takes the text from the next box.
                         auxiliarText = gameObject.transform.GetChild(i + 1).gameObject.transform.GetChild(0).gameObject.GetComponent<TMPro.TextMeshProUGUI>().text;
 
+                        // Second, changes current box text by the "auxiliarText" variable content.
                         gameObject.transform.GetChild(i).gameObject.transform.GetChild(0).gameObject.GetComponent<TMPro.TextMeshProUGUI>().text = auxiliarText;
                     }
                 }
