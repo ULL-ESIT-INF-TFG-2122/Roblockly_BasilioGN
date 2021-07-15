@@ -12,20 +12,19 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class BoxesManager : MonoBehaviour
+public class BoxesManager1 : MonoBehaviour
 {
     private int activatedBoxes = 0;
     [SerializeField] private List<AddedSensorBoxScript> boxes = new List<AddedSensorBoxScript>();
 
-   // [SerializeField] private GameObject BoxesHolder;
-
-    /// <summary>
+    /*/// <summary>
     /// Awake is called when the script instance is being loaded.
     /// </summary>
     void Awake()
     {
+        GameObject auxCamera = GameObject.Find("Main Camera");
         DontDestroyOnLoad(this.gameObject);
-    }
+    }*/
 
     /// <summary>
     /// Start is called on the frame when a script is enabled just before
@@ -38,39 +37,38 @@ public class BoxesManager : MonoBehaviour
     }
 
     /// <summary>
-    /// This function is called when the object becomes enabled and active.
+    /// Update is called every frame, if the MonoBehaviour is enabled.
     /// </summary>
-    /*void OnEnable()
+    void Update()
     {
         
-    }*/
+    }
+
+    /// <summary>
+    /// This function is called when the object becomes enabled and active.
+    /// </summary>
+    void OnEnable()
+    {
+        
+    }
 
     /// <summary>
     /// This function is called when a sensor is added to the robot in order to 
     /// spawn the box on the "Sensors Added" box on the right part of the UI.
     /// </summary>
     private
-    void OnActivation(DragObject selectedSensor)
+     void OnActivation(DragObject selectedSensor)
     {
-        AddedSensorBoxScript aux = Instantiate(boxes[1], gameObject.transform);
-        //aux.transform.SetParent(auxParent.gameObject.transform);
-
-        bool activated = false; //
+        bool activated = false;
         int i = 0;
         string sensorType = NewBoxName(selectedSensor);
-        while ((!activated) && (i < boxes.Count)) 
+        while ((!activated) && (i < transform.childCount)) 
         {
-            //if (!boxes[i].gameObject.activeSelf)
-            if (activatedBoxes == i)
+            if ((!transform.GetChild(i).gameObject.activeSelf) && (transform.GetChild(i).gameObject.tag == "AddedSensorBox"))
             {
-                Debug.Log("Ha entrado enel if"); 
-                //boxes[i].gameObject.SetActive(true);
-                AddedSensorBoxScript newBox = Instantiate(boxes[i], gameObject.transform); // second argument is the father of the instantiated gameobject (box)
-                
-                //newBox.transform.SetParent(gameObject.transform);
-
-                //Debug.Log(boxes[i].gameObject
-                //);
+                transform.GetChild(i).gameObject.SetActive(true);
+                Debug.Log(transform.GetChild(i).gameObject
+                );
                 //transform.GetChild(i).GetComponent<AddedSensorBoxScript>().SetAssociatedSensor(selectedSensor);
                 transform.GetChild(i).gameObject.transform.GetChild(0).gameObject.GetComponent<TMPro.TextMeshProUGUI>().text = "Sensor " + (i + 1) + ": " + sensorType; // Used to write the sensor type in the box text.
                 activated = true;
@@ -118,33 +116,32 @@ public class BoxesManager : MonoBehaviour
     {
         if (activatedBoxes == 1) // If only the first box is activated.
         {
-            ///transform.GetChild(0).gameObject.SetActive(false);
-            Destroy(transform.GetChild(0).gameObject);
+            gameObject.transform.GetChild(0).gameObject.SetActive(false);
             activatedBoxes--;
         } else {
             bool found = false;
             bool stop = false;
             int i = 0;
-            while ((!stop) && (i < boxes.Count))
+            while ((!stop) && (i < gameObject.transform.childCount))
             {
-                string auxiliarText = transform.GetChild(i).gameObject.transform.GetChild(0).gameObject.GetComponent<TMPro.TextMeshProUGUI>().text; // Is an auxiliar GameObject used to do the swap between the other boxes;
-                if (auxiliarText == currentPanelText)
+                string auxiliarText = gameObject.transform.GetChild(i).gameObject.transform.GetChild(0).gameObject.GetComponent<TMPro.TextMeshProUGUI>().text; // Is an auxiliar GameObject used to do the swap between the other boxes;
+                if ((auxiliarText == currentPanelText) && (gameObject.transform.GetChild(i).gameObject.activeSelf))
                 {
                     found = true;
                 }
                 if (found)
                 {
                     // If the current box is the last one on the list or the last one activated, the current box is deactivated.
-                    if ((!boxes[i + 1].gameObject.activeSelf) || (boxes[i + 1].gameObject == null))
+                    if ((!gameObject.transform.GetChild(i + 1).gameObject.activeSelf) || (gameObject.transform.GetChild(i + 1).gameObject == null))
                     {   activatedBoxes--;
                         stop = true ;
-                        boxes[i].gameObject.SetActive(false);
+                        gameObject.transform.GetChild(i).gameObject.SetActive(false);
                     } else {
                         // First takes the text from the next box.
-                        auxiliarText = boxes[i + 1].gameObject.transform.GetChild(0).gameObject.GetComponent<TMPro.TextMeshProUGUI>().text;
+                        auxiliarText = gameObject.transform.GetChild(i + 1).gameObject.transform.GetChild(0).gameObject.GetComponent<TMPro.TextMeshProUGUI>().text;
 
                         // Second, changes current box text by the "auxiliarText" variable content.
-                        boxes[i].gameObject.transform.GetChild(0).gameObject.GetComponent<TMPro.TextMeshProUGUI>().text = auxiliarText;
+                        gameObject.transform.GetChild(i).gameObject.transform.GetChild(0).gameObject.GetComponent<TMPro.TextMeshProUGUI>().text = auxiliarText;
                     }
                 }
                 i++; 

@@ -319,13 +319,13 @@ public class SnapController : MonoBehaviour
     {
         if (activation)
         {
-            Debug.Log("Activation: true");
+            //Debug.Log("Activation: true");
             for (int i = 0; i < SnapPoints.Count; i++)
             {
                 SnapPoints[i].GetComponent<Renderer>().material.SetColor("_Color", new Color(1, 0, 0, 1)); // Change color to red.
             }
         } else {
-            Debug.Log("Activation: false");
+            //Debug.Log("Activation: false");
             for (int i = 0; i < SnapPoints.Count; i++)
             {
                 SnapPoints[i].GetComponent<Renderer>().material.SetColor("_Color", new Color(0, 0, 0, 0)); // Changes back the color to transparent.
