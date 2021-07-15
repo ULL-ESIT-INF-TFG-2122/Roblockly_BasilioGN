@@ -67,8 +67,8 @@ public class BoxesManager1 : MonoBehaviour
             if ((!transform.GetChild(i).gameObject.activeSelf) && (transform.GetChild(i).gameObject.tag == "AddedSensorBox"))
             {
                 transform.GetChild(i).gameObject.SetActive(true);
-                Debug.Log(transform.GetChild(i).gameObject
-                );
+                //Debug.Log(transform.GetChild(i).gameObject
+                //);
                 //transform.GetChild(i).GetComponent<AddedSensorBoxScript>().SetAssociatedSensor(selectedSensor);
                 transform.GetChild(i).gameObject.transform.GetChild(0).gameObject.GetComponent<TMPro.TextMeshProUGUI>().text = "Sensor " + (i + 1) + ": " + sensorType; // Used to write the sensor type in the box text.
                 activated = true;
@@ -102,6 +102,7 @@ public class BoxesManager1 : MonoBehaviour
                 nameToReturn = "Color";
                 break;
             default:
+                Debug.Log(selectedSensor.name);
                 nameToReturn = "NewSensor";
                 break;
         }
