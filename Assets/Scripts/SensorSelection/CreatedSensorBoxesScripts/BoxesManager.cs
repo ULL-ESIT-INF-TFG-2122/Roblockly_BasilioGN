@@ -22,10 +22,10 @@ public class BoxesManager : MonoBehaviour
     /// <summary>
     /// Awake is called when the script instance is being loaded.
     /// </summary>
-    void Awake()
+    /*void Awake()
     {
-        DontDestroyOnLoad(this.gameObject);
-    }
+        //DontDestroyOnLoad(this.gameObject);
+    }*/
 
     /// <summary>
     /// Start is called on the frame when a script is enabled just before
@@ -52,7 +52,7 @@ public class BoxesManager : MonoBehaviour
     private
     void OnActivation(DragObject selectedSensor)
     {
-        AddedSensorBoxScript aux = Instantiate(boxes[1], gameObject.transform);
+       // AddedSensorBoxScript aux = Instantiate(boxes[1], gameObject.transform);
         //aux.transform.SetParent(auxParent.gameObject.transform);
 
         bool activated = false; //
@@ -63,7 +63,7 @@ public class BoxesManager : MonoBehaviour
             //if (!boxes[i].gameObject.activeSelf)
             if (activatedBoxes == i)
             {
-                Debug.Log("Ha entrado enel if"); 
+                Debug.Log("Ha entrado en el if"); 
                 //boxes[i].gameObject.SetActive(true);
                 AddedSensorBoxScript newBox = Instantiate(boxes[i], gameObject.transform); // second argument is the father of the instantiated gameobject (box)
                 

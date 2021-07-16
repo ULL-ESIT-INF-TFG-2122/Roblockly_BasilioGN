@@ -563,10 +563,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 561099820}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1cc0caaa8773e2d41aedf16bf28e05b5, type: 3}
+  m_Script: {fileID: 11500000, guid: b1b3c746974349e4fbe3fcd7091d4bd0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RotationSpeed: 10
+  RotationSpeed: 5
 --- !u!4 &561099822
 Transform:
   m_ObjectHideFlags: 0
@@ -1756,7 +1756,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 561099821}
+      - m_Target: {fileID: 0}
         m_MethodName: GoBack
         m_Mode: 1
         m_Arguments:

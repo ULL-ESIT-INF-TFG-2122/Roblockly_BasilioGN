@@ -22,6 +22,9 @@ public class IndividualSelectionSceneManager : MonoBehaviour
     private GameObject CurrentRobot; // Is the robot that is currently rotating 
                                      // on the platform
     public float RotationSpeed = 5;
+
+    public delegate void SetSceneActive(bool activeCanvas);
+    public static SetSceneActive SetActiveSceneCanvas;
     
     void Start()
     {
@@ -51,6 +54,7 @@ public class IndividualSelectionSceneManager : MonoBehaviour
     /// </summary>
     public void GoForward ()
     {
+        // SetActiveSceneCanvas(true);
         // Load the next level in the queue (in this case, is the scene 1, called "IndividualSensorSelection").
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
