@@ -24,7 +24,20 @@ public class CanvasManager : MonoBehaviour
     void Start()
     {
         SensorSelectionSceneManager.SetCanvasActive = EnableCanvas;
-        IndividualSelectionSceneManager.SetActiveSceneCanvas = EnableCanvas;
+        //IndividualSelectionSceneManager1.SetActiveSceneCanvas = EnableCanvas;
+    }
+
+    /// <summary>
+    /// Update is called every frame, if the MonoBehaviour is enabled.
+    /// </summary>
+    void Update()
+    {
+        /*if (GlobalSceneManager.switchOn)
+        {
+            EnableCanvas(true);
+        } else {
+            EnableCanvas(false);
+        }*/
     }
 
     private void EnableCanvas(bool isActive)

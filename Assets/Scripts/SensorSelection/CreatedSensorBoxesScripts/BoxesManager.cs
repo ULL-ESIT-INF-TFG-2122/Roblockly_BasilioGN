@@ -134,8 +134,7 @@ public class BoxesManager : MonoBehaviour
                 }
                 if (found)
                 {
-                    // If the current box is the last one on the list or the last one activated, the current box is deactivated.
-                    //if (transform.GetChild(i + 1) == null)
+                    // If the current box is the last one on the list, the is deactivated.
                     if (activatedBoxes == (i + 1))
                     {   activatedBoxes--;
                         stop = true ;

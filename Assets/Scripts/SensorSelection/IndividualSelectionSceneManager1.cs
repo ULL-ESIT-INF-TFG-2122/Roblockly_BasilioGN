@@ -16,7 +16,7 @@ using UnityEngine.SceneManagement;
 /// <summary>
 /// Class used to manage the "Individual Robot Selection" scene.
 /// </summary>
-public class IndividualSelectionSceneManager : MonoBehaviour
+public class IndividualSelectionSceneManager1 : MonoBehaviour
 {
     private GameObject Platform; // Is the rotating platform.
     private GameObject CurrentRobot; // Is the robot that is currently rotating 
@@ -54,7 +54,7 @@ public class IndividualSelectionSceneManager : MonoBehaviour
     /// </summary>
     public void GoForward ()
     {
-        SetActiveSceneCanvas(true);
+        // SetActiveSceneCanvas(true);
         // Load the next level in the queue (in this case, is the scene 1, called "IndividualSensorSelection").
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }

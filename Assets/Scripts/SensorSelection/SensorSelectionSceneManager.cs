@@ -20,7 +20,6 @@ using UnityEngine.UI;
 /// </summary>
 public class SensorSelectionSceneManager : MonoBehaviour
 {
-    // 
     public delegate void SetEnableCanvas(bool isActiveCanvas);
     public static SetEnableCanvas SetCanvasActive;
     private GameObject canvas;
