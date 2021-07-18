@@ -63,7 +63,7 @@ public class BoxesManager : MonoBehaviour
             //if (!boxes[i].gameObject.activeSelf)
             if (activatedBoxes == i)
             {
-                Debug.Log("Ha entrado en el if"); 
+                //Debug.Log("Ha entrado en el if"); 
                 //boxes[i].gameObject.SetActive(true);
                 AddedSensorBoxScript newBox = Instantiate(boxes[i], gameObject.transform); // second argument is the father of the instantiated gameobject (box)
                 
@@ -135,16 +135,17 @@ public class BoxesManager : MonoBehaviour
                 if (found)
                 {
                     // If the current box is the last one on the list or the last one activated, the current box is deactivated.
-                    if ((!boxes[i + 1].gameObject.activeSelf) || (boxes[i + 1].gameObject == null))
+                    //if (transform.GetChild(i + 1) == null)
+                    if (activatedBoxes == (i + 1))
                     {   activatedBoxes--;
                         stop = true ;
-                        boxes[i].gameObject.SetActive(false);
+                        Destroy(transform.GetChild(i).gameObject);
                     } else {
                         // First takes the text from the next box.
-                        auxiliarText = boxes[i + 1].gameObject.transform.GetChild(0).gameObject.GetComponent<TMPro.TextMeshProUGUI>().text;
+                        auxiliarText = transform.GetChild(i + 1).gameObject.transform.GetChild(0).gameObject.GetComponent<TMPro.TextMeshProUGUI>().text;
 
                         // Second, changes current box text by the "auxiliarText" variable content.
-                        boxes[i].gameObject.transform.GetChild(0).gameObject.GetComponent<TMPro.TextMeshProUGUI>().text = auxiliarText;
+                        transform.GetChild(i).gameObject.transform.GetChild(0).gameObject.GetComponent<TMPro.TextMeshProUGUI>().text = auxiliarText;
                     }
                 }
                 i++; 
