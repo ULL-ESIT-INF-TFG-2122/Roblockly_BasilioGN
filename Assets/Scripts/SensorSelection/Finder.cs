@@ -51,4 +51,15 @@ public class Finder : MonoBehaviour
     {
         findAbleObjects.Add(objectToAdd);
     }
+
+    public static void RemoveElementByTag(string objectTag)
+    {
+        for (int i = 0; i < findAbleObjects.Count; i++)
+        {
+            if (findAbleObjects[i].tag == objectTag)
+            {
+                findAbleObjects.RemoveAt(i);
+            }
+        }
+    }
 }

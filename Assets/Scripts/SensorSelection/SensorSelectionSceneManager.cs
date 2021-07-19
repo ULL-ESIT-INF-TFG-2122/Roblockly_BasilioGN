@@ -39,7 +39,8 @@ public class SensorSelectionSceneManager : MonoBehaviour
     /// </summary>
     public void GoBack ()
     {   
-        
+        Finder.RemoveElementByTag("SelectedRobot");
+        DestroySelectedRobot();
         //GlobalSceneManager.SwitchOnSecene3(false);
         //SetCanvasActive(false);
         // Load the previous level in the queue (in this case, is the scene 1, called "IndividualSelectionMenu").
@@ -55,5 +56,16 @@ public class SensorSelectionSceneManager : MonoBehaviour
         //GlobalSceneManager.SwitchOnSecene3(false);
         // Load the next level in the queue (in this case, is the scene 3, called "RobotProgramming").
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+
+    private void DestroySelectedRobot()
+    {
+        GameObject auxRobot = GameObject.FindWithTag("SelectedRobot");
+        if (auxRobot != null)
+        {
+            Destroy(auxRobot);
+        } else {
+            Debug.LogError("There is not any \"SelectedRobot\" currently");
+        }
     }
 }
