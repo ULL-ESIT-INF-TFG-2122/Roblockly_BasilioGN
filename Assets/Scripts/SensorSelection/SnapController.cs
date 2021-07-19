@@ -29,7 +29,7 @@ public class SnapController : MonoBehaviour
     public static event CreateAddedSensorBox CreateNewAddedSensorBox;*/
 
     public delegate void SetLinkedToARobotDelegate(bool status);
-    public static SetLinkedToARobotDelegate SetLinkedToARobotOn;
+    public static event SetLinkedToARobotDelegate SetLinkedToARobotOn;
 
     private List<Transform> UsedSnapPoints = new List<Transform>();
 
