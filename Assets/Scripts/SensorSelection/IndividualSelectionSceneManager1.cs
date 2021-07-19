@@ -44,6 +44,7 @@ public class IndividualSelectionSceneManager1 : MonoBehaviour
     /// </summary>
     public void GoBack ()
     {
+        GlobalSceneManager.SwitchOnSecene3(false);
         // Load the previous level in the queue (in this case, is the scene 0, called "MainMenu").
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
     }
@@ -54,6 +55,8 @@ public class IndividualSelectionSceneManager1 : MonoBehaviour
     /// </summary>
     public void GoForward ()
     {
+        //GlobalSceneManager.SwitchOnSecene3(true);
+        //CanvasManager.canvasManagerInstance.gameObject.SetActive(true);
         // SetActiveSceneCanvas(true);
         // Load the next level in the queue (in this case, is the scene 1, called "IndividualSensorSelection").
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);

@@ -27,7 +27,6 @@ public class RobotSelection1 : MonoBehaviour
     /// </summary>
     private void SelectRobot (int robotIndex)
     {
-        Debug.Log("RobotIndex: " + robotIndex);
         // If robotIndex is greater or equal to the number of RobotHolder 
         // children, recalculate de index again to allow the user can click on 
         // the arrow buttons like it hasn't got an end.
@@ -54,7 +53,6 @@ public class RobotSelection1 : MonoBehaviour
     /// </summary>
     public void ChangeRobot (int valueToAdd) 
     {
-        Debug.Log(CurrentRobot);
         CurrentRobot += valueToAdd;
         SelectRobot(CurrentRobot);
     }

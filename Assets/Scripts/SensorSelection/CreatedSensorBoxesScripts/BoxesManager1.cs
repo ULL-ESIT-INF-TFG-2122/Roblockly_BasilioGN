@@ -33,7 +33,7 @@ public class BoxesManager1 : MonoBehaviour
     void Start()
     {
         AddedSensorBoxScript.UpdateAddedSensors = UpdateRightSensorsPanel;
-        SnapController.CreateNewAddedSensorBox += OnActivation;
+        //SnapController.CreateNewAddedSensorBox += OnActivation;
     }
 
     /// <summary>

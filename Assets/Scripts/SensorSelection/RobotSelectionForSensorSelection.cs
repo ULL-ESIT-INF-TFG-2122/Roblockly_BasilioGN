@@ -30,8 +30,16 @@ public class RobotSelectionForSensorSelection : MonoBehaviour
                 selectedRobot = Instantiate(transform.GetChild(i).gameObject, 
                     transform.GetChild(i).gameObject.transform.position, transform.GetChild(i).gameObject.transform.rotation);
                     selectedRobot.gameObject.tag = "SelectedRobot";
-                selectedRobot.SetActive(true);
+                //selectedRobot.SetActive(true);
             }
+        }
+
+        if (!Finder.CheckContains("SelectedRobot"))
+        {
+            selectedRobot.SetActive(true);
+            Debug.Log("Ha entrado en el if de la instancia");
+            DontDestroyOnLoad(selectedRobot);
+            Finder.AddObject(selectedRobot);
         }
     }
 }

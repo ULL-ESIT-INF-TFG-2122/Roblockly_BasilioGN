@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/IndividualSensorSelection.unity
     guid: 29af3527d12e04743a57187db7ea4e14
+  - enabled: 1
+    path: Assets/Scenes/BlocklyScene.unity
+    guid: e02261d93d520a5478418ea135c8e968
   m_configObjects: {}

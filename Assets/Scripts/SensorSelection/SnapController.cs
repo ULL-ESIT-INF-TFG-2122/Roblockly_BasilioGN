@@ -24,9 +24,12 @@ public class SnapController : MonoBehaviour
     DragObject[] SensorsToDrag; // Contains all the draggable
                                 // sensors;
 
-    // The delegate below is used to create a new box in the "Sensores añadidos" panel. This deletate is used in the "BoxesManager.cs" script.
+    /*// The delegate below is used to create a new box in the "Sensores añadidos" panel. This deletate is used in the "BoxesManager.cs" script.
     public delegate void CreateAddedSensorBox(DragObject sensorOfTheBox);
-    public static event CreateAddedSensorBox CreateNewAddedSensorBox;
+    public static event CreateAddedSensorBox CreateNewAddedSensorBox;*/
+
+    public delegate void SetLinkedToARobotDelegate(bool status);
+    public static SetLinkedToARobotDelegate SetLinkedToARobotOn;
 
     private List<Transform> UsedSnapPoints = new List<Transform>();
 
@@ -129,7 +132,8 @@ public class SnapController : MonoBehaviour
                         break;
                 }
                 sensorToDrag.transform.parent = gameObject.transform; // Adds the sensor as a child of the robot.
-                CreateNewAddedSensorBox(sensorToDrag);
+                SetLinkedToARobotOn(true);
+                //CreateNewAddedSensorBox(sensorToDrag);
                 //CreateAddedSensorBox();
             }
             else // If the sensor doesn't snaps any point.

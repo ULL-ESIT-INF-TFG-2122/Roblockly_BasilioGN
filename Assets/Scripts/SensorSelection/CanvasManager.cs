@@ -32,21 +32,24 @@ public class CanvasManager : MonoBehaviour
     /// </summary>
     void Update()
     {
-        /*if (GlobalSceneManager.switchOn)
+        if (GlobalSceneManager.switchOn)
         {
+            Debug.Log("Activar switchOn");
             EnableCanvas(true);
         } else {
+            Debug.Log("Desactivar switchOn");
             EnableCanvas(false);
-        }*/
+        }
     }
 
     private void EnableCanvas(bool isActive)
     {
         if (isActive)
         {
+            Debug.Log("Activa el canvas");
             gameObject.SetActive(true);
         } else {
-            Debug.Log("Se ha eliminado");
+            Debug.Log("Se desactiva el canvas");
             gameObject.SetActive(false);
             //this.enabled = false;
         }
