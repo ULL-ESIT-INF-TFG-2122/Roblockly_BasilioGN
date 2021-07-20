@@ -35,5 +35,6 @@ public class SensorUS : SensorGeneric
     {
         base.SetSensorName(snapPoint);
         gameObject.transform.name = gameObject.transform.name + "Ultrasonido";
+        base.SetPanelName();
     }
 }
