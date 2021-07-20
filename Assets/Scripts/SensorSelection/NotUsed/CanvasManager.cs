@@ -23,7 +23,7 @@ public class CanvasManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        SensorSelectionSceneManager.SetCanvasActive = EnableCanvas;
+        //SensorSelectionSceneManager.SetCanvasActive = EnableCanvas;
         //IndividualSelectionSceneManager1.SetActiveSceneCanvas = EnableCanvas;
     }
 
@@ -32,17 +32,17 @@ public class CanvasManager : MonoBehaviour
     /// </summary>
     void Update()
     {
-        if (GlobalSceneManager.switchOn)
+        /*if (GlobalSceneManager.switchOn)
         {
             Debug.Log("Activar switchOn");
             EnableCanvas(true);
         } else {
             Debug.Log("Desactivar switchOn");
             EnableCanvas(false);
-        }
+        }*/
     }
 
-    private void EnableCanvas(bool isActive)
+    /*private void EnableCanvas(bool isActive)
     {
         if (isActive)
         {
@@ -53,5 +53,5 @@ public class CanvasManager : MonoBehaviour
             gameObject.SetActive(false);
             //this.enabled = false;
         }
-    }
+    }*/
 }
