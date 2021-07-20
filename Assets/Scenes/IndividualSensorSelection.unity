@@ -1721,7 +1721,6 @@ GameObject:
   - component: {fileID: 791499457}
   - component: {fileID: 791499456}
   - component: {fileID: 791499459}
-  - component: {fileID: 791499460}
   m_Layer: 5
   m_Name: SensorBackContinueUI
   m_TagString: Untagged
@@ -1826,18 +1825,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   RotationSpeed: 30
---- !u!114 &791499460
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 791499454}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4fea766662911bb4695805a6659689f9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &803170438
 GameObject:
   m_ObjectHideFlags: 0
@@ -3071,14 +3058,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1431421296}
-  m_LocalRotation: {x: 0.05950055, y: 0.79995996, z: -0.054376233, w: 0.59461504}
+  m_LocalRotation: {x: 0.052272584, y: 0.8008112, z: -0.059570156, w: 0.59365016}
   m_LocalPosition: {x: 741.9, y: 39.7, z: 364.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 791499455}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 9.077001, y: 106.893005, z: 1.7720001}
+  m_LocalEulerAnglesHint: {x: 9.06, y: 106.96001, z: 0.754}
 --- !u!1 &1584353553 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 208769036297115490, guid: e95c210e1c9c8d7438647d8beb279a63,

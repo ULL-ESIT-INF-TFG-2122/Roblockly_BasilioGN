@@ -44,7 +44,7 @@ public class IndividualSelectionSceneManager1 : MonoBehaviour
     /// </summary>
     public void GoBack ()
     {
-        GlobalSceneManager.SwitchOnSecene3(false);
+        //GlobalSceneManager.SwitchOnSecene3(false);
         // Load the previous level in the queue (in this case, is the scene 0, called "MainMenu").
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
     }

@@ -38,7 +38,7 @@ public class RobotSelectionForSensorSelection : MonoBehaviour
         if (!Finder.CheckContains("SelectedRobot"))
         {
             selectedRobot.SetActive(true);
-            Debug.Log("Ha entrado en el if de la instancia");
+            //Debug.Log("Ha entrado en el if de la instancia");
             DontDestroyOnLoad(selectedRobot);
             Finder.AddObject(selectedRobot);
         }

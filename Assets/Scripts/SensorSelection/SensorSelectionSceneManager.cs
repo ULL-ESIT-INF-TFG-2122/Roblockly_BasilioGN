@@ -14,15 +14,14 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-
 /// <summary>
 /// Class used to manage the "Individual Sensor Selection" scene.
 /// </summary>
 public class SensorSelectionSceneManager : MonoBehaviour
 {
-    public delegate void SetEnableCanvas(bool isActiveCanvas);
-    public static SetEnableCanvas SetCanvasActive;
-    private GameObject canvas;
+    //public delegate void SetEnableCanvas(bool isActiveCanvas);
+    //public static SetEnableCanvas SetCanvasActive;
+    //private GameObject canvas;
 
     /// <summary>
     /// Start is called on the frame when a script is enabled just before
@@ -30,7 +29,7 @@ public class SensorSelectionSceneManager : MonoBehaviour
     /// </summary>
     void Start()
     {
-        canvas = GameObject.Find("SensorBackContinueUI");
+        //canvas = GameObject.Find("SensorBackContinueUI");
     }
 
     /// <summary>

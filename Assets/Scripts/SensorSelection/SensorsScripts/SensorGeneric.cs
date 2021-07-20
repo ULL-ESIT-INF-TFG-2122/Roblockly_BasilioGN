@@ -1,7 +1,20 @@
-﻿using System.Collections;
+﻿/**
+* Universidad de La Laguna
+* Author: Basilio Gómez Navarro
+* Email: alu0101049151@ull.edu.es
+* Date: 20/07/2021
+* File: SensorGeneric.cs : This file contains the 
+*       "SensorGeneric" class implementation. This class is a "base" class
+*       used to manage the "generic" logic of a any sensor type.
+*/
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Class used to manage the "generic" logic of a any sensor type.
+/// </summary>
 public abstract class SensorGeneric : MonoBehaviour
 {
     [SerializeField] protected GameObject panelSensor;

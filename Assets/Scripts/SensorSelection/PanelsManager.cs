@@ -1,9 +1,28 @@
-﻿using System.Collections;
+﻿/**
+* Universidad de La Laguna
+* Author: Basilio Gómez Navarro
+* Email: alu0101049151@ull.edu.es
+* Date: 20/07/2021
+* File: PanelsManager.cs : This file contains the "PanelsManager" class 
+*       implementation, used to manage the behavior of the set up panels of 
+*       each sensors snapped to the robot.
+*/
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// CLass used to manage the behavior of the set up panels of each sensors 
+/// snapped to the robot.
+/// </summary>
 public class PanelsManager : MonoBehaviour
 {
+    /// <summary>
+    /// Used to instantiate a new panel. 
+    /// </summary>
+    /// <param name="panelSensorToInstantiate"> The new panel to instantiate.
+    /// </param>
     public void InstantiatePanel(GameObject panelSensorToInstantiate)
     {
         if (transform.childCount > 0)
@@ -15,9 +34,13 @@ public class PanelsManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Used to destroy a specific panel. 
+    /// </summary>
+    /// <param name="currentPanel"> The specific panel to destroy.
+    /// </param>
     public void DestroyPanel(string currentPanel)
     {
-        Debug.Log("Ha entrado enel destroy panel");
         bool found = false;
         int i = 0;
         if (transform.childCount > 0)
