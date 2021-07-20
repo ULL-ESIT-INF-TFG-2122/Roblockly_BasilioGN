@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SensorIR : SensorGeneric
+public class SensorColor : SensorGeneric
 {
     private float range;
     private float precision;
@@ -21,10 +21,10 @@ public class SensorIR : SensorGeneric
     {
         //
     }
-    
     public override void SetSensorName(string snapPoint)
     {
         base.SetSensorName(snapPoint);
-        gameObject.transform.name = gameObject.transform.name + "Infrarrojo";
+        gameObject.transform.name = gameObject.transform.name + "Color";
     }
+
 }

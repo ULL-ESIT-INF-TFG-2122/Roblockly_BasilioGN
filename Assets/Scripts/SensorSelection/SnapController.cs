@@ -117,15 +117,19 @@ public class SnapController : MonoBehaviour
                 {
                     case "SensorUS(Clone)":
                         SetUltrasoundSensor(sensorToDrag, ClosestSnapPoint);
+                        sensorToDrag.GetComponent<SensorUS>().SetSensorName(ClosestSnapPoint.tag);
                         break;
                     case "SensorTouch(Clone)":
                         SetTouchSensor(sensorToDrag, ClosestSnapPoint);
+                        sensorToDrag.GetComponent<SensorTouch>().SetSensorName(ClosestSnapPoint.tag);
                         break;
                     case "SensorIR(Clone)":
                         SetInfraredColorSensor(sensorToDrag, ClosestSnapPoint);
+                        sensorToDrag.GetComponent<SensorIR>().SetSensorName(ClosestSnapPoint.tag);
                         break;
                     case "SensorColor(Clone)":
                         SetInfraredColorSensor(sensorToDrag, ClosestSnapPoint);
+                        sensorToDrag.GetComponent<SensorColor>().SetSensorName(ClosestSnapPoint.tag);
                         break;
                     default:
                         Debug.Log("There aren't any sensor of this type");

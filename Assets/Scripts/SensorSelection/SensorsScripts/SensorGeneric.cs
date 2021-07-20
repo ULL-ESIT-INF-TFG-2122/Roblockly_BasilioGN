@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SensorGeneric : MonoBehaviour
+public abstract class SensorGeneric : MonoBehaviour
 {
-    [SerializeField] private GameObject panelSensor;
-    private bool linkedToARobot = false;
-    // Start is called before the first frame update
+    [SerializeField] protected GameObject panelSensor;
+    bool linkedToARobot = false;
+    protected GameObject auxiliarPanel;
+    protected PanelsManager panelsContainer;
+    private string sensorName;
     
     /// <summary>
     /// OnMouseDown is called when the user has pressed the mouse button while
@@ -14,11 +16,18 @@ public class SensorGeneric : MonoBehaviour
     /// </summary>
     void OnMouseDown()
     {
+        panelsContainer = Object.FindObjectOfType<PanelsManager>();
         Debug.Log("Está entrando en el MouseDown");
         if (linkedToARobot) {
-            GameObject panel = GameObject.Find("AddedSensorsPanel");
-            Instantiate(panelSensor, panel.gameObject.transform);
+            //GameObject panel = GameObject.Find("PanelsContainer");
+            //Instantiate(panelSensor, panel.gameObject.transform);
+            panelsContainer.InstantiatePanel(panelSensor);
         }
+    }
+
+    public virtual void SetSensorName(string snapPoint)
+    {
+        gameObject.transform.name = "Sensor " + snapPoint + ": ";
     }
 
     protected void SetLinkSensor(bool linkStatus)
@@ -31,8 +40,10 @@ public class SensorGeneric : MonoBehaviour
         }
     }
 
-    void CancelPanel()
+    public void CancelPanel()
     {
-        panelSensor.SetActive(false);
+        Debug.Log("Está activado el panel");
+        panelsContainer = Object.FindObjectOfType<PanelsManager>();
+        panelsContainer.DestroyPanel(panelSensor.name + "(Clone)");
     }
 }

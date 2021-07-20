@@ -9,4 +9,10 @@ public class SensorTouch : SensorGeneric
     {
         SnapController.SetLinkedToARobotOn += base.SetLinkSensor;
     }
+
+    public override void SetSensorName(string snapPoint)
+    {
+        base.SetSensorName(snapPoint);
+        gameObject.transform.name = gameObject.transform.name + "Contacto";
+    }
 }

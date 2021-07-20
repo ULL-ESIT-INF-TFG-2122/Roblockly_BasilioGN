@@ -840,6 +840,7 @@ GameObject:
   - component: {fileID: 2775602778919791306}
   - component: {fileID: 2856822488064302010}
   - component: {fileID: 2838761639557974730}
+  - component: {fileID: -6065110298691203328}
   m_Layer: 0
   m_Name: SensorColor
   m_TagString: NewSensor
@@ -876,8 +877,8 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.02
-  m_Center: {x: 0, y: 0, z: -0.03}
+  m_Radius: 0.036689203
+  m_Center: {x: 0.0032600975, y: -0.02662487, z: -0.036805965}
 --- !u!54 &2856822488064302010
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -906,6 +907,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9692a709c73bf774c8df2bdbe2795aa7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SnappedPoint: {fileID: 2842968972314794994}
+--- !u!114 &-6065110298691203328
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2838337526701255104}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 938c6a515c580be43a78f1bc4cb1686e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  panelSensor: {fileID: 3559837278705875891, guid: 674f0f70077a0ab4bb06af63dcf43290,
+    type: 3}
 --- !u!1 &2838393180303270096
 GameObject:
   m_ObjectHideFlags: 0

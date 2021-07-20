@@ -27,8 +27,13 @@ public class SensorUS : SensorGeneric
     {
         //
     }
-    void DeleteSensor()
+    public void DeleteSensor()
     {
         //
+    }
+    public override void SetSensorName(string snapPoint)
+    {
+        base.SetSensorName(snapPoint);
+        gameObject.transform.name = gameObject.transform.name + "Ultrasonido";
     }
 }
