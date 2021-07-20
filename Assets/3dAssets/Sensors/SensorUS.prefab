@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28f502d647ea19344bbbb2525046fef5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  panelUS: {fileID: 7509095412742390155, guid: 0e7fccf2d055d91479d2a9335126a090, type: 3}
+  panelSensor: {fileID: 7509095412742390155, guid: 0e7fccf2d055d91479d2a9335126a090,
+    type: 3}
 --- !u!114 &7327045205371629307
 MonoBehaviour:
   m_ObjectHideFlags: 0

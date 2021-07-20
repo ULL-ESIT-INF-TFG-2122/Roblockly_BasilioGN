@@ -2,52 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SensorUS : MonoBehaviour
+public class SensorUS : SensorGeneric
 {
-    [SerializeField] private GameObject panelUS;
-    private float error;
     private float range;
-    private bool linkedToARobot = false;
-
+    private float error;
 
     // Start is called before the first frame update
     void Start()
     {
-        SnapController.SetLinkedToARobotOn += SetLinkUS;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+      SnapController.SetLinkedToARobotOn += base.SetLinkSensor;
     }
 
     public void ActivateUS()
     {
         transform.gameObject.SetActive(transform.gameObject.tag == "SensorUS");
-    }
-
-    /// <summary>
-    /// OnMouseDown is called when the user has pressed the mouse button while
-    /// over the GUIElement or Collider.
-    /// </summary>
-    void OnMouseDown()
-    {
-        Debug.Log("Está entrando en el MouseDown");
-        if (linkedToARobot) {
-            GameObject panel = GameObject.Find("AddedSensorsPanel");
-            Instantiate(panelUS, panel.gameObject.transform);
-        }
-    }
-
-    void SetLinkUS(bool linkStatus)
-    {
-        if (linkStatus)
-        {
-            linkedToARobot = true;
-        } else {
-            linkedToARobot = false;
-        }
     }
 
     void SetRange()
@@ -62,10 +30,5 @@ public class SensorUS : MonoBehaviour
     void DeleteSensor()
     {
         //
-    }
-
-    void CancelPanel()
-    {
-        panelUS.SetActive(false);
     }
 }
