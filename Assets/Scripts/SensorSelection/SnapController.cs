@@ -137,10 +137,8 @@ public class SnapController : MonoBehaviour
                 }
                 sensorToDrag.transform.parent = gameObject.transform; // Adds the sensor as a child of the robot.
                 SetLinkedToARobotOn(true);
-                Debug.Log(sensorToDrag.GetComponent<SensorGeneric>().gameObject.transform.name);
-                Debug.Log(sensorToDrag.name);
-                //CreateNewAddedSensorBox(sensorToDrag);
-                //CreateAddedSensorBox();
+                //Debug.Log(sensorToDrag.GetComponent<SensorGeneric>().gameObject.transform.name);
+                //Debug.Log(sensorToDrag.name);
             }
             else // If the sensor doesn't snaps any point.
             {

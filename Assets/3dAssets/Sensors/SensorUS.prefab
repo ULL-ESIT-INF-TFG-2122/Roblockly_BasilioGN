@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28f502d647ea19344bbbb2525046fef5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  panelSensor: {fileID: 7509095412742390155, guid: 0e7fccf2d055d91479d2a9335126a090,
+  panelSensor: {fileID: 3914276394199152572, guid: 14de82e332264314dad97bb3f73c3969,
     type: 3}
 --- !u!114 &7327045205371629307
 MonoBehaviour:
@@ -26,7 +26,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9692a709c73bf774c8df2bdbe2795aa7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SnappedPoint: {fileID: 105804461471276100}
 --- !u!1001 &106116975669079924
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -172,12 +171,6 @@ PrefabInstance:
 --- !u!1 &106999999263518528 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1446119992541236, guid: 35e89030aa87dc94f957a7bf378bc6c1,
-    type: 3}
-  m_PrefabInstance: {fileID: 106116975669079924}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &105804461471276100 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4191662104474416, guid: 35e89030aa87dc94f957a7bf378bc6c1,
     type: 3}
   m_PrefabInstance: {fileID: 106116975669079924}
   m_PrefabAsset: {fileID: 0}

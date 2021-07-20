@@ -14,6 +14,6 @@ public class SensorTouch : SensorGeneric
     {
         base.SetSensorName(snapPoint);
         gameObject.transform.name = gameObject.transform.name + "Contacto";
-        base.SetPanelName();
+        base.StoreSensorName(gameObject.transform.name);
     }
 }

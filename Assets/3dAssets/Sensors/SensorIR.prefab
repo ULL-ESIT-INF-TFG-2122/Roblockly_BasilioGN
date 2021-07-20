@@ -912,7 +912,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9692a709c73bf774c8df2bdbe2795aa7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SnappedPoint: {fileID: 3874596517627426932}
 --- !u!114 &-1252854764111920588
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -925,7 +924,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 938c6a515c580be43a78f1bc4cb1686e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  panelSensor: {fileID: 3559837278705875891, guid: 674f0f70077a0ab4bb06af63dcf43290,
+  panelSensor: {fileID: 3914276394199152572, guid: 14de82e332264314dad97bb3f73c3969,
     type: 3}
 --- !u!1 &3878421411936338774
 GameObject:

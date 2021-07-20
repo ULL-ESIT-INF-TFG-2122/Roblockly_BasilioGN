@@ -13,10 +13,10 @@ public class SensorUS : SensorGeneric
       SnapController.SetLinkedToARobotOn += base.SetLinkSensor;
     }
 
-    public void ActivateUS()
+    /*public void ActivateUS()
     {
         transform.gameObject.SetActive(transform.gameObject.tag == "SensorUS");
-    }
+    }*/
 
     void SetRange()
     {
@@ -33,6 +33,5 @@ public class SensorUS : SensorGeneric
         base.SetSensorName(snapPoint);
         gameObject.transform.name = gameObject.transform.name + "Ultrasonido";
         base.StoreSensorName(gameObject.transform.name);
-        base.SetPanelName();
     }
 }

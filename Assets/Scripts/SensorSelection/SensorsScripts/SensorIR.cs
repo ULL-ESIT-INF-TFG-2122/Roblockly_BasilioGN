@@ -21,11 +21,10 @@ public class SensorIR : SensorGeneric
     {
         //
     }
-    
     public override void SetSensorName(string snapPoint)
     {
         base.SetSensorName(snapPoint);
         gameObject.transform.name = gameObject.transform.name + "Infrarrojo";
-        base.SetPanelName();
+        base.StoreSensorName(gameObject.transform.name);
     }
 }

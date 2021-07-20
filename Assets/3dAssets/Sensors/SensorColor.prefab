@@ -840,7 +840,7 @@ GameObject:
   - component: {fileID: 2775602778919791306}
   - component: {fileID: 2856822488064302010}
   - component: {fileID: 2838761639557974730}
-  - component: {fileID: -6065110298691203328}
+  - component: {fileID: 2834859849547786045}
   m_Layer: 0
   m_Name: SensorColor
   m_TagString: NewSensor
@@ -907,8 +907,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9692a709c73bf774c8df2bdbe2795aa7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SnappedPoint: {fileID: 2842968972314794994}
---- !u!114 &-6065110298691203328
+--- !u!114 &2834859849547786045
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -917,10 +916,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 2838337526701255104}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 938c6a515c580be43a78f1bc4cb1686e, type: 3}
+  m_Script: {fileID: 11500000, guid: 5eb54aa71aaa59b47945bbbcd8d03023, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  panelSensor: {fileID: 3559837278705875891, guid: 674f0f70077a0ab4bb06af63dcf43290,
+  panelSensor: {fileID: 3914276394199152572, guid: 14de82e332264314dad97bb3f73c3969,
     type: 3}
 --- !u!1 &2838393180303270096
 GameObject:

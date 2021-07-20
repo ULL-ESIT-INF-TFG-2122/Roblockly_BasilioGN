@@ -25,6 +25,7 @@ public abstract class SensorGeneric : MonoBehaviour
         panelsContainer = Object.FindObjectOfType<PanelsManager>();
         Debug.Log("Está entrando en el MouseDown");
         if (linkedToARobot) {
+            SetPanelName(sensorName);
             panelsContainer.InstantiatePanel(panelSensor);
         }
     }
@@ -44,9 +45,9 @@ public abstract class SensorGeneric : MonoBehaviour
         gameObject.transform.name = "Sensor " + snapPoint + ": ";
     }
 
-    protected void SetPanelName()
+    protected void SetPanelName(string panelName)
     {
-        panelSensor.gameObject.transform.GetChild(0).gameObject.GetComponent<TMPro.TextMeshProUGUI>().text = gameObject.transform.name;
+        panelSensor.gameObject.transform.GetChild(0).gameObject.GetComponent<TMPro.TextMeshProUGUI>().text = panelName;
     }
 
     protected string GetPanelName()
@@ -69,6 +70,7 @@ public abstract class SensorGeneric : MonoBehaviour
         Debug.Log("Está activado el panel");
         panelsContainer = Object.FindObjectOfType<PanelsManager>();
         panelsContainer.DestroyPanel(panelSensor.name + "(Clone)");
+        SetPanelName("");
     }
 
     protected void StoreSensorName(string newSensorName)
