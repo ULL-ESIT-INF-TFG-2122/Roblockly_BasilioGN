@@ -38,7 +38,7 @@ public class SnapController : MonoBehaviour
     /// </summary>
    void Start()
     {
-        AddedSensorBoxScript.SetFreeSnappedPoint = SetFreeSnapPoint;
+        SensorGeneric.SetFreeSnappedPoint = SetFreeSnapPoint;
         DragObject.ActiveSnapPointsColor = ActivateSnapPoints;
     }
 
@@ -111,7 +111,7 @@ public class SnapController : MonoBehaviour
             if ((ClosestSnapPoint != null) && (ClosestDistance <= SnapRange))
             { // If the snap was successful:
                 UsedSnapPoints.Add(ClosestSnapPoint);
-                sensorToDrag.SnappedPoint = ClosestSnapPoint;
+                sensorToDrag.GetComponent<SensorGeneric>().SetSnappedPoint(ClosestSnapPoint);
                 //Debug.Log("Ha hecho el snap");
                 switch (sensorToDrag.name)
                 {
@@ -137,6 +137,8 @@ public class SnapController : MonoBehaviour
                 }
                 sensorToDrag.transform.parent = gameObject.transform; // Adds the sensor as a child of the robot.
                 SetLinkedToARobotOn(true);
+                Debug.Log(sensorToDrag.GetComponent<SensorGeneric>().gameObject.transform.name);
+                Debug.Log(sensorToDrag.name);
                 //CreateNewAddedSensorBox(sensorToDrag);
                 //CreateAddedSensorBox();
             }

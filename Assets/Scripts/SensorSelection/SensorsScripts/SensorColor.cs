@@ -25,6 +25,7 @@ public class SensorColor : SensorGeneric
     {
         base.SetSensorName(snapPoint);
         gameObject.transform.name = gameObject.transform.name + "Color";
+        base.SetPanelName();
     }
 
 }

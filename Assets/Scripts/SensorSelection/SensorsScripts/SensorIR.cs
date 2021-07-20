@@ -26,5 +26,6 @@ public class SensorIR : SensorGeneric
     {
         base.SetSensorName(snapPoint);
         gameObject.transform.name = gameObject.transform.name + "Infrarrojo";
+        base.SetPanelName();
     }
 }
