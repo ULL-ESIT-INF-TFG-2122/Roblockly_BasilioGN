@@ -18,7 +18,11 @@ public class RobotManager : MonoBehaviour
                                        // "inclinometro" checkbox.
     private bool Microphone = false; // True if the user click on 
                                      // "microphone" checkbox.
-    // Start is called before the first frame update
+
+    /// <summary>
+    /// Start is called on the frame when a script is enabled just before
+    /// any of the Update methods is called the first time.
+    /// </summary>
     void Start()
     {
         CheckInclinometer.CheckboxInclinometer = InclinometerActivation;
