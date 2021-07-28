@@ -1,4 +1,4 @@
-{
+    {
 // Block Category Name
     "VARIABLE": "Variables",
     "PROCEDURE": "Procedures",
@@ -9,6 +9,7 @@
     "LIST": "Lists",
     "COLOR": "Color",
     "COROUTINE": "Coroutines",
+    "SENSOR": "Sensors",
     
     /// default name - A simple: general default name for a variable: preferably short.
     "VARIABLES_DEFAULT_NAME": "item",

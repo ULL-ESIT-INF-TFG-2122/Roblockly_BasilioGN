@@ -12,13 +12,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 /// <summary>
 /// Class used to manage the scene configuration.
 /// </summary>
 public class LabyrinthSceneManager : MonoBehaviour
 {
-    GameObject selectedRobot;
+    private GameObject selectedRobot;
     [SerializeField] private Transform startPoint; // Is the point from which the selected robot will take its position and rotation.
 
     /// <summary>
@@ -50,4 +51,14 @@ public class LabyrinthSceneManager : MonoBehaviour
         selectedRobot.transform.position = new Vector3(XPosCoord, YPosCoord + 10, ZPosCoord);
         selectedRobot.transform.rotation = startPoint.rotation;
     }
+
+    /// <summary>
+    /// Method used to manage the transition between the 
+    /// "IndividualSelectionScene" to the "MainMenu" scene.
+    /// </summary>
+    public void GoBack ()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+    }
+
 }

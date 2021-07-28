@@ -22,6 +22,9 @@ public class SensorSelectionSceneManager : MonoBehaviour
     //public delegate void SetEnableCanvas(bool isActiveCanvas);
     //public static SetEnableCanvas SetCanvasActive;
     //private GameObject canvas;
+    private GameObject selectedRobot;
+    private GameObject rotatingPlatform;
+    private bool settedUp = false;
 
     /// <summary>
     /// Start is called on the frame when a script is enabled just before
@@ -30,6 +33,33 @@ public class SensorSelectionSceneManager : MonoBehaviour
     void Start()
     {
         //canvas = GameObject.Find("SensorBackContinueUI");
+    }
+
+    /// <summary>
+    /// Update is called every frame, if the MonoBehaviour is enabled.
+    /// </summary>
+    void Update()
+    {
+        if (selectedRobot == null)
+        {
+            selectedRobot = GameObject.FindWithTag("SelectedRobot");
+            SetUpSelectedRobot();
+        }
+    }
+
+    /// <summary>
+    /// This method sets up the robot position and rotation at the start 
+    /// method of the scene
+    /// </summary>
+    void SetUpSelectedRobot()
+    {
+        rotatingPlatform = GameObject.Find("RotatingPlatform");
+        selectedRobot.transform.position = rotatingPlatform.transform.position;
+        float XPosCoord = selectedRobot.transform.position.x;
+        float YPosCoord = selectedRobot.transform.position.y;
+        float ZPosCoord = selectedRobot.transform.position.z;   
+        selectedRobot.transform.position = new Vector3(XPosCoord - 10, YPosCoord + 10, ZPosCoord + 10);
+        selectedRobot.transform.rotation = rotatingPlatform.transform.rotation;
     }
 
     /// <summary>
