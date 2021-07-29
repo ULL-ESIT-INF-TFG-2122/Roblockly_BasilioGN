@@ -108,12 +108,38 @@ public class RobotMotionController1 : MonoBehaviour
         rearPassengerTransform.Rotate(motorSpeed * 10 * Time.deltaTime, 0, 0);
     }
 
-    private void RotateRobot(float degreesToRotate)
+    private IEnumerator RotateRobot(float angleToRotate)
     {
-        gameObject.transform.Rotate(degreesToRotate * 20 * Time.deltaTime, 0, 0);
+        //gameObject.transform.Rotate(degreesToRotate * 20 * Time.deltaTime, 0, 0);
+        Quaternion goal = Quaternion.Euler(0, angleToRotate, 0);
+        while (Quaternion.Angle(transform.rotation, goal) > 1.0f)
+        {
+            this.transform.rotation = Quaternion.Slerp(this.transform.rotation, Quaternion.Euler(0, angleToRotate, 0), Time.deltaTime);
+            yield return null;
+        }
+        this.transform.rotation = Quaternion.Euler(0, angleToRotate, 0);
+        yield return null;
     }
 
     int aux = 0;
+
+    /// <summary>
+    /// Update is called every frame, if the MonoBehaviour is enabled.
+    /// </summary>
+    void Update()
+    {
+        if (aux == 0)
+        {
+            Debug.Log("Ha entrado en el if");
+            StartCoroutine(RotateRobot(90));
+            aux++;
+        }
+        if (Input.GetKeyDown("space"))
+        {
+            StopAllCoroutines();
+            print("Stopped all Coroutines: " + Time.time);
+        }
+    }
 
     /// <summary>
     /// This function is called every fixed framerate frame, if the 
@@ -127,10 +153,5 @@ public class RobotMotionController1 : MonoBehaviour
         //UpdateWheelPoses();
         //MoveForwardRobot(1);
         //MoveBackwardRobot(1);
-        if (aux == 0)
-        {
-            RotateRobot(90);
-            aux++;
-        }
     }
 }
