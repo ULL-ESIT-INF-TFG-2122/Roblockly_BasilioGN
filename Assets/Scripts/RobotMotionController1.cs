@@ -4,18 +4,11 @@ using UnityEngine;
 
 public class RobotMotionController1 : MonoBehaviour
 {
-    private float horizontaInput;
-    private float verticalInput;
-    private float steeringAngle;
-
     private Rigidbody robotRigidbody;
+    private const int DEFAULT_DISTANCE = 1;
     
-    public WheelCollider frontDriverWheel, frontPassengerWheel;
-    public WheelCollider rearDriverWheel, rearPassengerWheel;
     public Transform frontDriverTransform, frontPassengerTransform;
     public Transform rearDriverTransform, rearPassengerTransform;
-    public float maxSteerAngle = 30; // Controls the steering radious. How fast can we turn or would we do a u-turn in the robot. (Rotation angle for the wheels).
-    public float motorForce = 50; // How fast the robot can go.
     public float motorSpeed = 50;
     
 
@@ -28,130 +21,105 @@ public class RobotMotionController1 : MonoBehaviour
         robotRigidbody = GetComponent<Rigidbody>();
     }
 
-    public void GetInput()
-    {
-        horizontaInput = Input.GetAxis("Horizontal");
-        verticalInput = Input.GetAxis("Vertical");
-    }
-
-    private void Steer()
-    {
-        steeringAngle = maxSteerAngle * horizontaInput;
-        frontDriverWheel.steerAngle = steeringAngle;
-        frontPassengerWheel.steerAngle = steeringAngle;
-    }
-
     /// <summary>
-    /// Applies acceleretion to the wheels in order to Emulate a real wheel 
-    /// driving.
+    /// Moves the robot forward at the speed passed by parameters.
     /// </summary>
-    private void Accelerate()
+    /// <param name="velocity"> The velocity to move the robot forward.</param>
+    private void MoveForwardRobot(float velocity)
     {
-        frontDriverWheel.motorTorque = verticalInput * motorForce;
-        frontPassengerWheel.motorTorque = verticalInput * motorForce;
-        rearDriverWheel.motorTorque = verticalInput * motorForce;
-        rearPassengerWheel.motorTorque = verticalInput * motorForce;
-    }
-
-    /// <summary>
-    /// This method is used to update the rotations and position of the wheels.
-    /// It makes possible the wheels look like real wheels spinning.
-    /// </summary>
-    private void UpdateWheelPoses()
-    {
-        UpdateWheelPose(frontDriverWheel, frontDriverTransform);
-        UpdateWheelPose(frontPassengerWheel, frontPassengerTransform);
-        UpdateWheelPose(rearDriverWheel, rearDriverTransform);
-        UpdateWheelPose(rearPassengerWheel, rearPassengerTransform);
-    }
-
-    /// <summary>
-    /// This method is an overload of the previous one in orther to configure 
-    /// each individual wheel and not duplicate all the code for each wheel in
-    /// the previous method.
-    /// </summary>
-    private void UpdateWheelPose(WheelCollider currentCollider, Transform currentTransform)
-    {
-        Vector3 currentPosition = currentTransform.position;
-        Quaternion currentRotation = currentTransform.rotation;
-
-        currentCollider.GetWorldPose(out currentPosition, out currentRotation);
-        currentTransform.position = currentPosition;
-        currentTransform.rotation = currentRotation;
-    }
-
-    private void MoveForwardRobot(float distance)
-    {
-        Vector3 moveInput = new Vector3(0, 0, distance);
-        robotRigidbody.MovePosition(transform.position + moveInput * Time.deltaTime * motorSpeed);
-        if (distance != 0)
+        Vector3 moveInput = new Vector3(0, 0, DEFAULT_DISTANCE);
+        robotRigidbody.MovePosition(transform.position + moveInput * Time.deltaTime * velocity);
+        if (DEFAULT_DISTANCE != 0)
         {
-            rotateWheels();
+            rotateWheels(velocity);
         }
     }
 
-    private void MoveBackwardRobot(float distance)
+    /// <summary>
+    /// Moves the robot backward at the speed passed by parameters.
+    /// </summary>
+    /// <param name="velocity"> The velocity to move the robot backward.</param>
+    private void MoveBackwardRobot(float velocity)
     {
-        Vector3 moveInput = new Vector3(0, 0, -distance);
-        robotRigidbody.MovePosition(transform.position + moveInput * Time.deltaTime * motorSpeed);
-        if (distance != 0)
+        Vector3 moveInput = new Vector3(0, 0, -DEFAULT_DISTANCE);
+        robotRigidbody.MovePosition(transform.position + moveInput * Time.deltaTime * velocity);
+        if (DEFAULT_DISTANCE != 0)
         {
-            rotateWheels();
+            rotateWheels(velocity);
         }
     }
 
-    private void rotateWheels()
+    /// <summary>
+    /// Rotates the robot wheels. Is called when the robot is in motion.
+    /// </summary>
+    /// <param name="velocity"> The velocity to rotate the wheels.</param>
+    private void rotateWheels(float velocity)
     {
-        frontDriverTransform.Rotate(motorSpeed * 10 * Time.deltaTime, 0, 0);
-        frontPassengerTransform.Rotate(motorSpeed * 10 * Time.deltaTime, 0, 0);
-        rearDriverTransform.Rotate(motorSpeed * 10 * Time.deltaTime, 0, 0);
-        rearPassengerTransform.Rotate(motorSpeed * 10 * Time.deltaTime, 0, 0);
+        frontDriverTransform.Rotate(velocity * 10 * Time.deltaTime, 0, 0);
+        frontPassengerTransform.Rotate(velocity * 10 * Time.deltaTime, 0, 0);
+        rearDriverTransform.Rotate(velocity * 10 * Time.deltaTime, 0, 0);
+        rearPassengerTransform.Rotate(velocity * 10 * Time.deltaTime, 0, 0);
     }
 
+    /// <summary>
+    /// Rotates the robot over its Y axis a specific angle.
+    /// </summary>
+    /// <param name="angleToRotate"> Value of the angle that the robot will 
+    /// rotate.</param>
     private IEnumerator RotateRobot(float angleToRotate)
     {
-        //gameObject.transform.Rotate(degreesToRotate * 20 * Time.deltaTime, 0, 0);
         Quaternion goal = Quaternion.Euler(0, angleToRotate, 0);
         while (Quaternion.Angle(transform.rotation, goal) > 1.0f)
         {
-            this.transform.rotation = Quaternion.Slerp(this.transform.rotation, Quaternion.Euler(0, angleToRotate, 0), Time.deltaTime);
+            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(0, angleToRotate, 0), Time.deltaTime);
             yield return null;
         }
-        this.transform.rotation = Quaternion.Euler(0, angleToRotate, 0);
+        transform.rotation = Quaternion.Euler(0, angleToRotate, 0);
         yield return null;
     }
-
-    int aux = 0;
+    
+    /// <summary>
+    /// Stops the robot immediately;
+    /// </summary>
+    private void StopRobot()
+    {
+        robotRigidbody.velocity = new Vector3(0, 0, 0);
+        StopAllCoroutines();
+    }
 
     /// <summary>
     /// Update is called every frame, if the MonoBehaviour is enabled.
     /// </summary>
     void Update()
     {
-        if (aux == 0)
+        /*if (aux == 0)
         {
             Debug.Log("Ha entrado en el if");
             StartCoroutine(RotateRobot(90));
             aux++;
-        }
+        }*/
         if (Input.GetKeyDown("space"))
         {
-            StopAllCoroutines();
-            print("Stopped all Coroutines: " + Time.time);
+            //StopRobot();
+            //StopAllCoroutines();
+            //print("Stopped all Coroutines: " + Time.time);
         }
     }
 
+    //int aux = 0;
     /// <summary>
     /// This function is called every fixed framerate frame, if the 
     /// MonoBehaviour is enabled.
     /// </summary>
     private void FixedUpdate()
     {
-        GetInput();
-        //Steer();
-        //Accelerate();
-        //UpdateWheelPoses();
-        //MoveForwardRobot(1);
+        /*if (aux < 100)
+        {
+            MoveForwardRobot(20);
+        } else {
+            StopRobot();
+        }
+        aux++;*/
         //MoveBackwardRobot(1);
     }
 }
