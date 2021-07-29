@@ -22,20 +22,65 @@ public class RobotMotionController1 : MonoBehaviour
     }
 
     /// <summary>
-    /// Moves the robot forward at the speed passed by parameters.
+    /// Moves the robot forward or backward at the speed passed by parameters.
     /// </summary>
     /// <param name="velocity"> The velocity to move the robot forward.</param>
-    private void MoveForwardRobot(float velocity)
+    /// <param name="forward"> True if the robot moves forward, false  if 
+    /// backward.</param>
+    private void MoveVerticalRobot(float velocity, bool forward)
     {
-        Vector3 moveInput = new Vector3(0, 0, DEFAULT_DISTANCE);
-        robotRigidbody.MovePosition(transform.position + moveInput * Time.deltaTime * velocity);
-        if (DEFAULT_DISTANCE != 0)
+        Vector3 moveInput;
+        if (forward)
         {
+            moveInput = new Vector3(0, 0, DEFAULT_DISTANCE);
+        } else { // If wants to move robot backwards;
+            moveInput = new Vector3(0, 0, -DEFAULT_DISTANCE);
+        }
+            robotRigidbody.MovePosition(transform.position + moveInput * Time.deltaTime * velocity);
             rotateWheels(velocity);
+    }
+
+    /// <summary>
+    /// Moves the robot forward or backward at the vlocity passed by parameters.
+    /// with NO time limit.
+    /// </summary>
+    /// <param name="velocity"> The velocity to move the robot forward.</param>
+    /// <param name="forward"> True if the robot moves forward, false  if 
+    /// backward.</param>
+    private IEnumerator MoveVerticalRobotInfinite(float velocity, bool forward)
+    {
+        for(;;)
+        {
+            MoveVerticalRobot(velocity, forward);
+            yield return null;
         }
     }
 
     /// <summary>
+    /// Moves the robot forward or backward at the vlocity passed by parameters.
+    /// with time limit.
+    /// </summary>
+    /// <param name="velocity"> Velocity to move the robot forward.</param>
+    /// <param name="timeToMove"> Time during wich the robot will move.</param>
+    /// <param name="forward"> True if the robot moves forward, false  if 
+    /// backward.</param>
+    private IEnumerator MoveVerticalRobotTime(float velocity, float timeToMove, bool forward)
+    {
+        if (timeToMove > 0)
+        {
+            float elapsedTime = Time.time;
+            while(elapsedTime <= timeToMove)
+            {
+                Debug.Log("Time: " + Time.time);
+                MoveVerticalRobot(velocity, forward);
+                elapsedTime += Time.deltaTime;
+                yield return null;
+            }
+        }
+        yield return null;
+    }
+
+    /*/// <summary>
     /// Moves the robot backward at the speed passed by parameters.
     /// </summary>
     /// <param name="velocity"> The velocity to move the robot backward.</param>
@@ -47,7 +92,7 @@ public class RobotMotionController1 : MonoBehaviour
         {
             rotateWheels(velocity);
         }
-    }
+    }*/
 
     /// <summary>
     /// Rotates the robot wheels. Is called when the robot is in motion.
@@ -106,20 +151,20 @@ public class RobotMotionController1 : MonoBehaviour
         }
     }
 
-    //int aux = 0;
+    int aux = 0;
     /// <summary>
     /// This function is called every fixed framerate frame, if the 
     /// MonoBehaviour is enabled.
     /// </summary>
     private void FixedUpdate()
     {
-        /*if (aux < 100)
+        if (aux == 0)
         {
-            MoveForwardRobot(20);
-        } else {
+            
+        } /*else {
             StopRobot();
-        }
-        aux++;*/
+        }*/
+        aux++;
         //MoveBackwardRobot(1);
     }
 }
