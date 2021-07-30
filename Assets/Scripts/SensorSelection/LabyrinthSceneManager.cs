@@ -21,6 +21,13 @@ public class LabyrinthSceneManager : MonoBehaviour
 {
     private GameObject selectedRobot;
     [SerializeField] private Transform startPoint; // Is the point from which the selected robot will take its position and rotation.
+    private float DEFALUT_WIDTH = 300.0f;
+    private float DEFAULT_HEIGHT = 200.0f;
+    private GameObject challengeViewer;
+    private GameObject mainCanvas;
+
+    public Camera robotCamera;
+
 
     /// <summary>
     /// Start is called on the frame when a script is enabled just before
@@ -28,7 +35,10 @@ public class LabyrinthSceneManager : MonoBehaviour
     /// </summary>
     void Start()
     {
+        robotCamera = robotCamera.GetComponent<Camera>();
         SetUpSelectedRobot();
+        challengeViewer = GameObject.Find("Canvas/ChallengeViewer");
+        mainCanvas = GameObject.Find("Canvas");
     }
 
     // Update is called once per frame
@@ -50,7 +60,7 @@ public class LabyrinthSceneManager : MonoBehaviour
         float ZPosCoord = selectedRobot.transform.position.z;   
         selectedRobot.transform.position = new Vector3(XPosCoord, YPosCoord + 10, ZPosCoord);
         selectedRobot.transform.rotation = startPoint.rotation;
-        selectedRobot.GetComponent<RobotManager>().Kinematic(false);
+        selectedRobot.GetComponent<RobotManager>().Kinematic(false); // Enables robot physics again.
     }
 
     /// <summary>
@@ -60,6 +70,25 @@ public class LabyrinthSceneManager : MonoBehaviour
     public void GoBack ()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+    }
+
+    public void changeImageScale()
+    {
+        RectTransform canvasRect = mainCanvas.GetComponent<RectTransform>();
+        RectTransform challengeViewerRect = challengeViewer.GetComponent<RectTransform>();
+        RectTransform cameraRect = robotCamera.GetComponent<RectTransform>();
+        float canvasWidth = canvasRect.rect.width;
+        float canvasHeight = canvasRect.rect.height;
+        float challengeWidth = challengeViewerRect.rect.width;
+        float challengeHeight = challengeViewerRect.rect.height;
+        if((challengeWidth != canvasWidth) && (challengeHeight != canvasHeight))
+        {
+            challengeViewerRect.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, canvasHeight);
+            challengeViewerRect.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, canvasWidth);
+        } else {
+            challengeViewerRect.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, DEFAULT_HEIGHT);
+            challengeViewerRect.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, DEFALUT_WIDTH);
+        }
     }
 
 }
