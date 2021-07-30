@@ -20,6 +20,14 @@ public class RobotManager : MonoBehaviour
                                      // "microphone" checkbox.
 
     /// <summary>
+    /// Awake is called when the script instance is being loaded.
+    /// </summary>
+    void Awake()
+    {
+        Kinematic(true);
+    }
+
+    /// <summary>
     /// Start is called on the frame when a script is enabled just before
     /// any of the Update methods is called the first time.
     /// </summary>
@@ -48,5 +56,16 @@ public class RobotManager : MonoBehaviour
     {
         CheckInclinometer.CheckboxInclinometer -= InclinometerActivation;
         CheckMicrophone.CheckboxMicrophone -= MicrophoneActivation;
+    }
+
+    /// <summary>
+    /// Enables or disables the kinematic of the robot.
+    /// </summary>
+    /// <param name="status"> True for enable or false for disable the robot 
+    /// kinematic </param> 
+    public void Kinematic(bool status)
+    {
+        Rigidbody robotRb = GetComponent<Rigidbody>();
+        robotRb.isKinematic = status;
     }
 }

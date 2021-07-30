@@ -50,6 +50,7 @@ public class LabyrinthSceneManager : MonoBehaviour
         float ZPosCoord = selectedRobot.transform.position.z;   
         selectedRobot.transform.position = new Vector3(XPosCoord, YPosCoord + 10, ZPosCoord);
         selectedRobot.transform.rotation = startPoint.rotation;
+        selectedRobot.GetComponent<RobotManager>().Kinematic(false);
     }
 
     /// <summary>
