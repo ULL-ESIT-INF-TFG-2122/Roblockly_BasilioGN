@@ -24,9 +24,7 @@ public class SnapController : MonoBehaviour
     DragObject[] SensorsToDrag; // Contains all the draggable
                                 // sensors;
 
-    /*// The delegate below is used to create a new box in the "Sensores añadidos" panel. This deletate is used in the "BoxesManager.cs" script.
-    public delegate void CreateAddedSensorBox(DragObject sensorOfTheBox);
-    public static event CreateAddedSensorBox CreateNewAddedSensorBox;*/
+    /*// The delegate below is used to indicate that a new sensor has been linked to the robot. Is used in the scripts from the "SensorsScripts" directory*/
     public delegate void SetLinkedToARobotDelegate(bool status);
     public static event SetLinkedToARobotDelegate SetLinkedToARobotOn;
 

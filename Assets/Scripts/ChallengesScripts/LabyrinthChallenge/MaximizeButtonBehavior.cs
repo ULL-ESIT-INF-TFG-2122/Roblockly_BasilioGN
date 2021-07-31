@@ -39,6 +39,8 @@ public class MaximizeButtonBehavior : MonoBehaviour
         maximizeButtonRect = maximizeButton.GetComponent<RectTransform>();
         canvasWidth = canvasRect.rect.width;
         canvasHeight = canvasRect.rect.height;
+        //canvasWidth = 1280;
+        //canvasHeight = 688.8232f;
         firstChallengeWidth = challengeViewerRect.rect.width;
         firstChallengeHeight = challengeViewerRect.rect.height;
         initialChallengeViewerPos = challengeViewer.transform.position;
@@ -55,11 +57,12 @@ public class MaximizeButtonBehavior : MonoBehaviour
             challengeViewerRect.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, canvasHeight);
             challengeViewerRect.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, canvasWidth);
             challengeViewer.transform.position = mainCanvasPosition;
+            //challengeViewerRect.localPosition = canvasRect.localPosition;
             float buttonOffset = (maximizeButtonRect.rect.width / 2);
             float leftTopX = (-canvasWidth/2);
             float leftTopY = (canvasHeight/2);
             // Set the button new position.
-            maximizeButtonRect.localPosition = new Vector3(leftTopX + buttonOffset, leftTopY - buttonOffset, canvasRect.position.z);
+            //maximizeButtonRect.localPosition = new Vector3(leftTopX + buttonOffset, leftTopY - buttonOffset, canvasRect.position.z);
         } else { // If the challengeViewer is big
             challengeViewerRect.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, firstChallengeHeight);
             challengeViewerRect.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, firstChallengeWidth);
