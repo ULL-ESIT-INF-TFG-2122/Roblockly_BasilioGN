@@ -1031,6 +1031,7 @@ GameObject:
   - component: {fileID: 815815906}
   - component: {fileID: 815815905}
   - component: {fileID: 815815904}
+  - component: {fileID: 815815907}
   m_Layer: 5
   m_Name: MaximizeButton
   m_TagString: Untagged
@@ -1101,8 +1102,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2066066946}
-        m_TargetAssemblyTypeName: LabyrinthSceneManager, Assembly-CSharp
+      - m_Target: {fileID: 815815907}
+        m_TargetAssemblyTypeName: MaximizeButtonBehavior, Assembly-CSharp
         m_MethodName: changeImageScale
         m_Mode: 1
         m_Arguments:
@@ -1151,6 +1152,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 815815902}
   m_CullTransparentMesh: 1
+--- !u!114 &815815907
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 815815902}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4c6aa19a5798064e97e40a419b66804, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &893898832
 GameObject:
   m_ObjectHideFlags: 0
