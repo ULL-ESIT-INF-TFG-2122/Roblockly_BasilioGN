@@ -61,6 +61,10 @@ public class LabyrinthSceneManager : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
     }
 
+    /// <summary>
+    /// Method used to disable the small challenge viewer and activate the big 
+    /// one.
+    /// </summary>
     public void ChangeToBig()
     {
         if ((!bigChallengeViewer.activeSelf) && (smallChallengeViewer.activeSelf))
@@ -70,6 +74,10 @@ public class LabyrinthSceneManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Method used to disable the big challenge viewer and activate the samll 
+    /// one.
+    /// </summary>
     public void ChangeToSmall()
     {
         if ((bigChallengeViewer.activeSelf) && (!smallChallengeViewer.activeSelf))
