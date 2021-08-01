@@ -50,6 +50,11 @@
                "CategoryName": "SENSOR",
                "ColorHex": "#faff00",
                "BlockTypePrefix": "sensors"  
+          },
+          {
+               "CategoryName": "MOVE",
+               "ColorHex": "#9700f4",
+               "BlockTypePrefix": "move"
           }
      ]
 }

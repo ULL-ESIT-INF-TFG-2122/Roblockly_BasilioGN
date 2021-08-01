@@ -47,7 +47,7 @@ public class RobotMotionController1 : MonoBehaviour
     /// <param name="velocity"> The velocity to move the robot forward.</param>
     /// <param name="forward"> True if the robot moves forward, false  if 
     /// backward.</param>
-    private IEnumerator MoveVerticalRobotInfinite(float velocity, bool forward)
+    public IEnumerator MoveVerticalRobotInfinite(float velocity, bool forward)
     {
         for(;;)
         {
@@ -95,18 +95,6 @@ public class RobotMotionController1 : MonoBehaviour
     }*/
 
     /// <summary>
-    /// Rotates the robot wheels. Is called when the robot is in motion.
-    /// </summary>
-    /// <param name="velocity"> The velocity to rotate the wheels.</param>
-    private void rotateWheels(float velocity)
-    {
-        frontDriverTransform.Rotate(velocity * 10 * Time.deltaTime, 0, 0);
-        frontPassengerTransform.Rotate(velocity * 10 * Time.deltaTime, 0, 0);
-        rearDriverTransform.Rotate(velocity * 10 * Time.deltaTime, 0, 0);
-        rearPassengerTransform.Rotate(velocity * 10 * Time.deltaTime, 0, 0);
-    }
-
-    /// <summary>
     /// Rotates the robot over its Y axis a specific angle.
     /// </summary>
     /// <param name="angleToRotate"> Value of the angle that the robot will 
@@ -130,6 +118,18 @@ public class RobotMotionController1 : MonoBehaviour
     {
         robotRigidbody.velocity = new Vector3(0, 0, 0);
         StopAllCoroutines();
+    }
+
+    /// <summary>
+    /// Rotates the robot wheels. Is called when the robot is in motion.
+    /// </summary>
+    /// <param name="velocity"> The velocity to rotate the wheels.</param>
+    private void rotateWheels(float velocity)
+    {
+        frontDriverTransform.Rotate(velocity * 10 * Time.deltaTime, 0, 0);
+        frontPassengerTransform.Rotate(velocity * 10 * Time.deltaTime, 0, 0);
+        rearDriverTransform.Rotate(velocity * 10 * Time.deltaTime, 0, 0);
+        rearPassengerTransform.Rotate(velocity * 10 * Time.deltaTime, 0, 0);
     }
 
     /// <summary>
@@ -158,13 +158,14 @@ public class RobotMotionController1 : MonoBehaviour
     /// </summary>
     private void FixedUpdate()
     {
-        if (aux == 0)
+        /*if (aux == 0)
         {
             
         } /*else {
             StopRobot();
         }*/
-        aux++;
+        //aux++;
         //MoveBackwardRobot(1);
     }
 }
+

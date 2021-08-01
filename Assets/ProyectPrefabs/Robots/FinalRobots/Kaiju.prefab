@@ -979,6 +979,7 @@ GameObject:
   - component: {fileID: 7149931462589726660}
   - component: {fileID: 1712717415154807131}
   - component: {fileID: 1880025705609193996}
+  - component: {fileID: 8970908578567632075}
   m_Layer: 0
   m_Name: Kaiju
   m_TagString: notCurrent
@@ -1096,6 +1097,23 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.8183447, y: 1.2684554, z: 3.0337524}
   m_Center: {x: 0.004995246, y: 0.06345548, z: -0.29174295}
+--- !u!114 &8970908578567632075
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7149931462589832070}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aaf985ebb0b858f4eb35a2fcba85fd92, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  frontDriverTransform: {fileID: 7149931462589663134}
+  frontPassengerTransform: {fileID: 7149931462589663130}
+  rearDriverTransform: {fileID: 7149931462589663132}
+  rearPassengerTransform: {fileID: 7149931462589663204}
+  motorSpeed: 50
 --- !u!1 &7149931462589832122
 GameObject:
   m_ObjectHideFlags: 0
