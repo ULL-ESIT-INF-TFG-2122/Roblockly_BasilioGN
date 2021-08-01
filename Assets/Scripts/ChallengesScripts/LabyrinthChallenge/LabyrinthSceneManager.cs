@@ -22,6 +22,11 @@ public class LabyrinthSceneManager : MonoBehaviour
     private GameObject selectedRobot;
     [SerializeField] private Transform startPoint; // Is the point from which the selected robot will take its position and rotation.
 
+    public GameObject maximizeButtonSmall;
+    public GameObject maximizeButtonBig;
+    public GameObject smallChallengeViewer;
+    public GameObject bigChallengeViewer;
+
     /// <summary>
     /// Start is called on the frame when a script is enabled just before
     /// any of the Update methods is called the first time.
@@ -54,5 +59,23 @@ public class LabyrinthSceneManager : MonoBehaviour
     public void GoBack ()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+    }
+
+    public void ChangeToBig()
+    {
+        if ((!bigChallengeViewer.activeSelf) && (smallChallengeViewer.activeSelf))
+        {
+            smallChallengeViewer.SetActive(false);
+            bigChallengeViewer.SetActive(true);
+        }
+    }
+
+    public void ChangeToSmall()
+    {
+        if ((bigChallengeViewer.activeSelf) && (!smallChallengeViewer.activeSelf))
+        {
+            bigChallengeViewer.SetActive(false);
+            smallChallengeViewer.SetActive(true);
+        }
     }
 }

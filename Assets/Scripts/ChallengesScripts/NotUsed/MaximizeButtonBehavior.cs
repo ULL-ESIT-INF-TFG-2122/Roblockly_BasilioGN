@@ -26,8 +26,11 @@ public class MaximizeButtonBehavior : MonoBehaviour
     /// </summary>
     void Start()
     {
-        challengeViewer = GameObject.Find("Canvas/ChallengeViewer");
-        maximizeButton = GameObject.Find("Canvas/MaximizeButton");
+        //challengeViewer = GameObject.Find("Canvas/ChallengeViewer");
+        //smallChallengeViewer = GameObject.Find
+        //maximizeButtonSmall = GameObject.Find("Canvas/SmallChallengeViewer/MaximizeButtonSmall");
+        //maximizeButtonBig = GameObject.Find("Canvas/SmallChallengeViewer/MaximizeButtonBig");
+        //maximizeButton = GameObject.Find("Canvas/MaximizeButton");
         mainCanvas = GameObject.Find("Canvas");
         changeImageScaleSetUp();
     }
@@ -70,5 +73,10 @@ public class MaximizeButtonBehavior : MonoBehaviour
             // Sets the button to its initial position.
             maximizeButton.transform.position = maximizeButtonInitPos;
         }
+    }
+
+    public void ChangeToSmall()
+    {
+        
     }
 }
