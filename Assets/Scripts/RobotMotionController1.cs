@@ -6,6 +6,8 @@ public class RobotMotionController1 : MonoBehaviour
 {
     private Rigidbody robotRigidbody;
     private const int DEFAULT_DISTANCE = 1;
+    private const string RIGHT = "RIGHT";
+    private const string LEFT = "LEFT";
     
     public Transform frontDriverTransform, frontPassengerTransform;
     public Transform rearDriverTransform, rearPassengerTransform;
@@ -61,17 +63,19 @@ public class RobotMotionController1 : MonoBehaviour
     /// with time limit.
     /// </summary>
     /// <param name="velocity"> Velocity to move the robot forward.</param>
-    /// <param name="timeToMove"> Time during wich the robot will move.</param>
+    /// <param name="timeToMove"> Time (in seconds) during wich the robot will
+    /// move.</param>
     /// <param name="forward"> True if the robot moves forward, false  if 
     /// backward.</param>
-    private IEnumerator MoveVerticalRobotTime(float velocity, float timeToMove, bool forward)
+    public IEnumerator MoveVerticalRobotTime(float velocity, float timeToMove, bool forward)
     {
         if (timeToMove > 0)
         {
-            float elapsedTime = Time.time;
+            //float elapsedTime = Time.time;
+            float elapsedTime = 0.0f;
             while(elapsedTime <= timeToMove)
             {
-                Debug.Log("Time: " + Time.time);
+                //Debug.Log("Time: " + Time.time);
                 MoveVerticalRobot(velocity, forward);
                 elapsedTime += Time.deltaTime;
                 yield return null;
@@ -99,8 +103,12 @@ public class RobotMotionController1 : MonoBehaviour
     /// </summary>
     /// <param name="angleToRotate"> Value of the angle that the robot will 
     /// rotate.</param>
-    private IEnumerator RotateRobot(float angleToRotate)
+    public IEnumerator RotateRobot(float angleToRotate, string directionToRotate)
     {
+        if (directionToRotate == LEFT)
+        {
+            angleToRotate *= -1; // Changes to negative the selected Angle;
+        }
         Quaternion goal = Quaternion.Euler(0, angleToRotate, 0);
         while (Quaternion.Angle(transform.rotation, goal) > 1.0f)
         {
@@ -114,10 +122,11 @@ public class RobotMotionController1 : MonoBehaviour
     /// <summary>
     /// Stops the robot immediately;
     /// </summary>
-    private void StopRobot()
+    public IEnumerator StopRobot()
     {
         robotRigidbody.velocity = new Vector3(0, 0, 0);
         StopAllCoroutines();
+        yield return null;
     }
 
     /// <summary>
