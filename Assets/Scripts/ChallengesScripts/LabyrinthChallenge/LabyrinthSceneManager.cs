@@ -40,16 +40,19 @@ public class LabyrinthSceneManager : MonoBehaviour
     /// This method sets up the robot position and rotation at the start 
     /// method of the scene
     /// </summary>
-    void SetUpSelectedRobot()
+    public void SetUpSelectedRobot()
     {
-        selectedRobot = GameObject.FindWithTag("SelectedRobot");
+        if (selectedRobot == null)
+        {
+            selectedRobot = GameObject.FindWithTag("SelectedRobot");            
+        }
         selectedRobot.transform.position = startPoint.position;
         float XPosCoord = selectedRobot.transform.position.x;
         float YPosCoord = selectedRobot.transform.position.y;
         float ZPosCoord = selectedRobot.transform.position.z;   
         selectedRobot.transform.position = new Vector3(XPosCoord, YPosCoord + 10, ZPosCoord);
         selectedRobot.transform.rotation = startPoint.rotation;
-        selectedRobot.GetComponent<RobotManager>().Kinematic(true); // Enables robot physics again.
+        selectedRobot.GetComponent<RobotManager>().Kinematic(false); // Enables robot physics again.
     }
 
     /// <summary>
@@ -58,6 +61,7 @@ public class LabyrinthSceneManager : MonoBehaviour
     /// </summary>
     public void GoBack ()
     {
+        selectedRobot.GetComponent<RobotManager>().Kinematic(true);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
     }
 

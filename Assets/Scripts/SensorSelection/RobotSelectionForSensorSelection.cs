@@ -32,6 +32,7 @@ public class RobotSelectionForSensorSelection : MonoBehaviour
                     transform.GetChild(i).gameObject.transform.position, transform.GetChild(i).gameObject.transform.rotation);
                     selectedRobot.gameObject.tag = "SelectedRobot";
                 //selectedRobot.SetActive(true);
+                selectedRobot.GetComponent<RobotManager>().Kinematic(true);
             }
         }
 
