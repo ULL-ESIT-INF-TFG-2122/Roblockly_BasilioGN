@@ -38,7 +38,7 @@ public class RobotMotionController1 : MonoBehaviour
         } else { // If wants to move robot backwards;
             moveInput = new Vector3(0, 0, -DEFAULT_DISTANCE);
         }
-            moveInput = transform.TransformDirection(moveInput);
+            moveInput = transform.TransformDirection(moveInput); // Used to transform robot direction from local into world space.
             robotRigidbody.MovePosition(transform.position + moveInput * Time.deltaTime * velocity);
             rotateWheels(velocity);
     }
