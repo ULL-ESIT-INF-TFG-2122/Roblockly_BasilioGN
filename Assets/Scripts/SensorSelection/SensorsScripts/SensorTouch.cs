@@ -17,6 +17,7 @@ using UnityEngine;
 /// </summary>
 public class SensorTouch : SensorGeneric
 {
+    private bool contact = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -29,4 +30,37 @@ public class SensorTouch : SensorGeneric
         gameObject.transform.name = gameObject.transform.name + "Contacto";
         base.StoreSensorName(gameObject.transform.name);
     }
+
+    /// <summary>
+    /// OnCollisionEnter is called when this collider/rigidbody has begun
+    /// touching another rigidbody/collider.
+    /// </summary>
+    /// <param name="other">The Collision data associated with this collision.</param>
+    void OnCollisionEnter(Collision other)
+    {
+        Debug.Log("ha hecho contacto!");
+        if (other.gameObject.tag != "SelectedRobot")
+        {
+            contact = true;    
+        }
+    }
+
+    /// <summary>
+    /// OnCollisionExit is called when this collider/rigidbody has
+    /// stopped touching another rigidbody/collider.
+    /// </summary>
+    /// <param name="other">The Collision data associated with this collision.</param>
+    void OnCollisionExit(Collision other)
+    {
+        if (other.gameObject.tag != "SelectedRobot")
+        {
+            contact = false;
+        }
+    }
+
+    bool GetContact()
+    {
+        return contact;
+    }
+
 }

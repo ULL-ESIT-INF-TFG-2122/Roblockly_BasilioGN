@@ -68,4 +68,10 @@ public class RobotManager : MonoBehaviour
         Rigidbody robotRb = GetComponent<Rigidbody>();
         robotRb.isKinematic = status;
     }
+
+    /*public bool GetTouchInfo(string TouchSensorToFind)
+    {
+
+    }*/
+    
 }

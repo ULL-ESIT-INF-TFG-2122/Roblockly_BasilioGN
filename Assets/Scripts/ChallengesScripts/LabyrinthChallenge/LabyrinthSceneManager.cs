@@ -52,7 +52,7 @@ public class LabyrinthSceneManager : MonoBehaviour
         float ZPosCoord = selectedRobot.transform.position.z;   
         selectedRobot.transform.position = new Vector3(XPosCoord, YPosCoord + 10, ZPosCoord);
         selectedRobot.transform.rotation = startPoint.rotation;
-        selectedRobot.GetComponent<RobotManager>().Kinematic(false); // Enables robot physics again.
+        selectedRobot.GetComponent<RobotManager>().Kinematic(true); // Enables robot physics again.
     }
 
     /// <summary>
