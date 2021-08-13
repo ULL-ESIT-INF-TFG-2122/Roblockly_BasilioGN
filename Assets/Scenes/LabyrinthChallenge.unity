@@ -158,8 +158,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.75998, y: -0.0050502}
-  m_SizeDelta: {x: 1281.4, y: 721.24}
+  m_AnchoredPosition: {x: 0.75998, y: 0.003191}
+  m_SizeDelta: {x: 1281.4, y: 642.81}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &56733423
 MonoBehaviour:
@@ -896,6 +896,41 @@ PrefabInstance:
       propertyPath: m_Name
       value: Workspace
       objectReference: {fileID: 0}
+    - target: {fileID: 114444648929744528, guid: 30bdd5fddc725438796726c39f29cd83,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114444648929744528, guid: 30bdd5fddc725438796726c39f29cd83,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114444648929744528, guid: 30bdd5fddc725438796726c39f29cd83,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2066066946}
+    - target: {fileID: 114444648929744528, guid: 30bdd5fddc725438796726c39f29cd83,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114444648929744528, guid: 30bdd5fddc725438796726c39f29cd83,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: DisableRobotKinematic
+      objectReference: {fileID: 0}
+    - target: {fileID: 114444648929744528, guid: 30bdd5fddc725438796726c39f29cd83,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: LabyrinthSceneManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 114444648929744528, guid: 30bdd5fddc725438796726c39f29cd83,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 114737297302446704, guid: 30bdd5fddc725438796726c39f29cd83,
         type: 3}
       propertyPath: m_ChildControlWidth
@@ -1290,7 +1325,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -614.5571, y: 335.1}
+  m_AnchoredPosition: {x: -615, y: 297}
   m_SizeDelta: {x: 50, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &837686634
