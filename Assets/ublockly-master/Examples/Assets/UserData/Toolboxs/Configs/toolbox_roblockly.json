@@ -47,7 +47,7 @@
                "BlockTypePrefix": "colour"
           },
           {
-               "CategoryName": "SENSOR",
+               "CategoryName": "SENSORS",
                "ColorHex": "#faff00",
                "BlockTypePrefix": "sensors"  
           },

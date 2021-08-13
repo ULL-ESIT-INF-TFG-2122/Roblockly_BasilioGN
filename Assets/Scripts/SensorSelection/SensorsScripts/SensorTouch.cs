@@ -58,7 +58,7 @@ public class SensorTouch : SensorGeneric
         }
     }
 
-    bool GetContact()
+    public bool GetContact()
     {
         return contact;
     }

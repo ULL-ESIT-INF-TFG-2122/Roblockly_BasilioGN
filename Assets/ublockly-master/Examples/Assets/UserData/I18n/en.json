@@ -9,7 +9,7 @@
     "LIST": "Lists",
     "COLOR": "Color",
     "COROUTINE": "Coroutines",
-    "SENSOR": "Sensor",
+    "SENSORS": "Sensor",
     "MOVE": "Mover",
 
     "MOVE_ROBOT": "Mover robot",

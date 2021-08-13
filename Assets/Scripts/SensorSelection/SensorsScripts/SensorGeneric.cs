@@ -53,9 +53,37 @@ public abstract class SensorGeneric : MonoBehaviour
         SnappedPoint = newSnappedPoint;
     }
 
+    private string SetSensorLocationName(string snapPoint)
+    {
+        string sensorLocationName;
+        switch (snapPoint)
+        {
+            case "FrontSnap":
+                sensorLocationName = "delantero";
+                break;
+            case "TopFrontSnap":
+                sensorLocationName = "frontal";
+                break;
+            case "BackSnap":
+                sensorLocationName = "trasero";
+                break;
+            case "LeftSnap":
+                sensorLocationName = "izquierdo";
+                break;
+            case "RightSnap":
+                sensorLocationName = "derecho";
+                break;
+            default:
+                sensorLocationName = "robot";
+                break;
+        }
+        return sensorLocationName;
+    }
+
     public virtual void SetSensorName(string snapPoint)
     {
-        gameObject.transform.name = "Sensor " + snapPoint + ": ";
+        string sensorLocationName = SetSensorLocationName(snapPoint);
+        gameObject.transform.name = "Sensor " + sensorLocationName + ": ";
     }
 
     protected void SetPanelName(string panelName)

@@ -69,9 +69,11 @@ public class RobotManager : MonoBehaviour
         robotRb.isKinematic = status;
     }
 
-    /*public bool GetTouchInfo(string TouchSensorToFind)
+    public bool GetTouchInfo(string TouchSensorToFind)
     {
-
-    }*/
-    
+        GameObject sensorToFind;
+        string sensorNameToFind = "Sensor " + TouchSensorToFind + ": Contacto";
+        sensorToFind = transform.Find(sensorNameToFind).gameObject;
+        return sensorToFind.GetComponent<SensorTouch>().GetContact();
+    }
 }
