@@ -1,10 +1,10 @@
 [
   {
-    "type": "sensor_touch_contact",
+    "type": "sensors_touch_contact",
     "message0": "Sensor contacto %1 choca",
     "args0": [
         {
-            "type": "field_number",
+            "type": "field_dropdown",
             "name": "NUMBER",
             "value": 1,
             "min": 0,
