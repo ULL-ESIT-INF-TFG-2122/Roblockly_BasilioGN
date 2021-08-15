@@ -126,9 +126,46 @@ namespace UBlockly.UGUI
         {
             Transform contentTrans = mRootList[mActiveCategory].transform;
             var blockTypes = mConfig.GetBlockCategory(mActiveCategory).BlockList;
+            GameObject selectedRobot = GameObject.FindWithTag("SelectedRobot");
             foreach (string blockType in blockTypes)
             {
-                NewBlockView(blockType, contentTrans);
+                //Debug.Log("blockType: " + blockType);
+                switch (blockType)
+                {
+                    case "sensors_ir_white":
+                        if (selectedRobot.GetComponent<RobotManager>().CheckSensor("SensorIR"))
+                        {
+                            NewBlockView(blockType, contentTrans);
+                        }
+                        break;
+                    case "sensors_ir_black":
+                        if (selectedRobot.GetComponent<RobotManager>().CheckSensor("SensorIR"))
+                        {
+                            NewBlockView(blockType, contentTrans);
+                        }
+                        break;
+                    case "sensors_touch_contact":
+                        if (selectedRobot.GetComponent<RobotManager>().CheckSensor("SensorTouch"))
+                        {
+                            NewBlockView(blockType, contentTrans);
+                        }
+                        break;
+                    case "sensors_touch_not_contact":
+                        if (selectedRobot.GetComponent<RobotManager>().CheckSensor("SensorTouch"))
+                        {
+                            NewBlockView(blockType, contentTrans);
+                        }
+                        break;
+                    case "sensors_us":
+                        if (selectedRobot.GetComponent<RobotManager>().CheckSensor("SensorUS"))
+                        {
+                            NewBlockView(blockType, contentTrans);
+                        }
+                        break;
+                    default: 
+                        NewBlockView(blockType, contentTrans);
+                        break;
+                }
             }
         }
         

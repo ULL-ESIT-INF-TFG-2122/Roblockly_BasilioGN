@@ -115,18 +115,22 @@ public class SnapController : MonoBehaviour
                     case "SensorUS(Clone)":
                         SetUltrasoundSensor(sensorToDrag, ClosestSnapPoint);
                         sensorToDrag.GetComponent<SensorUS>().SetSensorName(ClosestSnapPoint.tag);
+                        this.GetComponent<RobotManager>().AddUsedSensor(sensorToDrag.name, "SensorUS"); // Adds the sensor type to the usedSensors Dictionary in RobotManager.cs
                         break;
                     case "SensorTouch(Clone)":
                         SetTouchSensor(sensorToDrag, ClosestSnapPoint);
                         sensorToDrag.GetComponent<SensorTouch>().SetSensorName(ClosestSnapPoint.tag);
+                        this.GetComponent<RobotManager>().AddUsedSensor(sensorToDrag.name, "SensorTouch");
                         break;
                     case "SensorIR(Clone)":
                         SetInfraredColorSensor(sensorToDrag, ClosestSnapPoint);
                         sensorToDrag.GetComponent<SensorIR>().SetSensorName(ClosestSnapPoint.tag);
+                        this.GetComponent<RobotManager>().AddUsedSensor(sensorToDrag.name, "SensorIR");
                         break;
                     case "SensorColor(Clone)":
                         SetInfraredColorSensor(sensorToDrag, ClosestSnapPoint);
                         sensorToDrag.GetComponent<SensorColor>().SetSensorName(ClosestSnapPoint.tag);
+                        this.GetComponent<RobotManager>().AddUsedSensor(sensorToDrag.name, "SensorColor");
                         break;
                     default:
                         Debug.Log("There aren't any sensor of this type");

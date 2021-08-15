@@ -121,7 +121,9 @@ namespace UBlockly.UGUI
         }
 
         /// <summary>
-        /// Build block views for the active category, child class should implement this for custom build
+        /// Build block views for the active category, child class should implement this for custom build. 
+        ///
+        // Roblockly implementation: Checks if ther is any sensor of blockType before create the block view.
         /// </summary>
         protected virtual void BuildBlockViewsForActiveCategory()
         {

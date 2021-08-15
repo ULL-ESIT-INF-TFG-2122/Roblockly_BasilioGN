@@ -18,6 +18,8 @@ public class RobotManager : MonoBehaviour
                                        // "inclinometro" checkbox.
     private bool Microphone = false; // True if the user click on 
                                      // "microphone" checkbox.
+    
+    private Dictionary<string, string> usedSensors = new Dictionary<string, string>(); // Save the sensors snapped to the robot to know the blocks to show in the coding panel of the UGUI. This check is carried out in SnapController script and SensorGeneric (DeleteSensor method).
 
     /// <summary>
     /// Awake is called when the script instance is being loaded.
@@ -56,6 +58,28 @@ public class RobotManager : MonoBehaviour
     {
         CheckInclinometer.CheckboxInclinometer -= InclinometerActivation;
         CheckMicrophone.CheckboxMicrophone -= MicrophoneActivation;
+    }
+
+    public void AddUsedSensor(string usedSensor, string usedSensorType)
+    {
+        if (!usedSensors.ContainsValue(usedSensor))
+        {
+            usedSensors.Add(usedSensor, usedSensorType);
+        }
+    }
+
+    public bool CheckSensor(string sensorType)
+    {
+        if (usedSensors.ContainsValue(sensorType))
+        {
+            return true;
+        }
+        return false;
+    }
+
+    public void DeleteSensorFromUsedSensors(string usedSensor)
+    {
+        usedSensors.Remove(usedSensor);
     }
 
     /// <summary>

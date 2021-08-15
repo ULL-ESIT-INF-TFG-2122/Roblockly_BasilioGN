@@ -108,7 +108,7 @@ public abstract class SensorGeneric : MonoBehaviour
 
     public void CancelPanel()
     {
-        Debug.Log("Está activado el panel");
+        //Debug.Log("Está activado el panel");
         panelsContainer = Object.FindObjectOfType<PanelsManager>();
         panelsContainer.DestroyPanel(panelSensor.name + "(Clone)");
         SetPanelName("");
@@ -124,6 +124,7 @@ public abstract class SensorGeneric : MonoBehaviour
         GameObject SelectedRobot = GameObject.FindGameObjectWithTag("SelectedRobot");
         SetFreeSnappedPoint(SelectedRobot.transform.Find(GetPanelName()).gameObject.GetComponent<SensorGeneric>().GetSnappedPoint());
         Destroy(SelectedRobot.transform.Find(GetPanelName()).gameObject);
+        SelectedRobot.GetComponent<RobotManager>().DeleteSensorFromUsedSensors(GetPanelName());
         CancelPanel();
     }
 }
