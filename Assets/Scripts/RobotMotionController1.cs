@@ -8,7 +8,7 @@ public class RobotMotionController1 : MonoBehaviour
     private const int DEFAULT_DISTANCE = 1;
     private const string RIGHT = "RIGHT";
     private const string LEFT = "LEFT";
-    private float angleRotated = 0.0f;
+    private float angleRotated = 0.0f; // Stores the angle rotated form 0 degrees.
     
     public Transform frontDriverTransform, frontPassengerTransform;
     public Transform rearDriverTransform, rearPassengerTransform;
