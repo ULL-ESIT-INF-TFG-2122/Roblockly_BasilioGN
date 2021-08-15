@@ -8,6 +8,7 @@ public class RobotMotionController1 : MonoBehaviour
     private const int DEFAULT_DISTANCE = 1;
     private const string RIGHT = "RIGHT";
     private const string LEFT = "LEFT";
+    private float angleRotated = 0.0f;
     
     public Transform frontDriverTransform, frontPassengerTransform;
     public Transform rearDriverTransform, rearPassengerTransform;
@@ -52,11 +53,11 @@ public class RobotMotionController1 : MonoBehaviour
     /// backward.</param>
     public IEnumerator MoveVerticalRobotInfinite(float velocity, bool forward)
     {
-        for(;;)
-        {
+        //for(;;)
+        //{
             MoveVerticalRobot(velocity, forward);
             yield return null;
-        }
+        //}
     }
 
     /// <summary>
@@ -110,13 +111,14 @@ public class RobotMotionController1 : MonoBehaviour
         {
             angleToRotate *= -1; // Changes to negative the selected Angle;
         }
-        Quaternion goal = Quaternion.Euler(0, angleToRotate, 0);
+        angleRotated += angleToRotate;
+        Quaternion goal = Quaternion.Euler(0, angleRotated, 0);
         while (Quaternion.Angle(transform.rotation, goal) > 1.0f)
         {
-            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(0, angleToRotate, 0), Time.deltaTime);
+            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(0, angleRotated, 0), Time.deltaTime);
             yield return null;
         }
-        transform.rotation = Quaternion.Euler(0, angleToRotate, 0);
+        transform.rotation = Quaternion.Euler(0, angleRotated, 0);
         yield return null;
     }
     
@@ -142,7 +144,7 @@ public class RobotMotionController1 : MonoBehaviour
         rearPassengerTransform.Rotate(velocity * 10 * Time.deltaTime, 0, 0);
     }
 
-    /// <summary>
+/*    /// <summary>
     /// Update is called every frame, if the MonoBehaviour is enabled.
     /// </summary>
     void Update()
@@ -153,7 +155,7 @@ public class RobotMotionController1 : MonoBehaviour
             StartCoroutine(RotateRobot(90));
             aux++;
         }*/
-        if (Input.GetKeyDown("space"))
+        /*if (Input.GetKeyDown("space"))
         {
             //StopRobot();
             //StopAllCoroutines();
@@ -176,6 +178,6 @@ public class RobotMotionController1 : MonoBehaviour
         }*/
         //aux++;
         //MoveBackwardRobot(1);
-    }
+    //}
 }
 

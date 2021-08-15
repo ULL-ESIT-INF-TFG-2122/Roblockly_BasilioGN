@@ -26,6 +26,18 @@
 
     "TURN_ROBOT_RIGHT": "hacia la derecha",
     "TURN_ROBOT_LEFT": "hacia la izquierda",
+
+    "TOUCH_SENSOR_TOPFRONT": "frontal",
+    "TOUCH_SENSOR_FRONT": "delantero",
+    "TOUCH_SENSOR_RIGHT": "derecho",
+    "TOUCH_SENSOR_LEFT": "izquierdo",
+    "TOUCH_SENSOR_BACK": "trasero",
+
+    "TOPFRONT": "frontal",
+    "FRONT": "delantero",
+    "RIGHT": "derecho",
+    "LEFT": "izquierdo",
+    "BACK": "trasero",
     
     /// default name - A simple: general default name for a variable: preferably short.
     "VARIABLES_DEFAULT_NAME": "item",

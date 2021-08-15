@@ -8,7 +8,7 @@
             "name": "VELOCITY",
             "value": 1,
             "min": 1,
-            "max": 5,
+            "max": 10,
             "int": true
         }
     ],
@@ -24,7 +24,7 @@
             "name": "VELOCITY",
             "value": 1,
             "min": 1,
-            "max": 5,
+            "max": 10,
             "int": true
         }
     ],
@@ -40,7 +40,7 @@
             "name": "VELOCITY",
             "value": 1,
             "min": 1,
-            "max": 5,
+            "max": 10,
             "int": true
         },
         {
@@ -64,7 +64,7 @@
             "name": "VELOCITY",
             "value": 1,
             "min": 1,
-            "max": 5,
+            "max": 10,
             "int": true
         },
         {

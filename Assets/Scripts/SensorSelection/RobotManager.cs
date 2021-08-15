@@ -73,6 +73,7 @@ public class RobotManager : MonoBehaviour
     {
         GameObject sensorToFind;
         string sensorNameToFind = "Sensor " + TouchSensorToFind + ": Contacto";
+        Debug.Log("SensorToFind " + sensorNameToFind);
         sensorToFind = transform.Find(sensorNameToFind).gameObject;
         return sensorToFind.GetComponent<SensorTouch>().GetContact();
     }

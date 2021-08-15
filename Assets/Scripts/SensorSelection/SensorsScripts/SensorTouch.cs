@@ -38,7 +38,7 @@ public class SensorTouch : SensorGeneric
     /// <param name="other">The Collision data associated with this collision.</param>
     void OnCollisionEnter(Collision other)
     {
-        Debug.Log("ha hecho contacto!");
+        //Debug.Log("ha hecho contacto!");
         if (other.gameObject.tag != "SelectedRobot")
         {
             contact = true;    
@@ -52,6 +52,7 @@ public class SensorTouch : SensorGeneric
     /// <param name="other">The Collision data associated with this collision.</param>
     void OnCollisionExit(Collision other)
     {
+        //Debug.Log("ha salido del contacto");
         if (other.gameObject.tag != "SelectedRobot")
         {
             contact = false;
