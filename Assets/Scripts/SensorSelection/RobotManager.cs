@@ -101,4 +101,12 @@ public class RobotManager : MonoBehaviour
         sensorToFind = transform.Find(sensorNameToFind).gameObject;
         return sensorToFind.GetComponent<SensorTouch>().GetContact();
     }
+
+    public bool GetIRInfo(string IRSensorToFind, string colorToDetect)
+    {
+        GameObject sensorToFind;
+        string sensorNameToFind = "Sensor " + IRSensorToFind + ": Infrarrojo";
+        sensorToFind = transform.Find(sensorNameToFind).gameObject;
+        return sensorToFind.GetComponent<SensorIR>().DetectColor(colorToDetect);
+    }
 }

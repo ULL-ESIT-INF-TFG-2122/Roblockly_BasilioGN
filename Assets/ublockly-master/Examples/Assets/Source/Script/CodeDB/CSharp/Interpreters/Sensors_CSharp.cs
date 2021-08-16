@@ -31,4 +31,14 @@ namespace UBlockly
             return new DataStruct(data);
         }
     }
+
+    [CodeInterpreter(BlockType = "sensors_ir_detect_white")]
+    public class Detection_Sensor_IR_White_Cmdtor : ValueCmdtor{
+        protected override DataStruct Execute(Block block){
+            string sensorPosition = block.GetFieldValue("POSITION");
+            GameObject selectedRobot = GameObject.FindWithTag("SelectedRobot");
+            bool data = selectedRobot.GetComponent<RobotManager>().GetIRInfo(sensorPosition, "WHITE");
+            return new DataStruct(data);
+        }
+    }
 }

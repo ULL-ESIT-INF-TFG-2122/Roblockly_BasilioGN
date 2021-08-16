@@ -860,6 +860,7 @@ GameObject:
   - component: {fileID: 3762185962277030220}
   - component: {fileID: 6824774606192607362}
   - component: {fileID: -1252854764111920588}
+  - component: {fileID: -2472601702369121301}
   m_Layer: 0
   m_Name: SensorIR
   m_TagString: NewSensor
@@ -924,6 +925,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   panelSensor: {fileID: 3914276394199152572, guid: 14de82e332264314dad97bb3f73c3969,
     type: 3}
+--- !u!54 &-2472601702369121301
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3878400580759210566}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &3878421411936338774
 GameObject:
   m_ObjectHideFlags: 0
@@ -1128,7 +1145,7 @@ GameObject:
   - component: {fileID: 3761296827249169234}
   - component: {fileID: 3855336464025484420}
   m_Layer: 0
-  m_Name: LED
+  m_Name: LED_Green
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

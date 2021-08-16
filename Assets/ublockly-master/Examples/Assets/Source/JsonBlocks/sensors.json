@@ -34,5 +34,23 @@
         }
     ],
     "output": "Boolean"
+  },
+  {
+    "type": "sensors_ir_detect_white",
+    "message0": "Sensor infrarrojo %1 detecta blanco",
+    "args0": [
+        {
+            "type": "field_dropdown",
+            "name": "POSITION",
+            "options": [
+              ["%{BKY_TOUCH_SENSOR_TOPFRONT}", "frontal"],
+              ["%{BKY_TOUCH_SENSOR_FRONT}", "delantero"],
+              ["%{BKY_TOUCH_SENSOR_RIGHT}", "derecho"],
+              ["%{BKY_TOUCH_SENSOR_LEFT}", "izquierdo"],
+              ["%{BKY_TOUCH_SENSOR_BACK}", "trasero"]
+            ]
+        }
+    ],
+    "output": "Boolean"
   }
 ]

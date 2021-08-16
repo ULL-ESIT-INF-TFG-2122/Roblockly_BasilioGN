@@ -132,13 +132,13 @@ namespace UBlockly.UGUI
                 //Debug.Log("blockType: " + blockType);
                 switch (blockType)
                 {
-                    case "sensors_ir_white":
+                    case "sensors_ir_detect_white":
                         if (selectedRobot.GetComponent<RobotManager>().CheckSensor("SensorIR"))
                         {
                             NewBlockView(blockType, contentTrans);
                         }
                         break;
-                    case "sensors_ir_black":
+                    case "sensors_ir_detect_black":
                         if (selectedRobot.GetComponent<RobotManager>().CheckSensor("SensorIR"))
                         {
                             NewBlockView(blockType, contentTrans);

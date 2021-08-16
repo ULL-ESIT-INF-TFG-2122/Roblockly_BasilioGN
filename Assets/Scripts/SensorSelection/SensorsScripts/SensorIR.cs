@@ -19,10 +19,20 @@ public class SensorIR : SensorGeneric
 {
     private float range;
     private float precision;
-    // Start is called before the first frame update
+    private const string WHITE = "WHITE";
+    private const string BLACK = "BLACK";
+    private RaycastHit sensorRayHit;
+
+    private Transform sensorLED;
+
+    /// <summary>
+    /// Start is called on the frame when a script is enabled just before
+    /// any of the Update methods is called the first time.
+    /// </summary>
     void Start()
     {
         SnapController.SetLinkedToARobotOn += base.SetLinkSensor;
+        sensorLED = gameObject.transform.Find("Sensor/LED_Green");
     }
 
     public override void SetSensorName(string snapPoint)
@@ -30,5 +40,13 @@ public class SensorIR : SensorGeneric
         base.SetSensorName(snapPoint);
         gameObject.transform.name = gameObject.transform.name + "Infrarrojo";
         base.StoreSensorName(gameObject.transform.name);
+    }
+
+    public bool DetectColor(string colorToDetect)
+    {
+        bool detected = false;
+        Debug.DrawLine(sensorLED.position, -sensorLED.up * 2, Color.yellow, 5.0f);
+
+        return detected;
     }
 }
