@@ -7,11 +7,19 @@ public class ChallengeSelectionManager : MonoBehaviour
 {
     public void SelectLabyrinthChallenge()
     {
+        PlayerPrefs.SetInt("SelectedChallenge", 1);
+    }
+    public void SelectIRChallenge()
+    {
+        PlayerPrefs.SetInt("SelectedChallenge", 2);
+    }
+    public void GoForward()
+    {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
-    public void SelectIRChallenge()
+    public void GoBack()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 2);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
     }
 }

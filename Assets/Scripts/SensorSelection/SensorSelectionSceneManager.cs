@@ -84,7 +84,8 @@ public class SensorSelectionSceneManager : MonoBehaviour
     {
         //GlobalSceneManager.SwitchOnSecene3(false);
         // Load the next level in the queue (in this case, is the scene 3, called "RobotProgramming").
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        int sceneIndex = PlayerPrefs.GetInt("SelectedChallenge");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + sceneIndex);
     }
 
     private void DestroySelectedRobot()
