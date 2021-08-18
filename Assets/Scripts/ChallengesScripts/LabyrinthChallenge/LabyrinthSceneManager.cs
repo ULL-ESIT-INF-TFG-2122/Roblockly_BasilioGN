@@ -61,8 +61,9 @@ public class LabyrinthSceneManager : MonoBehaviour
     /// </summary>
     public void GoBack ()
     {
+        int sceneNumber = PlayerPrefs.GetInt("SelectedChallenge");
         selectedRobot.GetComponent<RobotManager>().Kinematic(true);
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - sceneNumber);
     }
 
     /// <summary>

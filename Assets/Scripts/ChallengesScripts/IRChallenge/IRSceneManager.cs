@@ -61,8 +61,9 @@ public class IRSceneManager : MonoBehaviour
     /// </summary>
     public void GoBack ()
     {
+        int sceneNumber = PlayerPrefs.GetInt("SelectedChallenge");
         selectedRobot.GetComponent<RobotManager>().Kinematic(true);
-        SceneManager.LoadScene("IndividualSensorSelection");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - sceneNumber);
     }
 
     /// <summary>
