@@ -13,6 +13,10 @@ public class ChallengeSelectionManager : MonoBehaviour
     {
         PlayerPrefs.SetInt("SelectedChallenge", 2);
     }
+    public void SelectColorChallenge()
+    {
+        PlayerPrefs.SetInt("SelectedChallenge", 3);
+    }
     public void GoForward()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
