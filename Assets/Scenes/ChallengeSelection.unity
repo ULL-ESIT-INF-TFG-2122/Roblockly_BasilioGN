@@ -1151,7 +1151,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1152010319}
         m_TargetAssemblyTypeName: ChallengeSelectionManager, Assembly-CSharp
-        m_MethodName: SelectLabyrinthChallenge
+        m_MethodName: SelectIRChallenge
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

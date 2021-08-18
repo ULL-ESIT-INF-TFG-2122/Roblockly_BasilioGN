@@ -723,7 +723,7 @@ PrefabInstance:
     - target: {fileID: 9199268022414942131, guid: 16258fa569c978148ab0a8e202899ac5,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: LabyrinthSceneManager, Assembly-CSharp
+      value: IRSceneManager, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 9199268022414942132, guid: 16258fa569c978148ab0a8e202899ac5,
         type: 3}
@@ -889,7 +889,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -351.78, y: -329}
+  m_AnchoredPosition: {x: -351.78, y: -302}
   m_SizeDelta: {x: 48.42, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &550874864
@@ -1095,7 +1095,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 2066066946}
+      objectReference: {fileID: 0}
     - target: {fileID: 114444648929744528, guid: 30bdd5fddc725438796726c39f29cd83,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
@@ -1628,7 +1628,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2066066946}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: LabyrinthSceneManager, Assembly-CSharp
         m_MethodName: ChangeToBig
         m_Mode: 1
@@ -1760,7 +1760,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2066066946}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: LabyrinthSceneManager, Assembly-CSharp
         m_MethodName: ChangeToSmall
         m_Mode: 1
@@ -1951,7 +1951,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -299, y: -329}
+  m_AnchoredPosition: {x: -299, y: -301.9948}
   m_SizeDelta: {x: 48.42, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1074761060
@@ -2100,7 +2100,7 @@ PrefabInstance:
     - target: {fileID: 9199268022414942131, guid: 16258fa569c978148ab0a8e202899ac5,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: LabyrinthSceneManager, Assembly-CSharp
+      value: IRSceneManager, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 9199268022414942132, guid: 16258fa569c978148ab0a8e202899ac5,
         type: 3}
@@ -2564,7 +2564,7 @@ GameObject:
   - component: {fileID: 2066066945}
   - component: {fileID: 2066066946}
   m_Layer: 0
-  m_Name: LabyrinthChallengeSceneManager
+  m_Name: IRChallengeSceneManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2593,7 +2593,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2066066944}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c7d1d5b3d7b168941a983a2e207b3a1d, type: 3}
+  m_Script: {fileID: 11500000, guid: b376a4f08bf9ae14a919c4ed53979af1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   startPoint: {fileID: 1704993382}
