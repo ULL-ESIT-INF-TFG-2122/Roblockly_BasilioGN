@@ -109,4 +109,12 @@ public class RobotManager : MonoBehaviour
         sensorToFind = transform.Find(sensorNameToFind).gameObject;
         return sensorToFind.GetComponent<SensorIR>().DetectColor(colorToDetect);
     }
+    
+    public bool GetColorInfo(string ColorSensorToFind, string colorToDetect)
+    {
+        GameObject sensorToFind;
+        string sensorNameToFind = "Sensor " + ColorSensorToFind + ": Color";
+        sensorToFind = transform.Find(sensorNameToFind).gameObject;
+        return sensorToFind.GetComponent<SensorColor>().DetectColor(colorToDetect);
+    }
 }

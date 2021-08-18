@@ -43,6 +43,11 @@
     "LEFT": "izquierdo",
     "BACK": "trasero",
     
+    "RED": "rojo",
+    "YELLOW": "amarillo",
+    "GREEN": "verde",
+    "BLUE": "azul",
+    
     /// default name - A simple: general default name for a variable: preferably short.
     "VARIABLES_DEFAULT_NAME": "item",
     /// button text - Button that sets a calendar to today's date.\n(Identical|Today)

@@ -19,8 +19,6 @@ public class SensorIR : SensorGeneric
 {
     private float range;
     private float precision;
-    private const string WHITE = "WHITE";
-    private const string BLACK = "BLACK";
     private float rayRange = 100.0f;
     
 
@@ -56,7 +54,6 @@ public class SensorIR : SensorGeneric
                 return true;
             }
         }
-
         return false;
     }
 }

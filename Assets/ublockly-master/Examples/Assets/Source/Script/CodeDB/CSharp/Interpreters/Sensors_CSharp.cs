@@ -51,4 +51,15 @@ namespace UBlockly
             return new DataStruct(data);
         }
     }
+
+    [CodeInterpreter(BlockType = "sensors_color_detect_colors")]
+    public class Detection_Sensor_Color_Colors_Cmdtor : ValueCmdtor{
+        protected override DataStruct Execute(Block block){
+            string sensorPosition = block.GetFieldValue("POSITION");
+            string colorToFind = block.GetFieldValue("COLOR");
+            GameObject selectedRobot = GameObject.FindWithTag("SelectedRobot");
+            bool data = selectedRobot.GetComponent<RobotManager>().GetColorInfo(sensorPosition, colorToFind);
+            return new DataStruct(data);
+        }
+    }
 }
