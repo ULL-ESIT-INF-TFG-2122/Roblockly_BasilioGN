@@ -20,8 +20,6 @@ public class SensorIR : SensorGeneric
     private float range;
     private float precision;
     private float rayRange = 100.0f;
-    
-
     private Transform sensorLED;
 
     /// <summary>

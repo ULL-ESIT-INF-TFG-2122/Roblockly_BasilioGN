@@ -144,6 +144,10 @@ public class RobotMotionController1 : MonoBehaviour
         rearPassengerTransform.Rotate(velocity * 10 * Time.deltaTime, 0, 0);
     }
 
+    public void ResetAngleRotated()
+    {
+        angleRotated = 0.0f;
+    }
 /*    /// <summary>
     /// Update is called every frame, if the MonoBehaviour is enabled.
     /// </summary>
