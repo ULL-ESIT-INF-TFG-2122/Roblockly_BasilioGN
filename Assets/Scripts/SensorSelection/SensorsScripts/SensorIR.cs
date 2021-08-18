@@ -45,14 +45,18 @@ public class SensorIR : SensorGeneric
 
     public bool DetectColor(string colorToDetect)
     {
-        bool detected = false;
+        //bool detected = false;
         RaycastHit sensorRayHit;
-        Debug.DrawRay(sensorLED.position, sensorLED.up * rayRange, Color.yellow, 5.0f);
+        //Debug.DrawRay(sensorLED.position, sensorLED.up * rayRange, Color.yellow, 5.0f);
         if (Physics.Raycast(sensorLED.position, sensorLED.up, out sensorRayHit, rayRange))
         {
-            Debug.Log("Está chocando con: " + sensorRayHit.transform.GetComponent<Renderer>().material.color);
+            //Debug.Log("Está chocando con: " + sensorRayHit.transform.GetComponent<Renderer>().material.name);
+            if (sensorRayHit.transform.GetComponent<Renderer>().material.name == colorToDetect)
+            {
+                return true;
+            }
         }
 
-        return detected;
+        return false;
     }
 }

@@ -37,7 +37,17 @@ namespace UBlockly
         protected override DataStruct Execute(Block block){
             string sensorPosition = block.GetFieldValue("POSITION");
             GameObject selectedRobot = GameObject.FindWithTag("SelectedRobot");
-            bool data = selectedRobot.GetComponent<RobotManager>().GetIRInfo(sensorPosition, "WHITE");
+            bool data = selectedRobot.GetComponent<RobotManager>().GetIRInfo(sensorPosition, "White (Instance)");
+            return new DataStruct(data);
+        }
+    }
+
+    [CodeInterpreter(BlockType = "sensors_ir_detect_black")]
+    public class Detection_Sensor_IR_Black_Cmdtor : ValueCmdtor{
+        protected override DataStruct Execute(Block block){
+            string sensorPosition = block.GetFieldValue("POSITION");
+            GameObject selectedRobot = GameObject.FindWithTag("SelectedRobot");
+            bool data = selectedRobot.GetComponent<RobotManager>().GetIRInfo(sensorPosition, "Black (Instance)");
             return new DataStruct(data);
         }
     }
