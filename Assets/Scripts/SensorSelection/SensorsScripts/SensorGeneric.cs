@@ -61,8 +61,14 @@ public abstract class SensorGeneric : MonoBehaviour
             case "FrontSnap":
                 sensorLocationName = "delantero";
                 break;
-            case "TopFrontSnap":
-                sensorLocationName = "frontal";
+            case "TopFrontSnapCenter":
+                sensorLocationName = "frontal central";
+                break;
+            case "TopFrontSnapRight":
+                sensorLocationName = "frontal derecho";
+                break;
+            case "TopFrontSnapLeft":
+                sensorLocationName = "frontal izquierdo";
                 break;
             case "BackSnap":
                 sensorLocationName = "trasero";

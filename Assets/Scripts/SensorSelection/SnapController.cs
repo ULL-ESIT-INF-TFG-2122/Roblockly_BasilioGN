@@ -177,7 +177,17 @@ public class SnapController : MonoBehaviour
                 sensorToDrag.transform.position = new Vector3(XPosCoord, YPosCoord + offset, ZPosCoord);
                 sensorToDrag.transform.Rotate(0.0f, 90.0f, 0.0f);
                 break;
-            case "TopFrontSnap":
+            case "TopFrontSnapCenter":
+                offset = 1.5f;
+                sensorToDrag.transform.position = new Vector3(XPosCoord, YPosCoord + offset, ZPosCoord);
+                sensorToDrag.transform.Rotate(0.0f, 90.0f, -60.0f);
+                break;
+            case "TopFrontSnapRight":
+                offset = 1.5f;
+                sensorToDrag.transform.position = new Vector3(XPosCoord, YPosCoord + offset, ZPosCoord);
+                sensorToDrag.transform.Rotate(0.0f, 90.0f, -60.0f);
+                break;
+            case "TopFrontSnapLeft":
                 offset = 1.5f;
                 sensorToDrag.transform.position = new Vector3(XPosCoord, YPosCoord + offset, ZPosCoord);
                 sensorToDrag.transform.Rotate(0.0f, 90.0f, -60.0f);
@@ -185,7 +195,7 @@ public class SnapController : MonoBehaviour
             case "BackSnap":
                 offset = 3f;
                 sensorToDrag.transform.position = new Vector3(XPosCoord, YPosCoord + offset, ZPosCoord);
-                sensorToDrag.transform.Rotate(0.0f, -90.0f, 0.0f);
+                sensorToDrag.transform.Rotate(0.0f, -90.0f, -90.0f);
                 break;
             case "LeftSnap":
                 offset = 1.5f;
@@ -227,7 +237,17 @@ public class SnapController : MonoBehaviour
                 sensorToDrag.transform.position = new Vector3(XPosCoord, YPosCoord + offset, ZPosCoord);
                 sensorToDrag.transform.Rotate(0.0f, 90.0f, 0.0f);
                 break;
-            case "TopFrontSnap":
+            case "TopFrontSnapCenter":
+                offset = 0.5f;
+                sensorToDrag.transform.position = new Vector3(XPosCoord, YPosCoord + offset, ZPosCoord);
+                sensorToDrag.transform.Rotate(0.0f, 90.0f, -60.0f);
+                break;
+            case "TopFrontSnapRight":
+                offset = 0.5f;
+                sensorToDrag.transform.position = new Vector3(XPosCoord, YPosCoord + offset, ZPosCoord);
+                sensorToDrag.transform.Rotate(0.0f, 90.0f, -60.0f);
+                break;
+            case "TopFrontSnapLeft":
                 offset = 0.5f;
                 sensorToDrag.transform.position = new Vector3(XPosCoord, YPosCoord + offset, ZPosCoord);
                 sensorToDrag.transform.Rotate(0.0f, 90.0f, -60.0f);
@@ -235,7 +255,7 @@ public class SnapController : MonoBehaviour
             case "BackSnap":
                 offset = 1.5f;
                 sensorToDrag.transform.position = new Vector3(XPosCoord, YPosCoord + offset, ZPosCoord);
-                sensorToDrag.transform.Rotate(0.0f, -90.0f, 0.0f);
+                sensorToDrag.transform.Rotate(0.0f, 90.0f, -90.0f);
                 break;
             case "LeftSnap":
                 offset = 0.5f;
@@ -277,10 +297,20 @@ public class SnapController : MonoBehaviour
                 sensorToDrag.transform.position = new Vector3(XPosCoord, YPosCoord + offset, ZPosCoord);
                 sensorToDrag.transform.Rotate(70.0f, 180.0f, 0.0f);
                 break;
-            case "TopFrontSnap":
+            case "TopFrontSnapCenter":
                 offset = -1.0f;
                 sensorToDrag.transform.position = new Vector3(XPosCoord, YPosCoord + offset, ZPosCoord);
                 sensorToDrag.transform.Rotate(110.0f, 0.0f, 180.0f);
+                break;
+            case "TopFrontSnapRight":
+                offset = -1.0f;
+                sensorToDrag.transform.position = new Vector3(XPosCoord, YPosCoord + offset, ZPosCoord);
+                sensorToDrag.transform.Rotate(120.0f, 0.0f, 180.0f);
+                break;
+            case "TopFrontSnapLeft":
+                offset = -1.0f;
+                sensorToDrag.transform.position = new Vector3(XPosCoord, YPosCoord + offset, ZPosCoord);
+                sensorToDrag.transform.Rotate(120.0f, 0.0f, 180.0f);
                 break;
             case "BackSnap":
                 offset = -1.0f;

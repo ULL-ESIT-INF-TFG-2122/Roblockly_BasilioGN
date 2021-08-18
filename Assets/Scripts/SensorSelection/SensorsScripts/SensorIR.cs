@@ -47,7 +47,7 @@ public class SensorIR : SensorGeneric
     {
         //bool detected = false;
         RaycastHit sensorRayHit;
-        //Debug.DrawRay(sensorLED.position, sensorLED.up * rayRange, Color.yellow, 5.0f);
+        Debug.DrawRay(sensorLED.position, sensorLED.up * rayRange, Color.yellow, 5.0f);
         if (Physics.Raycast(sensorLED.position, sensorLED.up, out sensorRayHit, rayRange))
         {
             //Debug.Log("Está chocando con: " + sensorRayHit.transform.GetComponent<Renderer>().material.name);

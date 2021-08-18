@@ -27,6 +27,9 @@ TagManager:
   - LeftSnap
   - TopFrontSnap
   - SelectedRobot
+  - TopFrontSnapRight
+  - TopFrontSnapLeft
+  - TopFrontSnapCenter
   layers:
   - Default
   - TransparentFX
