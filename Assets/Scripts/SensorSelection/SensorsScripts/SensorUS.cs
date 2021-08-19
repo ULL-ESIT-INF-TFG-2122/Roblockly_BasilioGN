@@ -19,16 +19,14 @@ public class SensorUS : SensorGeneric
     private float range;
     private float error;
 
-    // Start is called before the first frame update
+    /// <summary>
+    /// Start is called on the frame when a script is enabled just before
+    /// any of the Update methods is called the first time.
+    /// </summary>
     void Start()
     {
       SnapController.SetLinkedToARobotOn += base.SetLinkSensor;
     }
-
-    /*public void ActivateUS()
-    {
-        transform.gameObject.SetActive(transform.gameObject.tag == "SensorUS");
-    }*/
 
     public override void SetSensorName(string snapPoint)
     {
