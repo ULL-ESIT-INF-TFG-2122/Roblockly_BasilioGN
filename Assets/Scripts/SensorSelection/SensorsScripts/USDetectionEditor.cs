@@ -15,5 +15,11 @@ public class USDetectionEditor : Editor
 
         Handles.DrawLine(usDetection.transform.position, usDetection.transform.position + soundAngleA * usDetection.soundRadius);
         Handles.DrawLine(usDetection.transform.position, usDetection.transform.position + soundAngleB * usDetection.soundRadius);
+
+        Handles.color = Color.red;
+        foreach (Transform detectableObject in usDetection.DetectableObjects)
+        {
+            Handles.DrawLine(usDetection.transform.position, detectableObject.position);
+        }
     }
 }
