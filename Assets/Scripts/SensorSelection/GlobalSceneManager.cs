@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GlobalSceneManager : MonoBehaviour
 {
-    public static bool switchOn = false;
+    public static bool _switchOn = false;
 
     public static GlobalSceneManager globalInstance;
     /// <summary>
@@ -36,8 +36,8 @@ public class GlobalSceneManager : MonoBehaviour
     public static void SwitchOnSecene3(bool status)
     {
         Debug.Log("Ha entrado en el SwitchOnScene3 con status: " + status);
-        if (status == true) { switchOn = true; }
-        else { switchOn = false; }
-        Debug.Log("SwitchOn: " + switchOn);
+        if (status == true) { _switchOn = true; }
+        else { _switchOn = false; }
+        Debug.Log("SwitchOn: " + _switchOn);
     }
 }

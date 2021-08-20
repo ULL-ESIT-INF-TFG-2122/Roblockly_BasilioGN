@@ -11,6 +11,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 /// <summary>
 /// Class used to manage the "generic" logic of a any sensor type.
@@ -94,12 +95,12 @@ public abstract class SensorGeneric : MonoBehaviour
 
     protected void SetPanelName(string panelName)
     {
-        panelSensor.gameObject.transform.GetChild(0).gameObject.GetComponent<TMPro.TextMeshProUGUI>().text = panelName;
+        panelSensor.gameObject.transform.GetChild(0).gameObject.GetComponent<Text>().text = panelName;
     }
 
     protected string GetPanelName()
     {
-        return panelSensor.gameObject.transform.GetChild(0).gameObject.GetComponent<TMPro.TextMeshProUGUI>().text;
+        return panelSensor.gameObject.transform.GetChild(0).gameObject.GetComponent<Text>().text;
     }
 
     protected void SetLinkSensor(bool linkStatus)
