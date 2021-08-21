@@ -8,6 +8,8 @@ public class ConeCollider : MonoBehaviour
     private bool collided = false;
     private GameObject collidedObject;
     private Vector3 distanceToCollided;
+    private bool firstCollision = false;
+    private float baseDistance;
 
     /// <summary>
     /// Awake is called when the script instance is being loaded.
@@ -51,6 +53,7 @@ public class ConeCollider : MonoBehaviour
     void OnCollisionExit(Collision other)
     {
         collided = false;
+        firstCollision = false;
     }
 
     public float GetCollidedDistance()
@@ -59,17 +62,20 @@ public class ConeCollider : MonoBehaviour
         if (collided)
         {
             distance = ParentSensorUS.transform.position - collidedObject.transform.position;
-            Debug.Log("Distancia: " + distance);
-            float value = distance.z;
-            value = Mathf.Abs(value);
-            if (value > 10)
+            if (!firstCollision)
             {
-                value *= 0.5f;
+                firstCollision = true;
+                baseDistance = Mathf.Abs(distance.z);
+                return 10.0f;
             }
-            value = Mathf.Round(value);
-            Debug.Log("Value: " + value);
-            return value;
+            float finalDistance = CalculateDistance(baseDistance, Mathf.Abs(distance.z));
+            return Mathf.Round(finalDistance);
         }
         return Mathf.Infinity;
+    }
+    
+    private float CalculateDistance(float baseDistance, float currentDistance)
+    {
+        return (currentDistance * 10.0f) / baseDistance;
     }
 }
