@@ -62,4 +62,14 @@ namespace UBlockly
             return new DataStruct(data);
         }
     }
+
+    [CodeInterpreter(BlockType = "sensors_us_distance")]
+    public class Detection_Sensor_US_Detection_Cmdtor : ValueCmdtor{
+        protected override DataStruct Execute(Block block){
+            string sensorPosition = block.GetFieldValue("POSITION");
+            GameObject selectedRobot = GameObject.FindWithTag("SelectedRobot");
+            float data = selectedRobot.GetComponent<RobotManager>().GetUSInfo(sensorPosition);
+            return new DataStruct(data);
+        }
+    }
 }

@@ -19,6 +19,16 @@ public class SensorUS : SensorGeneric
     private float range;
     private float error;
 
+    private GameObject coneCollider;
+
+    /// <summary>
+    /// Awake is called when the script instance is being loaded.
+    /// </summary>
+    void Awake()
+    {
+        coneCollider = gameObject.transform.Find("ConeCollider").gameObject;
+    }
+
     /// <summary>
     /// Start is called on the frame when a script is enabled just before
     /// any of the Update methods is called the first time.
@@ -33,5 +43,11 @@ public class SensorUS : SensorGeneric
         base.SetSensorName(snapPoint);
         gameObject.transform.name = gameObject.transform.name + "Ultrasonido";
         base.StoreSensorName(gameObject.transform.name);
+    }
+
+    public float GetDistance()
+    {
+      float value = coneCollider.GetComponent<ConeCollider>().GetCollidedDistance();
+      return value;
     }
 }

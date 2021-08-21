@@ -117,4 +117,12 @@ public class RobotManager : MonoBehaviour
         sensorToFind = transform.Find(sensorNameToFind).gameObject;
         return sensorToFind.GetComponent<SensorColor>().DetectColor(colorToDetect);
     }
+
+    public float GetUSInfo(string USSensorToFind)
+    {
+        GameObject sensorToFind;
+        string sensorNameToFind = "Sensor " + USSensorToFind + ": Ultrasonido";
+        sensorToFind = transform.Find(sensorNameToFind).gameObject;
+        return sensorToFind.GetComponent<SensorUS>().GetDistance();
+    }
 }

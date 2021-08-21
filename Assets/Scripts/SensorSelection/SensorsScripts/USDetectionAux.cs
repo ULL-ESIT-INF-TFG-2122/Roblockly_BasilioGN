@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class USDetection : MonoBehaviour
+public class USDetectionAux : MonoBehaviour
 {
     public float soundRadius;
     [Range(0,360)]
@@ -34,23 +34,21 @@ public class USDetection : MonoBehaviour
     void FindDetectableObjects()
     {
         DetectableObjects.Clear();
-        //Collider[] detectableObjectsInSoundRadius = Physics.OverlapSphere(transform.position, soundRadius, detectableObject);
-        RaycastHit[]  detectedObjectsInSoundRadius = Physics.SphereCastAll(transform.position, soundRadius, transform.forward, soundRadius, detectableObject);
-        for (int i = 0; i < detectedObjectsInSoundRadius.Length; i++)
+        Collider[] detectableObjectsInSoundRadius = Physics.OverlapSphere(transform.position, soundRadius, detectableObject);
+        for (int i = 0; i < detectableObjectsInSoundRadius.Length; i++)
         {
-            RaycastHit auxDetectableObject = detectedObjectsInSoundRadius[i];
-            Vector3 dirToDetectableOnject = (auxDetectableObject.point - transform.position).normalized;
+            Transform auxDetectableObject = detectableObjectsInSoundRadius[i].transform;
+            Vector3 dirToDetectableOnject = (auxDetectableObject.position - transform.position).normalized;
             float aux = Vector3.Angle(transform.forward, dirToDetectableOnject);
             float result = (soundAngle / 2);
-            Debug.DrawRay(transform.position, dirToDetectableOnject, Color.blue, 5.0f);
             if (aux < result)
             {
                 // Check if there is an obstacle in front of the sensor that doesn't have to be detected.
-                float distToDetectObject = Vector3.Distance(transform.position, auxDetectableObject.point);
+                float distToDetectObject = Vector3.Distance(transform.position, auxDetectableObject.position);
                 if (!Physics.Raycast(transform.position, dirToDetectableOnject, distToDetectObject, notDetectableObject)) 
                 {
-                    DetectableObjects.Add(auxDetectableObject.transform);
-                    Debug.DrawLine(transform.position, auxDetectableObject.point, Color.blue, 5.0f);
+                    DetectableObjects.Add(auxDetectableObject);
+                    Debug.DrawLine(transform.position, auxDetectableObject.position, Color.blue, 5.0f);
                 }
                 //18:03
             }

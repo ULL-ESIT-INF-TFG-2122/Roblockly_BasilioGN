@@ -156,7 +156,7 @@ namespace UBlockly.UGUI
                             NewBlockView(blockType, contentTrans);
                         }
                         break;
-                    case "sensors_us":
+                    case "sensors_us_distance":
                         if (selectedRobot.GetComponent<RobotManager>().CheckSensor("SensorUS"))
                         {
                             NewBlockView(blockType, contentTrans);

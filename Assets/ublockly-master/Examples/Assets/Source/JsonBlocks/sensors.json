@@ -108,5 +108,25 @@
       }
     ],
     "output": "Boolean"
+  },
+  {
+    "type": "sensors_us_distance",
+    "message0": "Sensor Ultrasonido %1",
+    "args0": [
+        {
+            "type": "field_dropdown",
+            "name": "POSITION",
+            "options": [
+              ["%{BKY_TOUCH_SENSOR_TOPFRONT_CENTER}", "frontal central"],
+              ["%{BKY_TOUCH_SENSOR_TOPFRONT_RIGHT}", "frontal derecho"],
+              ["%{BKY_TOUCH_SENSOR_TOPFRONT_LEFT}", "frontal izquierdo"],
+              ["%{BKY_TOUCH_SENSOR_FRONT}", "delantero"],
+              ["%{BKY_TOUCH_SENSOR_RIGHT}", "derecho"],
+              ["%{BKY_TOUCH_SENSOR_LEFT}", "izquierdo"],
+              ["%{BKY_TOUCH_SENSOR_BACK}", "trasero"]
+            ]
+        }
+    ],
+    "output": "float"
   }
 ]
