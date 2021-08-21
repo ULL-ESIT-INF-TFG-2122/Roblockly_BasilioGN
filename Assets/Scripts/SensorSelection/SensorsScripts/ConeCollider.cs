@@ -10,6 +10,7 @@ public class ConeCollider : MonoBehaviour
     private Vector3 distanceToCollided;
     private bool firstCollision = false;
     private float baseDistance;
+    private bool Z = false;
 
     /// <summary>
     /// Awake is called when the script instance is being loaded.
@@ -63,15 +64,42 @@ public class ConeCollider : MonoBehaviour
         {
             distance = ParentSensorUS.transform.position - collidedObject.transform.position;
             if (!firstCollision)
-            {
+            {   
+                if (CheckParallel(ParentSensorUS.transform.forward, collidedObject.transform.forward))
+                {
+                    baseDistance = Mathf.Abs(distance.z);
+                    Z = true;
+                } else if (CheckParallel(ParentSensorUS.transform.forward, collidedObject.transform.right)) {
+                    baseDistance = Mathf.Abs(distance.x);
+                    Z = false;
+                }
                 firstCollision = true;
-                baseDistance = Mathf.Abs(distance.z);
+                //baseDistance = Mathf.Abs(distance.z);
                 return 10.0f;
             }
-            float finalDistance = CalculateDistance(baseDistance, Mathf.Abs(distance.z));
+            float finalDistance;
+            if (Z)
+            {
+                finalDistance = CalculateDistance(baseDistance, Mathf.Abs(distance.z));
+            } else {
+                finalDistance = CalculateDistance(baseDistance, Mathf.Abs(distance.x));
+            }
             return Mathf.Round(finalDistance);
         }
         return Mathf.Infinity;
+    }
+
+    private bool CheckParallel(Vector3 SensorVector, Vector3 ObjectVector)
+    {
+        float alignment = ((SensorVector.x * ObjectVector.x) + 
+                           (SensorVector.y * ObjectVector.y) +
+                           (SensorVector.z * ObjectVector.z));
+        alignment = Mathf.Round(alignment);
+        if (alignment == 1.0f || alignment == 0.0f)
+        {
+            return true;
+        }
+        return false;
     }
     
     private float CalculateDistance(float baseDistance, float currentDistance)
