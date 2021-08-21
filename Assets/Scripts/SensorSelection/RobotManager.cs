@@ -123,6 +123,7 @@ public class RobotManager : MonoBehaviour
         GameObject sensorToFind;
         string sensorNameToFind = "Sensor " + USSensorToFind + ": Ultrasonido";
         sensorToFind = transform.Find(sensorNameToFind).gameObject;
-        return sensorToFind.GetComponent<SensorUS>().GetDistance();
+        float distance = sensorToFind.GetComponent<SensorUS>().GetDistance();
+        return distance;
     }
 }

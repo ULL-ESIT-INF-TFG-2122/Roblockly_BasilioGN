@@ -6,7 +6,8 @@ public class ConeCollider : MonoBehaviour
 {
     public GameObject ParentSensorUS;
     private bool collided = false;
-    Vector3 distanceToCollided;
+    private GameObject collidedObject;
+    private Vector3 distanceToCollided;
 
     /// <summary>
     /// Awake is called when the script instance is being loaded.
@@ -24,8 +25,22 @@ public class ConeCollider : MonoBehaviour
     void OnCollisionEnter(Collision other)
     {
         collided = true;
-        distanceToCollided = ParentSensorUS.transform.position - other.transform.position;
+        UpdateCollidedObject(other);
         Debug.Log("Ha chocado con: " + other.gameObject.name);
+        Debug.Log("Posición muro: " + other.transform.position);
+    }
+
+    private void UpdateCollidedObject(Collision other)
+    {
+        if (collidedObject != null)
+        {
+            if (collidedObject.tag == "CollidedObject")
+            {
+                collidedObject.tag = "NotCollidedObject";
+            }
+        }
+        collidedObject = other.gameObject;
+        collidedObject.tag = "CollidedObject";
     }
 
     /// <summary>
@@ -40,9 +55,20 @@ public class ConeCollider : MonoBehaviour
 
     public float GetCollidedDistance()
     {
+        Vector3 distance;
         if (collided)
         {
-            return distanceToCollided.x;
+            distance = ParentSensorUS.transform.position - collidedObject.transform.position;
+            Debug.Log("Distancia: " + distance);
+            float value = distance.z;
+            value = Mathf.Abs(value);
+            if (value > 10)
+            {
+                value *= 0.5f;
+            }
+            value = Mathf.Round(value);
+            Debug.Log("Value: " + value);
+            return value;
         }
         return Mathf.Infinity;
     }

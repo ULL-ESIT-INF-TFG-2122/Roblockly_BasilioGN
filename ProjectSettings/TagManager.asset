@@ -30,6 +30,8 @@ TagManager:
   - TopFrontSnapRight
   - TopFrontSnapLeft
   - TopFrontSnapCenter
+  - CollidedObject
+  - NotCollidedObject
   layers:
   - Default
   - TransparentFX
