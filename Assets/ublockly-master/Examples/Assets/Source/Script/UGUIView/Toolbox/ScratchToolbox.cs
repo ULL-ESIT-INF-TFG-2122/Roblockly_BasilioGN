@@ -162,6 +162,12 @@ namespace UBlockly.UGUI
                             NewBlockView(blockType, contentTrans);
                         }
                         break;
+                    case "sensors_color_detect_colors":
+                        if (selectedRobot.GetComponent<RobotManager>().CheckSensor("SensorColor"))
+                        {
+                            NewBlockView(blockType, contentTrans);
+                        }
+                        break;
                     default: 
                         NewBlockView(blockType, contentTrans);
                         break;

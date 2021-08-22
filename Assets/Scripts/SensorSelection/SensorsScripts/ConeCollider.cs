@@ -89,16 +89,6 @@ public class ConeCollider : MonoBehaviour
                     }
                     return 10.0f;
                 }
-                /*if (CheckParallel(parentSensorUS.transform.forward, collidedObject.transform.forward))
-                {
-                    baseDistance = Mathf.Abs(distance.z);
-                    Z = true;
-                } else if (CheckParallel(parentSensorUS.transform.forward, collidedObject.transform.right)) {
-                    baseDistance = Mathf.Abs(distance.x);
-                    Z = false;
-                }
-                firstCollision = true;
-                //baseDistance = Mathf.Abs(distance.z);*/
             }
             float finalDistance = Mathf.Infinity;
             if (callCounter > 2)
@@ -115,7 +105,7 @@ public class ConeCollider : MonoBehaviour
         return Mathf.Infinity;
     }
 
-    private bool CheckParallel(Vector3 SensorVector, Vector3 ObjectVector)
+    /*private bool CheckParallel(Vector3 SensorVector, Vector3 ObjectVector)
     {
         float alignment = ((SensorVector.x * ObjectVector.x) + 
                            (SensorVector.y * ObjectVector.y) +
@@ -126,7 +116,7 @@ public class ConeCollider : MonoBehaviour
             return true;
         }
         return false;
-    }
+    }*/
     
     private float CalculateDistance(float baseDistance, float currentDistance)
     {
