@@ -4,13 +4,15 @@ using UnityEngine;
 
 public class ConeCollider : MonoBehaviour
 {
-    public GameObject ParentSensorUS;
+    public GameObject parentSensorUS;
     private bool collided = false;
     private GameObject collidedObject;
     private Vector3 distanceToCollided;
     private bool firstCollision = false;
     private float baseDistance;
     private bool Z = false;
+    private int callCounter;
+    private string direcctionToUse;
 
     /// <summary>
     /// Awake is called when the script instance is being loaded.
@@ -18,6 +20,15 @@ public class ConeCollider : MonoBehaviour
     void Awake()
     {
         this.GetComponent<Renderer>().enabled = false;
+    }
+
+    /// <summary>
+    /// Start is called on the frame when a script is enabled just before
+    /// any of the Update methods is called the first time.
+    /// </summary>
+    void Start()
+    {
+        callCounter = 0;
     }
 
     /// <summary>
@@ -55,6 +66,7 @@ public class ConeCollider : MonoBehaviour
     {
         collided = false;
         firstCollision = false;
+        callCounter = 0;
     }
 
     public float GetCollidedDistance()
@@ -62,27 +74,41 @@ public class ConeCollider : MonoBehaviour
         Vector3 distance;
         if (collided)
         {
-            distance = ParentSensorUS.transform.position - collidedObject.transform.position;
-            if (!firstCollision)
+            callCounter++;
+            distance = parentSensorUS.transform.position - collidedObject.transform.position;
+            if (callCounter == 1 || callCounter == 2) // If is the first or second collision with object
             {   
-                if (CheckParallel(ParentSensorUS.transform.forward, collidedObject.transform.forward))
+                direcctionToUse = CheckDirection(callCounter, distance);
+                if (callCounter == 2)
+                {
+                    if (direcctionToUse == "Z")
+                    {
+                        baseDistance = Mathf.Abs(distance.z);
+                    } else if (direcctionToUse == "X") {
+                        baseDistance = Mathf.Abs(distance.x);
+                    }
+                    return 10.0f;
+                }
+                /*if (CheckParallel(parentSensorUS.transform.forward, collidedObject.transform.forward))
                 {
                     baseDistance = Mathf.Abs(distance.z);
                     Z = true;
-                } else if (CheckParallel(ParentSensorUS.transform.forward, collidedObject.transform.right)) {
+                } else if (CheckParallel(parentSensorUS.transform.forward, collidedObject.transform.right)) {
                     baseDistance = Mathf.Abs(distance.x);
                     Z = false;
                 }
                 firstCollision = true;
-                //baseDistance = Mathf.Abs(distance.z);
-                return 10.0f;
+                //baseDistance = Mathf.Abs(distance.z);*/
             }
-            float finalDistance;
-            if (Z)
+            float finalDistance = Mathf.Infinity;
+            if (callCounter > 2)
             {
-                finalDistance = CalculateDistance(baseDistance, Mathf.Abs(distance.z));
-            } else {
-                finalDistance = CalculateDistance(baseDistance, Mathf.Abs(distance.x));
+                if (direcctionToUse == "Z")
+                {
+                    finalDistance = CalculateDistance(baseDistance, Mathf.Abs(distance.z));
+                } else if (direcctionToUse == "X") {
+                    finalDistance = CalculateDistance(baseDistance, Mathf.Abs(distance.x));
+                }
             }
             return Mathf.Round(finalDistance);
         }
@@ -105,5 +131,23 @@ public class ConeCollider : MonoBehaviour
     private float CalculateDistance(float baseDistance, float currentDistance)
     {
         return (currentDistance * 10.0f) / baseDistance;
+    }
+
+    private string CheckDirection(int callCounter, Vector3 currentDistance)
+    {
+        if (callCounter == 1)
+        {
+            distanceToCollided = currentDistance;
+        } else if (callCounter == 2) {
+            if (Mathf.Round(distanceToCollided.x) == 
+                Mathf.Round(currentDistance.x))
+            {
+                return "Z";
+            } else if (Mathf.Round(distanceToCollided.z) == 
+                Mathf.Round(currentDistance.z)) {
+                return "X";
+            }
+        }
+        return "NONE";
     }
 }

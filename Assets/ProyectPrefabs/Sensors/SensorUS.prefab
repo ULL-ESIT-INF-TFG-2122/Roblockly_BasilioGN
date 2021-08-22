@@ -84,7 +84,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea896261592e93f4c80ed7294a5156ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ParentSensorUS: {fileID: 107408997768036176}
+  parentSensorUS: {fileID: 107408997768036176}
 --- !u!1 &6605837827816922154
 GameObject:
   m_ObjectHideFlags: 0
