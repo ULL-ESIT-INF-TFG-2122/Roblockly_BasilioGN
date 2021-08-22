@@ -11,18 +11,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CheckInclinometer : MonoBehaviour
+public class CheckGyroscope : MonoBehaviour
 {
-    public delegate void InclinometerChecked();
-    public static InclinometerChecked CheckboxInclinometer;
+    public delegate void GyroscopeChecked();
+    public static GyroscopeChecked CheckboxGyroscope;
+
+    public delegate void GyroscopeNotChecked();
+    public static GyroscopeNotChecked DeactivateGyroscope;
     public void Acivation()
     {
         if (!gameObject.activeSelf)
         {
             gameObject.SetActive(true);
-            CheckboxInclinometer();
+            CheckboxGyroscope();
         } else {
             gameObject.SetActive(false);
+            DeactivateGyroscope();
         } 
     }
 }

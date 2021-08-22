@@ -47,6 +47,10 @@
     "YELLOW": "amarillo",
     "GREEN": "verde",
     "BLUE": "azul",
+
+    "GYROSCOPE_SENSOR_PARALLEL": "quieto",
+    "GYROSCOPE_SENSOR_FORWARD": "delante",
+    "GYROSCOPE_SENSOR_BACKWARD": "detrás",
     
     /// default name - A simple: general default name for a variable: preferably short.
     "VARIABLES_DEFAULT_NAME": "item",

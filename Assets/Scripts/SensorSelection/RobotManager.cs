@@ -11,13 +11,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class RobotManager : MonoBehaviour
 {
-    private bool Inclinometer = false; // True if the user click on 
-                                       // "inclinometro" checkbox.
+    private bool Gyroscope = false; // True if the user click on 
+                                       // "giróscopo" checkbox.
     private bool Microphone = false; // True if the user click on 
                                      // "microphone" checkbox.
+    private GameObject BalanceSphere; // Is the sphere under the platform of the "BalanceChallenge".
     
     private Dictionary<string, string> usedSensors = new Dictionary<string, string>(); // Save the sensors snapped to the robot to know the blocks to show in the coding panel of the UGUI. This check is carried out in SnapController script and SensorGeneric (DeleteSensor method).
 
@@ -35,20 +37,35 @@ public class RobotManager : MonoBehaviour
     /// </summary>
     void Start()
     {
-        CheckInclinometer.CheckboxInclinometer = InclinometerActivation;
+        CheckGyroscope.CheckboxGyroscope = GyroscopeActivation;
         CheckMicrophone.CheckboxMicrophone = MicrophoneActivation;
+        CheckGyroscope.DeactivateGyroscope = GyroscopeDeactivation;
     }
 
-    public void InclinometerActivation()
+    public void GyroscopeActivation()
     {
-        Inclinometer = true;
-        Debug.Log("Inclinometer");
+        Gyroscope = true;
+        AddUsedSensor("Gyroscope", "Gyroscope");
+        Debug.Log("Gyroscope");
     }
 
-    public void MicrophoneActivation()
+    public void GyroscopeDeactivation()
+    {
+        Gyroscope = false;
+        DeleteSensorFromUsedSensors("Gyroscope");
+    }
+
+    public void MicrophoneActivation() // Not used
     {
         Microphone = true;
+        AddUsedSensor("Microphone", "Microphone");
         Debug.Log("Microphone");
+    }
+
+    public void MicrophoneDeactivation() // Not used
+    {
+        Microphone = false;
+        DeleteSensorFromUsedSensors("Microphone");
     }
 
     /// <summary>
@@ -56,8 +73,9 @@ public class RobotManager : MonoBehaviour
     /// </summary>
     void OnDisable()
     {
-        CheckInclinometer.CheckboxInclinometer -= InclinometerActivation;
+        CheckGyroscope.CheckboxGyroscope -= GyroscopeActivation;
         CheckMicrophone.CheckboxMicrophone -= MicrophoneActivation;
+        CheckGyroscope.DeactivateGyroscope -= GyroscopeDeactivation;
     }
 
     public void AddUsedSensor(string usedSensor, string usedSensorType)
@@ -93,37 +111,96 @@ public class RobotManager : MonoBehaviour
         robotRb.isKinematic = status;
     }
 
-    public bool GetTouchInfo(string TouchSensorToFind)
+    public bool GetTouchInfo(string touchSensorToFind)
     {
         GameObject sensorToFind;
-        string sensorNameToFind = "Sensor " + TouchSensorToFind + ": Contacto";
+        string sensorNameToFind = "Sensor " + touchSensorToFind + ": Contacto";
         Debug.Log("SensorToFind " + sensorNameToFind);
         sensorToFind = transform.Find(sensorNameToFind).gameObject;
         return sensorToFind.GetComponent<SensorTouch>().GetContact();
     }
 
-    public bool GetIRInfo(string IRSensorToFind, string colorToDetect)
+    public bool GetIRInfo(string iRSensorToFind, string colorToDetect)
     {
         GameObject sensorToFind;
-        string sensorNameToFind = "Sensor " + IRSensorToFind + ": Infrarrojo";
+        string sensorNameToFind = "Sensor " + iRSensorToFind + ": Infrarrojo";
         sensorToFind = transform.Find(sensorNameToFind).gameObject;
         return sensorToFind.GetComponent<SensorIR>().DetectColor(colorToDetect);
     }
     
-    public bool GetColorInfo(string ColorSensorToFind, string colorToDetect)
+    public bool GetColorInfo(string colorSensorToFind, string colorToDetect)
     {
         GameObject sensorToFind;
-        string sensorNameToFind = "Sensor " + ColorSensorToFind + ": Color";
+        string sensorNameToFind = "Sensor " + colorSensorToFind + ": Color";
         sensorToFind = transform.Find(sensorNameToFind).gameObject;
         return sensorToFind.GetComponent<SensorColor>().DetectColor(colorToDetect);
     }
 
-    public float GetUSInfo(string USSensorToFind)
+    public float GetUSInfo(string uSSensorToFind)
     {
         GameObject sensorToFind;
-        string sensorNameToFind = "Sensor " + USSensorToFind + ": Ultrasonido";
+        string sensorNameToFind = "Sensor " + uSSensorToFind + ": Ultrasonido";
         sensorToFind = transform.Find(sensorNameToFind).gameObject;
         float distance = sensorToFind.GetComponent<SensorUS>().GetDistance();
         return distance;
+    }
+
+    public bool GetGyroscopeInfo(string direction)
+    {
+        if ((SceneManager.GetActiveScene().name == "BalanceChallenge") && (Gyroscope))
+        {
+            string status = GyroscopeBehavior();
+            if (status == direction)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private string GyroscopeBehavior()
+    {
+        BalanceSphere = GameObject.Find("BaseSphere");
+        if ((SceneManager.GetActiveScene().name == "BalanceChallenge") &&     
+            (Gyroscope))
+        {
+            if (!CheckParallel())
+            {
+                if (CheckAngle())
+                {
+                    return "forward";
+                } else {
+                    return "backward";
+                }
+            }
+        }
+        return "parallel";
+    }
+
+    private bool CheckParallel()
+    {
+        Vector3 SphereRobotVector = (transform.position - BalanceSphere.transform.position).normalized;
+        Vector3 SphereUp = BalanceSphere.transform.up;
+        float alignment = ((SphereUp.x * SphereRobotVector.x) + 
+                           (SphereUp.y * SphereRobotVector.y) +
+                           (SphereUp.z * SphereRobotVector.z));
+        alignment = Mathf.Round(alignment);
+        if (alignment == 1.0f) // If 1 -> Parallel, 0 -> Normal, -1 -> Other position.
+        {
+            return true;
+        }
+        return false;
+    }
+
+    private bool CheckAngle()
+    {
+        Vector3 SphereRobotVector = (transform.position - BalanceSphere.transform.position).normalized;
+        Vector3 SphereForward = BalanceSphere.transform.forward;
+        float planeRobotAngle = Vector3.Angle(SphereForward, SphereRobotVector);
+        if (planeRobotAngle < 0.0f)
+        {
+            return true; // Robot is moving forward
+        }
+        return false; // Robot is moving backward
     }
 }

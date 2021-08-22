@@ -168,6 +168,12 @@ namespace UBlockly.UGUI
                             NewBlockView(blockType, contentTrans);
                         }
                         break;
+                    case "sensors_gyroscope_still":
+                        if (selectedRobot.GetComponent<RobotManager>().CheckSensor("SensorColor"))
+                        {
+                            NewBlockView(blockType, contentTrans);
+                        }
+                        break;
                     default: 
                         NewBlockView(blockType, contentTrans);
                         break;

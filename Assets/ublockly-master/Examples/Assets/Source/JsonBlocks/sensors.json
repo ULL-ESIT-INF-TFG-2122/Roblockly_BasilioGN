@@ -128,5 +128,25 @@
         }
     ],
     "output": "float"
+  },
+  {
+    "type": "sensors_gyroscope_still",
+    "message0": "Sensor Giroscopio no se inclina",
+    "output": "bool"
+  },
+  {
+    "type": "sensors_gyroscope_direction",
+    "message0": "Sensor Giroscopio se inclina hacia %1",
+    "args0": [
+        {
+            "type": "field_dropdown",
+            "name": "DIRECTION",
+            "options": [
+              ["%{BKY_GYROSCOPE_SENSOR_FORWARD}", "delante"],
+              ["%{BKY_GYROSCOPE_SENSOR_BACKWARD}", "detrás"]
+            ]
+        }
+    ],
+    "output": "bool"
   }
 ]

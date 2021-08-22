@@ -1551,8 +1551,8 @@ RectTransform:
   - {fileID: 1223373427}
   - {fileID: 1386391831}
   - {fileID: 188519949}
-  - {fileID: 1571680116}
   - {fileID: 830370691}
+  - {fileID: 1571680116}
   m_Father: {fileID: 1431421299}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1666,7 +1666,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 791499455}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
@@ -1735,7 +1735,7 @@ GameObject:
   - component: {fileID: 910400975}
   - component: {fileID: 910400974}
   m_Layer: 5
-  m_Name: "Inclin\xF3metro2"
+  m_Name: "Gir\xF3scopo"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1793,7 +1793,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Inclin\xF3metro"
+  m_Text: "Gir\xF3scopo"
 --- !u!222 &910400975
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2775,7 +2775,7 @@ GameObject:
   - component: {fileID: 1727215563}
   - component: {fileID: 1727215562}
   m_Layer: 5
-  m_Name: "Micr\xF3fono2"
+  m_Name: "Micr\xF3fono"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
