@@ -17,6 +17,11 @@ public class ChallengeSelectionManager : MonoBehaviour
     {
         PlayerPrefs.SetInt("SelectedChallenge", 3);
     }
+    public void SelectBalanceChallenge()
+    {
+        PlayerPrefs.SetInt("SelectedChallenge", 4);
+    }
+
     public void GoForward()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
