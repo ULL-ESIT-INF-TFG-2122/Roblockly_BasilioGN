@@ -169,7 +169,13 @@ namespace UBlockly.UGUI
                         }
                         break;
                     case "sensors_gyroscope_still":
-                        if (selectedRobot.GetComponent<RobotManager>().CheckSensor("SensorColor"))
+                        if (selectedRobot.GetComponent<RobotManager>().CheckSensor("Gyroscope"))
+                        {
+                            NewBlockView(blockType, contentTrans);
+                        }
+                        break;
+                    case "sensors_gyroscope_direction":
+                        if (selectedRobot.GetComponent<RobotManager>().CheckSensor("Gyroscope"))
                         {
                             NewBlockView(blockType, contentTrans);
                         }

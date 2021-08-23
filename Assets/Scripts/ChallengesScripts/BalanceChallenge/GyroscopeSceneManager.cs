@@ -38,9 +38,9 @@ public class GyroscopeSceneManager : MonoBehaviour
     /// </summary>
     void Start()
     {
-        SetUpSelectedRobot();
-        platform = GameObject.Find("platform").gameObject;
+        platform = GameObject.Find("Platform").gameObject;
         platformInitialPos = platform.transform.position;
+        SetUpSelectedRobot();
     }
 
     /// <summary>
@@ -59,9 +59,16 @@ public class GyroscopeSceneManager : MonoBehaviour
         float ZPosCoord = selectedRobot.transform.position.z;   
         selectedRobot.transform.position = new Vector3(XPosCoord, YPosCoord + 10, ZPosCoord);
         selectedRobot.transform.rotation = startPoint.rotation;
-        selectedRobot.GetComponent<RobotManager>().Kinematic(false); // Enables robot physics again.
+        selectedRobot.GetComponent<RobotManager>().Kinematic(true);
         selectedRobot.GetComponent<RobotMotionController1>().ResetAngleRotated();
         platform.transform.position = platformInitialPos;
+        platform.GetComponent<Rigidbody>().isKinematic = true;
+    }
+
+    public void DisableRobotKinematic()
+    {
+        selectedRobot.GetComponent<RobotManager>().Kinematic(false);
+        platform.GetComponent<Rigidbody>().isKinematic = false;
     }
 
     /// <summary>

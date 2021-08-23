@@ -180,12 +180,16 @@ public class RobotManager : MonoBehaviour
     private bool CheckParallel()
     {
         Vector3 SphereRobotVector = (transform.position - BalanceSphere.transform.position).normalized;
-        Vector3 SphereUp = BalanceSphere.transform.up;
-        float alignment = ((SphereUp.x * SphereRobotVector.x) + 
-                           (SphereUp.y * SphereRobotVector.y) +
-                           (SphereUp.z * SphereRobotVector.z));
-        alignment = Mathf.Round(alignment);
-        if (alignment == 1.0f) // If 1 -> Parallel, 0 -> Normal, -1 -> Other position.
+        Debug.DrawLine(transform.position, BalanceSphere.transform.position, Color.red, 5.0f);
+        Vector3 PointSphereUp = new Vector3(BalanceSphere.transform.position.x, BalanceSphere.transform.position.y + 100, BalanceSphere.transform.position.z);
+        Vector3 SphereUp = (PointSphereUp - BalanceSphere.transform.position).normalized;
+        Debug.DrawLine(BalanceSphere.transform.position, PointSphereUp, Color.blue, 5.0f);
+        //Vector3 SphereUp = BalanceSphere.transform.up;
+        float auxAngle = Vector3.SignedAngle(SphereRobotVector, SphereUp, BalanceSphere.transform.right);
+        Debug.Log("Ángulo: " + auxAngle);
+        //if (alignment == 1.0f) // If 1 -> Parallel, 0 -> Normal, -1 -> Other position.
+        auxAngle = Mathf.Round(auxAngle);
+        if (auxAngle < 10.0f && auxAngle > -10.0f)
         {
             return true;
         }
@@ -196,8 +200,14 @@ public class RobotManager : MonoBehaviour
     {
         Vector3 SphereRobotVector = (transform.position - BalanceSphere.transform.position).normalized;
         Vector3 SphereForward = BalanceSphere.transform.forward;
-        float planeRobotAngle = Vector3.Angle(SphereForward, SphereRobotVector);
-        if (planeRobotAngle < 0.0f)
+
+        Vector3 PointSphereUp = new Vector3(BalanceSphere.transform.position.x, BalanceSphere.transform.position.y + 100, BalanceSphere.transform.position.z);
+        Vector3 SphereUp = (PointSphereUp - BalanceSphere.transform.position).normalized;
+        float auxAngle = Vector3.SignedAngle(SphereRobotVector, SphereUp, BalanceSphere.transform.right);
+
+        float planeRobotAngle = Vector3.SignedAngle(SphereForward, SphereRobotVector, Vector3.right);
+        Debug.Log("Ángulo2: " + auxAngle);
+        if (auxAngle < 0.0f)
         {
             return true; // Robot is moving forward
         }
