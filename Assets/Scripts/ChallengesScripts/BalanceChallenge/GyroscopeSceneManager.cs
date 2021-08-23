@@ -2,14 +2,14 @@
 * Universidad de La Laguna
 * Author: Basilio Gómez Navarro
 * Email: alu0101049151@ull.edu.es
-* Date: 18/08/2021
-* File: IRSceneManager.cs : This file contains the 
-*       "IRSceneManaer" class implementation which allows the 
+* Date: 23/08/2021
+* File: LabyrinthSeceneManager.cs : This file contains the 
+*       "LabyrinthSceneManager" class implementation which allows the 
 *        configuration of some stuff of the scene as:
 *           - Set the position of the selectedRobot gameobject.
 *           - Manage the size of the chellenge viewer.
 *           - Run the logic of the buttos to go backward or reset robot 
-*             position.
+*             and platform position.
 */
 
 using System.Collections;
@@ -20,7 +20,7 @@ using UnityEngine.SceneManagement;
 /// <summary>
 /// Class used to manage the scene configuration.
 /// </summary>
-public class IRSceneManager : MonoBehaviour
+public class GyroscopeSceneManager : MonoBehaviour
 {
     private GameObject selectedRobot;
     [SerializeField] private Transform startPoint; // Is the point from which the selected robot will take its position and rotation.
@@ -29,6 +29,8 @@ public class IRSceneManager : MonoBehaviour
     public GameObject maximizeButtonBig;
     public GameObject smallChallengeViewer;
     public GameObject bigChallengeViewer;
+    private GameObject platform;
+    private Vector3 platformInitialPos; // Is the platform where the robot have to stay.
 
     /// <summary>
     /// Start is called on the frame when a script is enabled just before
@@ -37,6 +39,8 @@ public class IRSceneManager : MonoBehaviour
     void Start()
     {
         SetUpSelectedRobot();
+        platform = GameObject.Find("platform").gameObject;
+        platformInitialPos = platform.transform.position;
     }
 
     /// <summary>
@@ -55,8 +59,9 @@ public class IRSceneManager : MonoBehaviour
         float ZPosCoord = selectedRobot.transform.position.z;   
         selectedRobot.transform.position = new Vector3(XPosCoord, YPosCoord + 10, ZPosCoord);
         selectedRobot.transform.rotation = startPoint.rotation;
-        selectedRobot.GetComponent<RobotManager>().Kinematic(true); // Is this line of code necessary?
+        selectedRobot.GetComponent<RobotManager>().Kinematic(false); // Enables robot physics again.
         selectedRobot.GetComponent<RobotMotionController1>().ResetAngleRotated();
+        platform.transform.position = platformInitialPos;
     }
 
     /// <summary>

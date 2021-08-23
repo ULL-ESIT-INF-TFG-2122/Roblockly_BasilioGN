@@ -1409,7 +1409,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2066066946}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: IRSceneManager, Assembly-CSharp
         m_MethodName: ChangeToBig
         m_Mode: 1
@@ -1541,7 +1541,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2066066946}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: IRSceneManager, Assembly-CSharp
         m_MethodName: ChangeToSmall
         m_Mode: 1
@@ -2389,9 +2389,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2066066945}
-  - component: {fileID: 2066066946}
   m_Layer: 0
-  m_Name: IRChallengeSceneManager
+  m_Name: GyroscopeSceneManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2411,23 +2410,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2066066946
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2066066944}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b376a4f08bf9ae14a919c4ed53979af1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  startPoint: {fileID: 1704993382}
-  maximizeButtonSmall: {fileID: 815815902}
-  maximizeButtonBig: {fileID: 837686631}
-  smallChallengeViewer: {fileID: 118285297}
-  bigChallengeViewer: {fileID: 56733421}
 --- !u!1001 &530913903373039272
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2549,7 +2531,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 2066066946}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f00047a00d2464146b0860b0198bb736, type: 3}
 --- !u!1001 &4541046869737571568
@@ -2673,6 +2655,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 2066066946}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5353e6eef7161fe41b8c350abe19f00a, type: 3}

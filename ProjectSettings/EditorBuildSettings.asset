@@ -26,4 +26,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/ColorChallenge.unity
     guid: 3c5dd5780b0c9004e85f952259715552
+  - enabled: 1
+    path: Assets/Scenes/BalanceChallenge.unity
+    guid: 23b0f69f8b7234449b3cc054ae09417f
   m_configObjects: {}
