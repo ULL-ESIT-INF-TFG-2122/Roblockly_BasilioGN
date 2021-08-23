@@ -59,7 +59,7 @@ public class RobotManager : MonoBehaviour
     {
         Microphone = true;
         AddUsedSensor("Microphone", "Microphone");
-        Debug.Log("Microphone");
+        //Debug.Log("Microphone");
     }
 
     public void MicrophoneDeactivation() // Not used

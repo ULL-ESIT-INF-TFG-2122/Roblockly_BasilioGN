@@ -72,4 +72,23 @@ namespace UBlockly
             return new DataStruct(data);
         }
     }
+    
+    [CodeInterpreter(BlockType = "sensors_gyroscope_still")]
+    public class Detection_Sensor_Gyroscope_Still_Cmdtor : ValueCmdtor{
+        protected override DataStruct Execute(Block block){
+            GameObject selectedRobot = GameObject.FindWithTag("SelectedRobot");
+            bool data = selectedRobot.GetComponent<RobotManager>().GetGyroscopeInfo("parallel");
+            return new DataStruct(data);
+        }
+    }
+
+    [CodeInterpreter(BlockType = "sensors_gyroscope_direction")]
+    public class Detection_Sensor_Gyroscope_Direction_Cmdtor : ValueCmdtor{
+        protected override DataStruct Execute(Block block){
+            string robotDirection = block.GetFieldValue("DIRECTION");
+            GameObject selectedRobot = GameObject.FindWithTag("SelectedRobot");
+            bool data = selectedRobot.GetComponent<RobotManager>().GetGyroscopeInfo(robotDirection);
+            return new DataStruct(data);
+        }
+    }
 }
