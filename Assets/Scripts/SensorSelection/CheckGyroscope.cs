@@ -18,6 +18,32 @@ public class CheckGyroscope : MonoBehaviour
 
     public delegate void GyroscopeNotChecked();
     public static GyroscopeNotChecked DeactivateGyroscope;
+
+    private GameObject selectedRobot;
+
+    /// <summary>
+    /// Update is called every frame, if the MonoBehaviour is enabled.
+    /// </summary>
+    void Update()
+    {
+        if (selectedRobot == null) // Late start
+        {
+            selectedRobot = GameObject.FindWithTag("SelectedRobot").gameObject;
+        }
+    }
+
+    public void CheckActivated()
+    {
+        if (selectedRobot == null) // Late start
+        {
+            selectedRobot = GameObject.FindWithTag("SelectedRobot").gameObject;
+        }
+        if (selectedRobot.GetComponent<RobotManager>().GetGyrsocopeStatus())
+        {
+            gameObject.SetActive(true);
+        }
+    }
+
     public void Acivation()
     {
         if (!gameObject.activeSelf)

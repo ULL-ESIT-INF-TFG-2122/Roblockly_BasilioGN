@@ -844,6 +844,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a3985176a8edc74d9f85a56009ebfe6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  GyroscopeSensor: {fileID: 0}
 --- !u!1001 &532420450
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -967,6 +968,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f9f4f7c83bf9154bb562f9b5fc934df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gyroscopeCheck: {fileID: 768989264}
 --- !u!4 &561099822
 Transform:
   m_ObjectHideFlags: 0
@@ -2244,6 +2246,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a3985176a8edc74d9f85a56009ebfe6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  GyroscopeSensor: {fileID: 0}
 --- !u!1 &1400519442
 GameObject:
   m_ObjectHideFlags: 0
@@ -2691,6 +2694,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a3985176a8edc74d9f85a56009ebfe6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  GyroscopeSensor: {fileID: 0}
 --- !u!1 &1609775553
 GameObject:
   m_ObjectHideFlags: 0

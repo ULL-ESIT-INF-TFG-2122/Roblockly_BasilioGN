@@ -17,6 +17,8 @@ public class RobotManager : MonoBehaviour
 {
     private bool Gyroscope = false; // True if the user click on 
                                        // "giróscopo" checkbox.
+    public SensorGyroscope GyroscopeSensor = null;
+    private SensorGyroscope InstantiatedGyroscope;
     private bool Microphone = false; // True if the user click on 
                                      // "microphone" checkbox.
     private GameObject BalanceSphere; // Is the sphere under the platform of the "BalanceChallenge".
@@ -45,14 +47,23 @@ public class RobotManager : MonoBehaviour
     public void GyroscopeActivation()
     {
         Gyroscope = true;
+        InstantiatedGyroscope = Instantiate(GyroscopeSensor,
+        gameObject.transform);
         AddUsedSensor("Gyroscope", "Gyroscope");
-        Debug.Log("Gyroscope");
+        //Debug.Log("Gyroscope");
     }
 
     public void GyroscopeDeactivation()
     {
         Gyroscope = false;
+        Destroy(gameObject.transform.Find(InstantiatedGyroscope.gameObject.name).gameObject);
         DeleteSensorFromUsedSensors("Gyroscope");
+        
+    }
+
+    public bool GetGyrsocopeStatus()
+    {
+        return Gyroscope;
     }
 
     public void MicrophoneActivation() // Not used
@@ -149,7 +160,7 @@ public class RobotManager : MonoBehaviour
     {
         if ((SceneManager.GetActiveScene().name == "BalanceChallenge") && (Gyroscope))
         {
-            string status = GyroscopeBehavior();
+            string status = InstantiatedGyroscope.GyroscopeBehavior();
             if (status == direction)
             {
                 return true;
@@ -158,20 +169,16 @@ public class RobotManager : MonoBehaviour
         return false;
     }
 
-    private string GyroscopeBehavior()
+    /*private string GyroscopeBehavior()
     {
         BalanceSphere = GameObject.Find("BaseSphere");
-        if ((SceneManager.GetActiveScene().name == "BalanceChallenge") &&     
-            (Gyroscope))
+        if (!CheckParallel())
         {
-            if (!CheckParallel())
+            if (CheckAngle())
             {
-                if (CheckAngle())
-                {
-                    return "forward";
-                } else {
-                    return "backward";
-                }
+                return "forward";
+            } else {
+                return "backward";
             }
         }
         return "parallel";
@@ -212,5 +219,5 @@ public class RobotManager : MonoBehaviour
             return true; // Robot is moving forward
         }
         return false; // Robot is moving backward
-    }
+    }*/
 }

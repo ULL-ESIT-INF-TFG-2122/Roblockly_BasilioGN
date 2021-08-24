@@ -25,6 +25,7 @@ public class SensorSelectionSceneManager : MonoBehaviour
     private GameObject selectedRobot;
     private GameObject rotatingPlatform;
     private bool settedUp = false;
+    public GameObject gyroscopeCheck;
 
     /// <summary>
     /// Start is called on the frame when a script is enabled just before
@@ -40,10 +41,11 @@ public class SensorSelectionSceneManager : MonoBehaviour
     /// </summary>
     void Update()
     {
-        if (selectedRobot == null)
+        if (selectedRobot == null) // Late start
         {
             selectedRobot = GameObject.FindWithTag("SelectedRobot");
             SetUpSelectedRobot();
+            gyroscopeCheck.GetComponent<CheckGyroscope>().CheckActivated();
         }
     }
 
