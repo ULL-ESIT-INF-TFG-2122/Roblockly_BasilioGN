@@ -21,18 +21,6 @@ public class GlobalSceneManager : MonoBehaviour
         }
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-      //IndividualSelectionSceneManager1.SetActiveSceneCanvas = SwitchOnSecene3;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     public static void SwitchOnSecene3(bool status)
     {
         Debug.Log("Ha entrado en el SwitchOnScene3 con status: " + status);

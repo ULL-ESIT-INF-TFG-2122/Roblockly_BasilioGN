@@ -57,8 +57,7 @@ public class RobotManager : MonoBehaviour
     {
         Gyroscope = false;
         Destroy(gameObject.transform.Find(InstantiatedGyroscope.gameObject.name).gameObject);
-        DeleteSensorFromUsedSensors("Gyroscope");
-        
+        DeleteSensorFromUsedSensors("Gyroscope");  
     }
 
     public bool GetGyrsocopeStatus()
