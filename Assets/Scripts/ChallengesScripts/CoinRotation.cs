@@ -21,16 +21,16 @@ public class CoinRotation : MonoBehaviour
     }
 
     /// <summary>
-    /// OnCollisionEnter is called when this collider/rigidbody has begun
-    /// touching another rigidbody/collider.
+    /// OnTriggerEnter is called when the Collider other enters the trigger.
     /// </summary>
-    /// <param name="other">The Collision data associated with this collision.</param>
-    void OnCollisionEnter(Collision other)
+    /// <param name="other">The other Collider involved in this collision.</param>
+    void OnTriggerEnter(Collider other)
     {
+        Debug.Log("Ha entrado en el trigger enter");
         if (other.gameObject.tag == "SelectedRobot")
         {
-            GameObject selectedRobot = GameObject.FindWithTag("SelectedRobot");
-            selectedRobot.GetComponent<RobotMotionController1>().StopRobot();
+            GameObject selectedRobot = GameObject.FindWithTag("SelectedRobot").gameObject;
+            selectedRobot.GetComponent<RobotMotionController1>().StopRobotNow();
             gameObject.SetActive(false);
             StopTimer();
         }

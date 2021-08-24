@@ -127,9 +127,15 @@ public class RobotMotionController1 : MonoBehaviour
     /// </summary>
     public IEnumerator StopRobot()
     {
-        robotRigidbody.velocity = new Vector3(0, 0, 0);
         StopAllCoroutines();
+        robotRigidbody.velocity = new Vector3(0, 0, 0);
         yield return null;
+    }
+
+    public void StopRobotNow()
+    {
+        StopAllCoroutines();
+        robotRigidbody.velocity = Vector3.zero;
     }
 
     /// <summary>
