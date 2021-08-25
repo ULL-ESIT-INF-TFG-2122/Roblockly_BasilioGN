@@ -32,6 +32,7 @@ TagManager:
   - TopFrontSnapCenter
   - CollidedObject
   - NotCollidedObject
+  - StatisticsManager
   layers:
   - Default
   - TransparentFX
