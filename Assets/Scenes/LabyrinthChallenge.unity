@@ -833,6 +833,21 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: 18.15784
       objectReference: {fileID: 0}
+    - target: {fileID: 2081967644538811092, guid: 48fdd4b8521e2f845b9de07518b244df,
+        type: 3}
+      propertyPath: m_Mass
+      value: 10000
+      objectReference: {fileID: 0}
+    - target: {fileID: 2081967644538811092, guid: 48fdd4b8521e2f845b9de07518b244df,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 122
+      objectReference: {fileID: 0}
+    - target: {fileID: 2081967644538811092, guid: 48fdd4b8521e2f845b9de07518b244df,
+        type: 3}
+      propertyPath: m_CollisionDetection
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2081967644538811093, guid: 48fdd4b8521e2f845b9de07518b244df,
         type: 3}
       propertyPath: m_Enabled
@@ -889,12 +904,12 @@ PrefabInstance:
     - {fileID: 2081967645407027849, guid: 48fdd4b8521e2f845b9de07518b244df, type: 3}
     - {fileID: 2081967643641508073, guid: 48fdd4b8521e2f845b9de07518b244df, type: 3}
     - {fileID: 2081967643518396097, guid: 48fdd4b8521e2f845b9de07518b244df, type: 3}
-    - {fileID: 2081967644538811092, guid: 48fdd4b8521e2f845b9de07518b244df, type: 3}
     - {fileID: 0}
-    - {fileID: 2081967643819188790, guid: 48fdd4b8521e2f845b9de07518b244df, type: 3}
     - {fileID: 2081967645480635220, guid: 48fdd4b8521e2f845b9de07518b244df, type: 3}
     - {fileID: 2081967645212787679, guid: 48fdd4b8521e2f845b9de07518b244df, type: 3}
     - {fileID: 2081967644116358008, guid: 48fdd4b8521e2f845b9de07518b244df, type: 3}
+    - {fileID: 2081967644538811092, guid: 48fdd4b8521e2f845b9de07518b244df, type: 3}
+    - {fileID: 2081967643819188790, guid: 48fdd4b8521e2f845b9de07518b244df, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 48fdd4b8521e2f845b9de07518b244df, type: 3}
 --- !u!1 &550874862
 GameObject:
@@ -2526,7 +2541,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: ec467222854239a46aad9200be025b44, type: 3}
+    m_Font: {fileID: 12800000, guid: 9f888819994f0d44a85d5f4107dac667, type: 3}
     m_FontSize: 14
     m_FontStyle: 0
     m_BestFit: 0

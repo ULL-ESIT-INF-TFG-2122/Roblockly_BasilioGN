@@ -10,7 +10,6 @@ namespace UBlockly
             string sensorPosition = block.GetFieldValue("POSITION");
             GameObject selectedRobot = GameObject.FindWithTag("SelectedRobot");
             bool data = selectedRobot.GetComponent<RobotManager>().GetTouchInfo(sensorPosition);
-            Debug.Log("Devuelve " + data.ToString());
             return new DataStruct(data);
         }
     }
@@ -27,7 +26,6 @@ namespace UBlockly
             } else {
                 data = false;
             }
-            Debug.Log("Devuelve " + data.ToString());
             return new DataStruct(data);
         }
     }

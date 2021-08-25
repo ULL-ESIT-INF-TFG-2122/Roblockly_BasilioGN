@@ -27,7 +27,8 @@ public class CoinRotation : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
         Debug.Log("Ha entrado en el trigger enter");
-        if (other.gameObject.tag == "SelectedRobot")
+        if (other.gameObject.tag == "SelectedRobot" ||
+            other.gameObject.name == "Contact")
         {
             GameObject selectedRobot = GameObject.FindWithTag("SelectedRobot").gameObject;
             selectedRobot.GetComponent<RobotMotionController1>().StopRobotNow();

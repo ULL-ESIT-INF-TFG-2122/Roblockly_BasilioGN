@@ -134,7 +134,8 @@ public class RobotMotionController1 : MonoBehaviour
 
     public void StopRobotNow()
     {
-        StopAllCoroutines();
+        //StopAllCoroutines();
+        StopCoroutine("MoveVerticalRobotTime");
         robotRigidbody.velocity = Vector3.zero;
     }
 
