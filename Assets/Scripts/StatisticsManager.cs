@@ -6,6 +6,8 @@ public class StatisticsManager : MonoBehaviour
 {
     public static StatisticsManager statisticsManagerInstance;
 
+    private Dictionary<string, List<ChallengeSolution>> challengesSolutions;
+
     /// <summary>
     /// Awake is called when the script instance is being loaded.
     /// </summary>
