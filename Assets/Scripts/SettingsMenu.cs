@@ -156,9 +156,17 @@ public class SettingsMenu : MonoBehaviour
 
     private void LoadAverageTime(string challengeKey)
     {
-        string averageTime = GetAverageTime(challengeKey).ToString();
+        List<float> auxAverageTime = GetAverageTime(challengeKey);
+        string averageTime;
         // Setting "TiempoPromedio" text field:
-        averageTimeText.transform.GetChild(0).GetComponent<Text>().text = averageTime;
+        if (auxAverageTime[0] == 0.0f)
+        {
+            averageTime = auxAverageTime[1].ToString("f2");
+            averageTimeText.transform.GetChild(0).GetComponent<Text>().text = averageTime + " segundos";
+        } else {
+            averageTime = auxAverageTime[0].ToString();
+            averageTimeText.transform.GetChild(0).GetComponent<Text>().text = averageTime + " minuto(s)";
+        }
     }
 
     private string GetBestTime(string challengeKey)
@@ -204,16 +212,24 @@ public class SettingsMenu : MonoBehaviour
         return solutionInfo;
     }
 
-    private float GetAverageTime(string challengeKey)
+    private List<float> GetAverageTime(string challengeKey)
     {
+
         List<ChallengeSolution> selectedChallengeSolutions = statisticsManager.GetComponent<StatisticsManager>().GetChallengesSolutions()[challengeKey];
         float totalMinutes = 0.0f;
+        float totalSeconds = 0.0f;
         foreach (ChallengeSolution solution in selectedChallengeSolutions)
         {
             List<float> auxSolutionTime = solution.GetSolutionTimeFloat();
             totalMinutes += solution.GetSolutionTimeFloat()[0];
+            totalSeconds += solution.GetSolutionTimeFloat()[1];
         }
-        return (totalMinutes / selectedChallengeSolutions.Count);
+        float averageMinutes = (totalMinutes / selectedChallengeSolutions.Count);
+        float averageSeconds = (totalSeconds / selectedChallengeSolutions.Count);
+        List<float> averageTime = new List<float>();
+        averageTime.Add(averageMinutes);
+        averageTime.Add(averageSeconds);
+        return averageTime;
     }
 
     public void CancelMenu()
