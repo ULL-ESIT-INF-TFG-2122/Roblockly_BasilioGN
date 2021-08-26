@@ -126,6 +126,8 @@ public class SettingsMenu : MonoBehaviour
         LoadBestTimeInfo(challengeKey);
         LoadLeastBlocksSolution(challengeKey);
         LoadAverageTime(challengeKey);
+
+        StatisticsInfoPanelActivation();
     }
 
     private void LoadStatisticsTittle(string buttonText)
@@ -145,11 +147,11 @@ public class SettingsMenu : MonoBehaviour
         List<string> solutionInfo = GetLeastBlocks(challengeKey);
         // Setting "SolConMenosBloquesText" text field:
         // Setting "TiempoText" text field of "SolConMenosTiempoText" GUI section:
-        leastBlocksSolutionText.transform.GetChild(0).GetComponent<Text>().text = solutionInfo[0];
+        leastBlocksSolutionText.transform.GetChild(0).transform.GetChild(0).GetComponent<Text>().text = solutionInfo[0];
         // Setting "BloquesUtilizadosText" text field of "SolConMenosTiempoText" GUI section:
-        leastBlocksSolutionText.transform.GetChild(1).GetComponent<Text>().text = solutionInfo[1];
+        leastBlocksSolutionText.transform.GetChild(1).transform.GetChild(0).GetComponent<Text>().text = solutionInfo[1];
         // Setting "porcentajeDeAcercamiento" text field of "SolConMenosTiempoText" GUI section:
-        leastBlocksSolutionText.transform.GetChild(2).GetComponent<Text>().text = solutionInfo[2];
+        leastBlocksSolutionText.transform.GetChild(2).transform.GetChild(0).GetComponent<Text>().text = solutionInfo[2];
     }
 
     private void LoadAverageTime(string challengeKey)
@@ -193,6 +195,7 @@ public class SettingsMenu : MonoBehaviour
                 // Setting progress percentage
                 //auxDictionary[challengeKey][i].CalculateProgress(challengeKey);
                 string auxProgressPercentage = auxDictionary[challengeKey][i].GetProgress().ToString("f2");
+                auxProgressPercentage = auxProgressPercentage + "%";
                 solutionInfo.Add(auxProgressPercentage);
                 return solutionInfo;
             }
@@ -207,6 +210,7 @@ public class SettingsMenu : MonoBehaviour
         float totalMinutes = 0.0f;
         foreach (ChallengeSolution solution in selectedChallengeSolutions)
         {
+            List<float> auxSolutionTime = solution.GetSolutionTimeFloat();
             totalMinutes += solution.GetSolutionTimeFloat()[0];
         }
         return (totalMinutes / selectedChallengeSolutions.Count);
@@ -222,7 +226,23 @@ public class SettingsMenu : MonoBehaviour
 
     public void BackToMainMenu()
     {
+        if (GameObject.FindWithTag("SelectedRobot") != null)
+        {
+            Finder.RemoveElementByTag("SelectedRobot");
+            DestroySelectedRobot();
+        }
         SceneManager.LoadScene("MainMenu");
+    }
+
+    private void DestroySelectedRobot()
+    {
+        GameObject auxRobot = GameObject.FindWithTag("SelectedRobot");
+        if (auxRobot != null)
+        {
+            Destroy(auxRobot);
+        } else {
+            Debug.LogError("There is not any \"SelectedRobot\" currently");
+        }
     }
 
     /// <summary>

@@ -33,7 +33,6 @@ public class CoinRotation : MonoBehaviour
             GameObject selectedRobot = GameObject.FindWithTag("SelectedRobot").gameObject;
             selectedRobot.GetComponent<RobotMotionController1>().StopRobotNow();
             gameObject.SetActive(false);
-            StopTimer();
             ChallengeSolution newSolution = new ChallengeSolution();
             // Add time elapsed to complet the challenge:
             newSolution.SetSolutionTime(GameObject.FindWithTag("Timer").GetComponent<TimerBehaviour>().GetTimeString());
@@ -44,6 +43,7 @@ public class CoinRotation : MonoBehaviour
             // Set of the progress in this solution:
             newSolution.CalculateProgress("Labyrinth");
             GameObject.FindWithTag("StatisticsManager").GetComponent<StatisticsManager>().AddNewChallengeSolution("Labyrinth", newSolution);
+            StopTimer();
         }
     }
 }

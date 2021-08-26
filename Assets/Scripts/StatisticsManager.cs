@@ -90,11 +90,19 @@ public class StatisticsManager : MonoBehaviour
                         minBlocksIndex = i;
                     }
                     if (currentSolution.Value[i].GetSolutionTimeFloat()[0] <    
-                        currentSolution.Value[minBlocksIndex].GetSolutionTimeFloat()[0])
+                        currentSolution.Value[minTimeIndex].GetSolutionTimeFloat()[0])
                     {
-                        currentSolution.Value[minBlocksIndex].SetBestTime(false);
+                        currentSolution.Value[minTimeIndex].SetBestTime(false);
                         currentSolution.Value[i].SetBestTime(true);
-                        minBlocksIndex = i;
+                        minTimeIndex = i;
+                    } else if((currentSolution.Value[i].GetSolutionTimeFloat() 
+                              [0] == currentSolution.Value[minTimeIndex].GetSolutionTimeFloat()[0]) && 
+                              (currentSolution.Value[i].GetSolutionTimeFloat()
+                               [1] < currentSolution.Value[minTimeIndex].GetSolutionTimeFloat()[1]))
+                    {
+                        currentSolution.Value[minTimeIndex].SetBestTime(false);
+                        currentSolution.Value[i].SetBestTime(true);
+                        minTimeIndex = i;
                     }
                 }
             }
