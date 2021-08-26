@@ -7,12 +7,12 @@ using UnityEngine;
 public class ChallengeSolution : MonoBehaviour
 {
     private string solutionID;
-    private bool bestTime; // Indicates if the solution has been solved in the shortest time
+    private bool bestTime; // Indicates if the solution has been solved in the shortest time.
     private bool bestBlocks; // Indicates if the solution has been solved with the least number of blocks.
-    private string solutionTime; // Time elapsed to solve the challenge
-    private float elapsedMinutes;
-    private int blocksNumber; // Number of blocks used to solve the challenge
-    private float progress; // Percentage of proximity to the optimal solution of the challenge
+    private string solutionTime; // Time elapsed to solve the challenge in string format.
+    private List<float> timeFloat; // Time elapsed to solve the challenge in float number format.
+    private int blocksNumber; // Number of blocks used to solve the challenge.
+    private float progress; // Percentage of proximity to the optimal solution of the challenge.
 
     private Dictionary<string, int> optimalSolutionsForEachChallenge = new Dictionary<string, int>() {
         {"Labyrinth", 2}, 
@@ -46,7 +46,7 @@ public class ChallengeSolution : MonoBehaviour
         return bestBlocks;
     }
 
-    public void GetBestBlocks(bool newBestBlocks)
+    public void SetBestBlocks(bool newBestBlocks)
     {
         bestBlocks = newBestBlocks;
     }
@@ -61,14 +61,14 @@ public class ChallengeSolution : MonoBehaviour
         solutionTime = newSolutionTime;
     }
 
-    public float GetElapsedMinutes()
+    public List<float> GetSolutionTimeFloat()
     {
-        return elapsedMinutes;
+        return timeFloat;
     }
 
-    public void SetElapsedMinutes(float newElapsedMinutes)
+    public void SetSolutionTimeFloat(List<float> newSolutionTimeFloat)
     {
-        elapsedMinutes = newElapsedMinutes;
+        timeFloat = newSolutionTimeFloat;
     }
 
     public int GetBlocksNumber()

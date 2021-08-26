@@ -120,6 +120,7 @@ public class SettingsMenu : MonoBehaviour
         string buttonText;
         buttonText = EventSystem.current.currentSelectedGameObject.gameObject.transform.GetChild(0).GetComponent<Text>().text;
         string challengeKey = GetChallengeButtonText(buttonText); // Get key given the text.
+        statisticsManager.GetComponent<StatisticsManager>().SetBestTimeBlocksSoloution();
         
         LoadStatisticsTittle(buttonText);
         LoadBestTimeInfo(challengeKey);
@@ -206,7 +207,7 @@ public class SettingsMenu : MonoBehaviour
         float totalMinutes = 0.0f;
         foreach (ChallengeSolution solution in selectedChallengeSolutions)
         {
-            totalMinutes += solution.GetElapsedMinutes();
+            totalMinutes += solution.GetSolutionTimeFloat()[0];
         }
         return (totalMinutes / selectedChallengeSolutions.Count);
     }

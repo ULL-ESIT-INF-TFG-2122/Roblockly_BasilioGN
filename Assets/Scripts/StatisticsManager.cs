@@ -70,17 +70,34 @@ public class StatisticsManager : MonoBehaviour
         return challengesSolutions;
     }
 
-        
-    /*/// <summary>
-    /// Start is called on the frame when a script is enabled just before
-    /// any of the Update methods is called the first time.
-    /// </summary>
-    void Start()
+    public void SetBestTimeBlocksSoloution()
     {
-        if (!Finder.CheckContains ("StatisticsManager"))
+        foreach (var currentSolution in challengesSolutions)
         {
-            DontDestroyOnLoad(this.gameObject);
-            Finder.AddObject(this.gameObject);
+            int minTimeIndex = 0;
+            int minBlocksIndex = 0; // Index of the solution with minimum blocks.
+            currentSolution.Value[minBlocksIndex].SetBestBlocks(true);
+            currentSolution.Value[minTimeIndex].SetBestTime(true);
+            if (currentSolution.Value.Count > 1)
+            {
+                for (int i = 0; i < currentSolution.Value.Count; i++)
+                {
+                    if (currentSolution.Value[i].GetBlocksNumber() <    
+                        currentSolution.Value[minBlocksIndex].GetBlocksNumber())
+                    {
+                        currentSolution.Value[minBlocksIndex].SetBestBlocks(false);
+                        currentSolution.Value[i].SetBestBlocks(true);
+                        minBlocksIndex = i;
+                    }
+                    if (currentSolution.Value[i].GetSolutionTimeFloat()[0] <    
+                        currentSolution.Value[minBlocksIndex].GetSolutionTimeFloat()[0])
+                    {
+                        currentSolution.Value[minBlocksIndex].SetBestTime(false);
+                        currentSolution.Value[i].SetBestTime(true);
+                        minBlocksIndex = i;
+                    }
+                }
+            }
         }
-    }*/
+    }
 }

@@ -35,8 +35,10 @@ public class CoinRotation : MonoBehaviour
             gameObject.SetActive(false);
             StopTimer();
             ChallengeSolution newSolution = new ChallengeSolution();
-            // Add time elapsed to complet the challenge;
+            // Add time elapsed to complet the challenge:
             newSolution.SetSolutionTime(GameObject.FindWithTag("Timer").GetComponent<TimerBehaviour>().GetTimeString());
+            // Add time elapsed to complet the challenge in string format:
+            newSolution.SetSolutionTimeFloat(GameObject.FindWithTag("Timer").GetComponent<TimerBehaviour>().TimerFunction());
             // Set the number of used blocks to complete this solution:
             newSolution.SetBlocksNumber(GameObject.FindWithTag("StatisticsManager").GetComponent<StatisticsManager>().GetUsedBlocks());
             // Set of the progress in this solution:

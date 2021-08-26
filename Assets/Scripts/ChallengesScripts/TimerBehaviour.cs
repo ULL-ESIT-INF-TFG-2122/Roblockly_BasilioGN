@@ -41,7 +41,7 @@ public class TimerBehaviour : MonoBehaviour
         timerText.color = Color.black;
     }
 
-    private List<float> TimerFunction()
+    public List<float> TimerFunction()
     {
         List<float> timerParts = new List<float>();
         if (!timeFinished)
