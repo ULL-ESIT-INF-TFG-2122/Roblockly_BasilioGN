@@ -33,6 +33,11 @@ TagManager:
   - CollidedObject
   - NotCollidedObject
   - StatisticsManager
+  - MejorTiempoText
+  - SolConMenosBloquesText
+  - TiempoPromedio
+  - PorcentajeDeAcercamiento
+  - RetoTitle
   layers:
   - Default
   - TransparentFX

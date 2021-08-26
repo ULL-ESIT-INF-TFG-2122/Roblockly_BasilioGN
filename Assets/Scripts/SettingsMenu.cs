@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class SettingsMenu : MonoBehaviour
 {
@@ -89,11 +90,97 @@ public class SettingsMenu : MonoBehaviour
             case "Gyroscope": 
                 challengeButtonText = "Reto de la plataforma móvil";
                 break;
+            // In case to want to return the key given the text:
+            case "Reto del laberinto":
+                challengeButtonText = "Labyrinth";
+                break;
+            case "Reto del sendero blanco":
+                challengeButtonText = "IR";
+                break;
+            case "Reto del sendero de colores":
+                challengeButtonText = "Color";
+                break;
+            case "Reto de la plataforma móvi":
+                challengeButtonText = "Gyroscope";
+                break;
             default:
                 challengeButtonText = "Reto de roblockly";
                 break;
         }
         return challengeButtonText;
+    }
+
+    public void LoadSelectedButtonStatistics()
+    {
+        // Getting the button text content to get the key to look for.
+        string buttonText;
+        buttonText = EventSystem.current.currentSelectedGameObject.gameObject.transform.GetChild(0).GetComponent<Text>().text;
+        string challengeKey = GetChallengeButtonText(buttonText); // Get key given the text.
+        
+        LoadStatisticsTittle(buttonText);
+        LoadBestTimeInfo(challengeKey);
+        LoadLeastBlocksSolution(challengeKey);
+    }
+
+    private void LoadStatisticsTittle(string buttonText)
+    {
+        // Setting "RetoTitle" text field:
+        GameObject.FindWithTag("RetoTitle").GetComponent<Text>().text = buttonText;
+    }
+
+    private void LoadBestTimeInfo(string challengeKey)
+    {
+        // Setting "MejorTiempoText" text field:
+        GameObject.FindWithTag("MejorTiempoText").GetComponent<Text>().text = GetBestTime(challengeKey);
+    }
+
+    private void LoadLeastBlocksSolution(string challengeKey)
+    {
+        List<string> solutionInfo = GetLeastBlocks(challengeKey);
+        // Setting "SolConMenosBloquesText" text field:
+        GameObject auxSolLeastBlocksText = GameObject.FindWithTag("SolConMenosBloquesText").gameObject;
+        // Setting "TiempoText" text field of "SolConMenosTiempoText" GUI section:
+        auxSolLeastBlocksText.transform.GetChild(0).GetComponent<Text>().text = solutionInfo[0];
+        // Setting "BloquesUtilizadosText" text field of "SolConMenosTiempoText" GUI section:
+        GameObject.FindWithTag("SolConMenosBloquesText").transform.GetChild(1).GetComponent<Text>().text = solutionInfo[1];
+    }
+
+    private void LoadAverageTime(string challengeKey)
+    {
+        
+    }
+
+    private string GetBestTime(string challengeKey)
+    {
+        int i = 0;
+        Dictionary<string, List<ChallengeSolution>> auxDictionary = statisticsManager.GetComponent<StatisticsManager>().GetChallengesSolutions();
+        while(i < auxDictionary[challengeKey].Count)
+        {
+            if (auxDictionary[challengeKey][i].GetBestTime())
+            {
+                return auxDictionary[challengeKey][i].GetSolutionTime();
+            }
+            i++;
+        }
+        return " ";
+    }
+
+    private List<string> GetLeastBlocks(string challengeKey)
+    {
+        int i = 0;
+        List<string> solutionInfo = new List<string>();
+        Dictionary<string, List<ChallengeSolution>> auxDictionary = statisticsManager.GetComponent<StatisticsManager>().GetChallengesSolutions();
+        while(i < auxDictionary[challengeKey].Count)
+        {
+            if (auxDictionary[challengeKey][i].GetBestBlocks())
+            {
+                solutionInfo.Add(auxDictionary[challengeKey][i].GetSolutionTime());
+                string auxBlocksNumber = (auxDictionary[challengeKey][i].GetBlocksNumber().ToString());
+                solutionInfo.Add(auxBlocksNumber);
+                return solutionInfo;
+            }
+        }
+        return solutionInfo;
     }
 
     public void CancelMenu()

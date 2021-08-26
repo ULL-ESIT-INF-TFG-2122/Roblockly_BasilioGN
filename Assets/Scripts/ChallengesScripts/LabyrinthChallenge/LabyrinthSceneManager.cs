@@ -27,11 +27,6 @@ public class LabyrinthSceneManager : MonoBehaviour
     public GameObject maximizeButtonBig;
     public GameObject smallChallengeViewer;
     public GameObject bigChallengeViewer;
-    public Text timerText;
-    private float startTime;
-    private bool timeFinished = false;
-    private bool runTimer = false;
-
 
     /// <summary>
     /// Start is called on the frame when a script is enabled just before
@@ -40,19 +35,6 @@ public class LabyrinthSceneManager : MonoBehaviour
     void Start()
     {
         SetUpSelectedRobot();
-        StartTimer();
-        CoinRotation.StopTimer = TimerFinish;
-    }
-
-    /// <summary>
-    /// Update is called every frame, if the MonoBehaviour is enabled.
-    /// </summary>
-    void Update()
-    {
-        if (runTimer)
-        {
-            TimerFunction();
-        }
     }
 
     /// <summary>
@@ -110,41 +92,5 @@ public class LabyrinthSceneManager : MonoBehaviour
             bigChallengeViewer.SetActive(false);
             smallChallengeViewer.SetActive(true);
         }
-    }
-
-    public void StartTimer()
-    {
-        ResetTimer();
-        startTime = Time.time;
-        runTimer = true;
-    }
-
-    public void ResetTimer()
-    {
-        timeFinished = false;
-        //runTimer = false;
-        timerText.text = "00:00:00";
-        timerText.color = Color.black;
-    }
-
-    private void TimerFunction()
-    {
-        if (timeFinished)
-        {
-            return;
-        }
-        float currentTime = Time.time - startTime;
-        string minutes = ((int) currentTime / 60).ToString();
-        string seconds = (currentTime % 60).ToString("f2");
-        string[] secondsParts = seconds.Split(','); // 0 -> seconds and 1 -> miliseconds.
-
-        timerText.text = minutes + ":" + secondsParts[0] + ":" + secondsParts[1];
-    }
-
-    public void TimerFinish()
-    {
-        timeFinished = true;
-        runTimer = false;
-        timerText.color = Color.red;
     }
 }
