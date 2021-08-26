@@ -9,6 +9,8 @@ public class StatisticsManager : MonoBehaviour
     // This dictionary stores all the challenges that have been completed and their respective solutions.
     private Dictionary<string, List<ChallengeSolution>> challengesSolutions;
 
+    private int usedBlocks = 0;
+
     /// <summary>
     /// Awake is called when the script instance is being loaded.
     /// </summary>
@@ -21,6 +23,29 @@ public class StatisticsManager : MonoBehaviour
             DontDestroyOnLoad(this.gameObject);
         }
         Destroy(gameObject);
+    }
+
+    public void IncreaseUsedBlocks()
+    {
+        usedBlocks++;
+    }
+
+    public void DecreaseUsedBlocks()
+    {
+        if (usedBlocks > 0)
+        {
+            usedBlocks--;
+        }
+    }
+
+    public void CleanUsedBlocks()
+    {
+        usedBlocks = 0;
+    }
+
+    public int GetUsedBlocks()
+    {
+        return usedBlocks;
     }
 
     /// <summary>

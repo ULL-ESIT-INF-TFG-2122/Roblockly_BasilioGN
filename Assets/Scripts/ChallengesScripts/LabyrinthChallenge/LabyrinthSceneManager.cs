@@ -34,6 +34,7 @@ public class LabyrinthSceneManager : MonoBehaviour
     /// </summary>
     void Start()
     {
+        GameObject.FindWithTag("StatisticsManager").GetComponent<StatisticsManager>().CleanUsedBlocks();
         SetUpSelectedRobot();
     }
 

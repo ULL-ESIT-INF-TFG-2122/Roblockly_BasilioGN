@@ -91,6 +91,8 @@ namespace UBlockly.UGUI
 
         public void RemoveBlockView(BlockView blockView)
         {
+            Debug.Log("Destruyendo block view: " + blockView.gameObject.name);
+            GameObject.FindWithTag("StatisticsManager").GetComponent<StatisticsManager>().DecreaseUsedBlocks();
             mBlockViews.Remove(blockView.Block.ID);
         }
         
@@ -125,6 +127,9 @@ namespace UBlockly.UGUI
 
         private BlockView BuildBlockView(Block block)
         {
+            Debug.Log("Contruyendo block view: " + block.ID);
+            GameObject.FindWithTag("StatisticsManager").GetComponent<StatisticsManager>().IncreaseUsedBlocks();
+
             BlockView view = BlockViewFactory.CreateView(block);
             view.InToolbox = false;
             view.ViewTransform.SetParent(m_CodingArea, false);
