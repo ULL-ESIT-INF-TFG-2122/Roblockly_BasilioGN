@@ -120,6 +120,7 @@ public class SettingsMenu : MonoBehaviour
         LoadStatisticsTittle(buttonText);
         LoadBestTimeInfo(challengeKey);
         LoadLeastBlocksSolution(challengeKey);
+        LoadAverageTime(challengeKey);
     }
 
     private void LoadStatisticsTittle(string buttonText)
@@ -143,6 +144,8 @@ public class SettingsMenu : MonoBehaviour
         auxSolLeastBlocksText.transform.GetChild(0).GetComponent<Text>().text = solutionInfo[0];
         // Setting "BloquesUtilizadosText" text field of "SolConMenosTiempoText" GUI section:
         GameObject.FindWithTag("SolConMenosBloquesText").transform.GetChild(1).GetComponent<Text>().text = solutionInfo[1];
+        // Setting "porcentajeDeAcercamiento" text field of "SolConMenosTiempoText" GUI section:
+        GameObject.FindWithTag("SolConMenosBloquesText").transform.GetChild(2).GetComponent<Text>().text = solutionInfo[2];
     }
 
     private void LoadAverageTime(string challengeKey)
@@ -151,7 +154,6 @@ public class SettingsMenu : MonoBehaviour
         // Setting "TiempoPromedio" text field:
         GameObject.FindWithTag("TiempoPromedio").transform.GetChild(0).GetComponent<Text>().text = averageTime;
     }
-
 
     private string GetBestTime(string challengeKey)
     {
@@ -178,8 +180,10 @@ public class SettingsMenu : MonoBehaviour
             if (auxDictionary[challengeKey][i].GetBestBlocks())
             {
                 solutionInfo.Add(auxDictionary[challengeKey][i].GetSolutionTime());
-                string auxBlocksNumber = (auxDictionary[challengeKey][i].GetBlocksNumber().ToString());
+                string auxBlocksNumber = auxDictionary[challengeKey][i].GetBlocksNumber().ToString();
                 solutionInfo.Add(auxBlocksNumber);
+                string auxProgressPercentage = auxDictionary[challengeKey][i].GetProgress().ToString("f2");
+                solutionInfo.Add(auxProgressPercentage);
                 return solutionInfo;
             }
         }
