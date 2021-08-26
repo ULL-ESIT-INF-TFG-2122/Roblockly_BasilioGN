@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: 214389325}
   m_Layer: 0
   m_Name: StatisticsManager
-  m_TagString: Untagged
+  m_TagString: StatisticsManager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
