@@ -45,7 +45,6 @@ public class StatisticsManager : MonoBehaviour
     {
         return challengesSolutions;
     }
-    
 
         
     /*/// <summary>

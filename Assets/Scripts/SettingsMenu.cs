@@ -179,9 +179,15 @@ public class SettingsMenu : MonoBehaviour
         {
             if (auxDictionary[challengeKey][i].GetBestBlocks())
             {
+                // Setting time elapsed to complete the challenge
                 solutionInfo.Add(auxDictionary[challengeKey][i].GetSolutionTime());
+                
+                // Setting amount of used blocks;
                 string auxBlocksNumber = auxDictionary[challengeKey][i].GetBlocksNumber().ToString();
                 solutionInfo.Add(auxBlocksNumber);
+                
+                // Setting progress percentage
+                //auxDictionary[challengeKey][i].CalculateProgress(challengeKey);
                 string auxProgressPercentage = auxDictionary[challengeKey][i].GetProgress().ToString("f2");
                 solutionInfo.Add(auxProgressPercentage);
                 return solutionInfo;

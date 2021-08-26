@@ -34,6 +34,11 @@ public class CoinRotation : MonoBehaviour
             selectedRobot.GetComponent<RobotMotionController1>().StopRobotNow();
             gameObject.SetActive(false);
             StopTimer();
+            ChallengeSolution newSolution = new ChallengeSolution();
+            // Add time elapsed to complet the challenge;
+            newSolution.SetSolutionTime(GameObject.FindWithTag("Timer").GetComponent<TimerBehaviour>().GetTimeString());
+            newSolution.CalculateProgress("Labyrinth");
+            // TODO: set usedBlocks.
         }
     }
 }

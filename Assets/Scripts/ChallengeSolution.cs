@@ -14,6 +14,13 @@ public class ChallengeSolution : MonoBehaviour
     private int blocksNumber; // Number of blocks used to solve the challenge
     private float progress; // Percentage of proximity to the optimal solution of the challenge
 
+    private Dictionary<string, int> optimalSolutionsForEachChallenge = new Dictionary<string, int>() {
+        {"Labyrinth", 2}, 
+        {"IR", 3}, 
+        {"Color", 4}, 
+        {"Gyroscope", 5}
+    };
+
     public string GetSolutionID()
     {
         return solutionID;
@@ -82,5 +89,11 @@ public class ChallengeSolution : MonoBehaviour
     public void SetProgress(float newProgress)
     {
         progress = newProgress;
+    }
+
+    public void CalculateProgress(string challengeKey)
+    {
+        int optimalSolution = optimalSolutionsForEachChallenge[challengeKey];
+        progress = ((blocksNumber * 100) / optimalSolution);
     }
 }

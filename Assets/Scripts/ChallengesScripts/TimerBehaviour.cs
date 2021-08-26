@@ -64,6 +64,11 @@ public class TimerBehaviour : MonoBehaviour
         timerText.text = minutes + ":" + secondsParts[0] + ":" + secondsParts[1];
     }
 
+    public string GetTimeString()
+    {
+        return timerText.text;
+    }
+
     public void TimerFinish()
     {
         timeFinished = true;
