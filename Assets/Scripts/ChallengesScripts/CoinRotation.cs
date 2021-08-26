@@ -37,10 +37,11 @@ public class CoinRotation : MonoBehaviour
             ChallengeSolution newSolution = new ChallengeSolution();
             // Add time elapsed to complet the challenge;
             newSolution.SetSolutionTime(GameObject.FindWithTag("Timer").GetComponent<TimerBehaviour>().GetTimeString());
-            // Set of the progress in this solution:
-            newSolution.CalculateProgress("Labyrinth");
             // Set the number of used blocks to complete this solution:
             newSolution.SetBlocksNumber(GameObject.FindWithTag("StatisticsManager").GetComponent<StatisticsManager>().GetUsedBlocks());
+            // Set of the progress in this solution:
+            newSolution.CalculateProgress("Labyrinth");
+            GameObject.FindWithTag("StatisticsManager").GetComponent<StatisticsManager>().AddNewChallengeSolution("Labyrinth", newSolution);
         }
     }
 }

@@ -454,7 +454,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1635383883600425962
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1089,7 +1089,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2260067254612769604
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2530,6 +2530,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   statisticsPanel: {fileID: 4214713237070720168}
   statisticsInfoPanel: {fileID: 1482070893038375589}
+  challengeTitle: {fileID: 779608095503894738}
+  bestTimeText: {fileID: 5285013902836078111}
+  leastBlocksSolutionText: {fileID: 5440333246562697956}
+  averageTimeText: {fileID: 4937577699212391423}
 --- !u!1 &7722071456985845344
 GameObject:
   m_ObjectHideFlags: 0
@@ -3523,4 +3527,16 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 8088674650561663023}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 428384858312784308}
+        m_TargetAssemblyTypeName: SettingsMenu, Assembly-CSharp
+        m_MethodName: LoadSelectedButtonStatistics
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2

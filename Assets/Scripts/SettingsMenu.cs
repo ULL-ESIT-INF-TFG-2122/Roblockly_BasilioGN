@@ -9,6 +9,10 @@ public class SettingsMenu : MonoBehaviour
 {
     public GameObject statisticsPanel;
     public GameObject statisticsInfoPanel;
+    public GameObject challengeTitle;
+    public GameObject bestTimeText;
+    public GameObject leastBlocksSolutionText;
+    public GameObject averageTimeText;
     private GameObject statisticsManager;
 
     /// <summary>
@@ -126,40 +130,39 @@ public class SettingsMenu : MonoBehaviour
     private void LoadStatisticsTittle(string buttonText)
     {
         // Setting "RetoTitle" text field:
-        GameObject.FindWithTag("RetoTitle").GetComponent<Text>().text = buttonText;
+        challengeTitle.GetComponent<Text>().text = buttonText;
     }
 
     private void LoadBestTimeInfo(string challengeKey)
     {
         // Setting "MejorTiempoText" text field:
-        GameObject.FindWithTag("MejorTiempoText").GetComponent<Text>().text = GetBestTime(challengeKey);
+        bestTimeText.transform.GetChild(0).GetComponent<Text>().text = GetBestTime(challengeKey);
     }
 
     private void LoadLeastBlocksSolution(string challengeKey)
     {
         List<string> solutionInfo = GetLeastBlocks(challengeKey);
         // Setting "SolConMenosBloquesText" text field:
-        GameObject auxSolLeastBlocksText = GameObject.FindWithTag("SolConMenosBloquesText").gameObject;
         // Setting "TiempoText" text field of "SolConMenosTiempoText" GUI section:
-        auxSolLeastBlocksText.transform.GetChild(0).GetComponent<Text>().text = solutionInfo[0];
+        leastBlocksSolutionText.transform.GetChild(0).GetComponent<Text>().text = solutionInfo[0];
         // Setting "BloquesUtilizadosText" text field of "SolConMenosTiempoText" GUI section:
-        GameObject.FindWithTag("SolConMenosBloquesText").transform.GetChild(1).GetComponent<Text>().text = solutionInfo[1];
+        leastBlocksSolutionText.transform.GetChild(1).GetComponent<Text>().text = solutionInfo[1];
         // Setting "porcentajeDeAcercamiento" text field of "SolConMenosTiempoText" GUI section:
-        GameObject.FindWithTag("SolConMenosBloquesText").transform.GetChild(2).GetComponent<Text>().text = solutionInfo[2];
+        leastBlocksSolutionText.transform.GetChild(2).GetComponent<Text>().text = solutionInfo[2];
     }
 
     private void LoadAverageTime(string challengeKey)
     {
         string averageTime = GetAverageTime(challengeKey).ToString();
         // Setting "TiempoPromedio" text field:
-        GameObject.FindWithTag("TiempoPromedio").transform.GetChild(0).GetComponent<Text>().text = averageTime;
+        averageTimeText.transform.GetChild(0).GetComponent<Text>().text = averageTime;
     }
 
     private string GetBestTime(string challengeKey)
     {
         int i = 0;
         Dictionary<string, List<ChallengeSolution>> auxDictionary = statisticsManager.GetComponent<StatisticsManager>().GetChallengesSolutions();
-        while(i < auxDictionary[challengeKey].Count)
+        while (i < auxDictionary[challengeKey].Count)
         {
             if (auxDictionary[challengeKey][i].GetBestTime())
             {
@@ -192,6 +195,7 @@ public class SettingsMenu : MonoBehaviour
                 solutionInfo.Add(auxProgressPercentage);
                 return solutionInfo;
             }
+            i++;
         }
         return solutionInfo;
     }

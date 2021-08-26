@@ -7,7 +7,7 @@ public class StatisticsManager : MonoBehaviour
     public static StatisticsManager statisticsManagerInstance;
 
     // This dictionary stores all the challenges that have been completed and their respective solutions.
-    private Dictionary<string, List<ChallengeSolution>> challengesSolutions;
+    private Dictionary<string, List<ChallengeSolution>> challengesSolutions = new Dictionary<string, List<ChallengeSolution>>();
 
     private int usedBlocks = 0;
 
@@ -55,7 +55,7 @@ public class StatisticsManager : MonoBehaviour
     /// <param name="solution"> Is the new solution to add to a specific challenge (key). </param>
     public void AddNewChallengeSolution(string challengeName, ChallengeSolution solution)
     {
-        if (challengesSolutions.ContainsKey(challengeName))
+        if ((challengesSolutions != null) && (challengesSolutions.ContainsKey(challengeName)))
         {
             challengesSolutions[challengeName].Add(solution);
         } else {
