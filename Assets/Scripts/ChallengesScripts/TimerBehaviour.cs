@@ -22,7 +22,7 @@ public class TimerBehaviour : MonoBehaviour
     {
         if (runTimer)
         {
-            TimerFunction();
+            ConvertTimerToString();
         }
     }
 
@@ -41,17 +41,26 @@ public class TimerBehaviour : MonoBehaviour
         timerText.color = Color.black;
     }
 
-    private void TimerFunction()
+    private List<float> TimerFunction()
     {
-        if (timeFinished)
+        List<float> timerParts = new List<float>();
+        if (!timeFinished)
         {
-            return;
+            float currentTime = Time.time - startTime;
+            float minutes = ((int) currentTime / 60);
+            float seconds = (currentTime % 60);
+            timerParts.Add(minutes);
+            timerParts.Add(seconds);
         }
-        float currentTime = Time.time - startTime;
-        string minutes = ((int) currentTime / 60).ToString();
-        string seconds = (currentTime % 60).ToString("f2");
-        string[] secondsParts = seconds.Split(','); // 0 -> seconds and 1 -> miliseconds.
+        return timerParts;
+    }
 
+    private void ConvertTimerToString()
+    {
+        List<float> currentTime = TimerFunction();
+        string minutes = currentTime[0].ToString("f0");
+        string seconds = currentTime[1].ToString("f2");
+        string[] secondsParts = seconds.Split(',');
         timerText.text = minutes + ":" + secondsParts[0] + ":" + secondsParts[1];
     }
 

@@ -147,8 +147,11 @@ public class SettingsMenu : MonoBehaviour
 
     private void LoadAverageTime(string challengeKey)
     {
-        
+        string averageTime = GetAverageTime(challengeKey).ToString();
+        // Setting "TiempoPromedio" text field:
+        GameObject.FindWithTag("TiempoPromedio").transform.GetChild(0).GetComponent<Text>().text = averageTime;
     }
+
 
     private string GetBestTime(string challengeKey)
     {
@@ -181,6 +184,17 @@ public class SettingsMenu : MonoBehaviour
             }
         }
         return solutionInfo;
+    }
+
+    private float GetAverageTime(string challengeKey)
+    {
+        List<ChallengeSolution> selectedChallengeSolutions = statisticsManager.GetComponent<StatisticsManager>().GetChallengesSolutions()[challengeKey];
+        float totalMinutes = 0.0f;
+        foreach (ChallengeSolution solution in selectedChallengeSolutions)
+        {
+            totalMinutes += solution.GetElapsedMinutes();
+        }
+        return (totalMinutes / selectedChallengeSolutions.Count);
     }
 
     public void CancelMenu()

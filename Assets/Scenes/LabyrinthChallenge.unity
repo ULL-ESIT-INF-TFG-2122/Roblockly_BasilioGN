@@ -2976,6 +2976,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: TimerPanel
       objectReference: {fileID: 0}
+    - target: {fileID: 5410667921615093563, guid: 34f6ebefeaa087d4faa1422202054b9e,
+        type: 3}
+      propertyPath: m_TagString
+      value: Timer
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 34f6ebefeaa087d4faa1422202054b9e, type: 3}
 --- !u!1001 &6288274958474113975

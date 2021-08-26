@@ -10,6 +10,7 @@ public class ChallengeSolution : MonoBehaviour
     private bool bestTime; // Indicates if the solution has been solved in the shortest time
     private bool bestBlocks; // Indicates if the solution has been solved with the least number of blocks.
     private string solutionTime; // Time elapsed to solve the challenge
+    private float elapsedMinutes;
     private int blocksNumber; // Number of blocks used to solve the challenge
     private float progress; // Percentage of proximity to the optimal solution of the challenge
 
@@ -51,6 +52,16 @@ public class ChallengeSolution : MonoBehaviour
     public void SetSolutionTime(string newSolutionTime)
     {
         solutionTime = newSolutionTime;
+    }
+
+    public float GetElapsedMinutes()
+    {
+        return elapsedMinutes;
+    }
+
+    public void SetElapsedMinutes(float newElapsedMinutes)
+    {
+        elapsedMinutes = newElapsedMinutes;
     }
 
     public int GetBlocksNumber()
