@@ -12,17 +12,16 @@ public class StatisticsManager : MonoBehaviour
     private int usedBlocks = 0;
 
     /// <summary>
-    /// Awake is called when the script instance is being loaded.
+    /// Start is called on the frame when a script is enabled just before
+    /// any of the Update methods is called the first time.
     /// </summary>
-    void Awake()
-    {   // Adding singleton pattern to keep the statistics manger through all   
-        // the scenes
-        if (StatisticsManager.statisticsManagerInstance == null)
+    void Start()
+    {
+        if (!Finder.CheckContains("StatisticsManager"))
         {
-            StatisticsManager.statisticsManagerInstance = this;
             DontDestroyOnLoad(this.gameObject);
+            Finder.AddObject(this.gameObject);
         }
-        Destroy(gameObject);
     }
 
     public void IncreaseUsedBlocks()

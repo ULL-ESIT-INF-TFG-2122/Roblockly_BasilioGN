@@ -35,8 +35,9 @@ public class Finder : MonoBehaviour
         {
             Finder.finderInstance = this;
             DontDestroyOnLoad(this.gameObject);
+        } else {
+            Destroy(gameObject);
         }
-        Destroy(gameObject);
     }
 
     /// <summary>
