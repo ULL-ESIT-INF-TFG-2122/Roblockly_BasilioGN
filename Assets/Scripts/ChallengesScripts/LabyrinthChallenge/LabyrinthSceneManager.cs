@@ -28,6 +28,9 @@ public class LabyrinthSceneManager : MonoBehaviour
     public GameObject smallChallengeViewer;
     public GameObject bigChallengeViewer;
 
+    private GameObject canvas;
+    private Vector3 mainCanvasPos;
+
     /// <summary>
     /// Start is called on the frame when a script is enabled just before
     /// any of the Update methods is called the first time.
@@ -36,6 +39,8 @@ public class LabyrinthSceneManager : MonoBehaviour
     {
         GameObject.FindWithTag("StatisticsManager").GetComponent<StatisticsManager>().CleanUsedBlocks();
         SetUpSelectedRobot();
+        canvas = GameObject.Find("Canvas");
+        mainCanvasPos = canvas.transform.position;
     }
 
     /// <summary>
@@ -94,4 +99,25 @@ public class LabyrinthSceneManager : MonoBehaviour
             smallChallengeViewer.SetActive(true);
         }
     }
+
+    /*public void ChangeScale()
+    {
+        /*smallChallengeViewer.transform.position = mainCanvasPos;
+        smallChallengeViewer.GetComponent<RectTransform>().anchorMax = new Vector2(0,1);
+        smallChallengeViewer.GetComponent<RectTransform>().anchorMin = new Vector2(1,0);
+        smallChallengeViewer.GetComponent<RectTransform>().pivot = new Vector2(0.5f, 0.5f);*/
+        /*Camera cam_ = GameObject.Find("RobotCamera").GetComponent<Camera>();
+        if (cam_.rect == new Rect(0.65f,-0.45f,1,0.8f)){
+            Debug.Log("Pequeño");
+            cam_.rect = new Rect(0,0,1,1);
+            //buttonLeft.SetActive(false);
+            //buttonRight.SetActive(false);
+        }
+        else{
+            Debug.Log("Grande");
+            cam_.rect = new Rect(0.65f,-0.45f,1,0.8f);
+            //buttonLeft.SetActive(true);
+            //buttonRight.SetActive(true);
+        }
+    }*/
 }
