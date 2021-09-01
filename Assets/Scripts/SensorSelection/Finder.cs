@@ -47,6 +47,9 @@ public class Finder : MonoBehaviour
     /// <param name="tagToCheck"> The tag to check if is inside the 
     /// findAbleObject
     /// </param>
+    /// <returns> True if the object with specific tag is inside te 
+    /// findAbleObjects list. 
+    /// </returns>
     public static bool CheckContains(string tagToCheck)
     {
         for (int i = 0; i < findAbleObjects.Count; i++)
