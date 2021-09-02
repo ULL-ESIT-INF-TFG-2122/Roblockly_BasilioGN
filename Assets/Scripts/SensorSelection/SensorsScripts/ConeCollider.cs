@@ -40,8 +40,8 @@ public class ConeCollider : MonoBehaviour
     {
         collided = true;
         UpdateCollidedObject(other);
-        Debug.Log("Ha chocado con: " + other.gameObject.name);
-        Debug.Log("Posición muro: " + other.transform.position);
+        //Debug.Log("Ha chocado con: " + other.gameObject.name);
+        //Debug.Log("Posición muro: " + other.transform.position);
     }
 
     private void UpdateCollidedObject(Collision other)

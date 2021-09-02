@@ -3,8 +3,8 @@
 * Author: Basilio Gómez Navarro
 * Email: alu0101049151@ull.edu.es
 * Date: 18/06/2021
-* File: CheckInclinometer.cs : This file contains the logic for the 
-*       Inclinometer checkbox selection.
+* File: CheckGyroscope.cs : This file contains the logic for the 
+*       Gyroscope checkbox selection.
 */
 
 using System.Collections;

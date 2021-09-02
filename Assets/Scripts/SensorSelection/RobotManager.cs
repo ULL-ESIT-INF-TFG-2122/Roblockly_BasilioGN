@@ -5,7 +5,7 @@
 * Date: 18/06/2021
 * File: RobotManager.cs : This file contains the 
 *       "RobotManager" class implementation. This class is
-*       used to manage the robot behaviour.
+*       used to manage the general robot behaviour.
 */
 
 using System.Collections;
@@ -19,7 +19,7 @@ public class RobotManager : MonoBehaviour
                                        // "giróscopo" checkbox.
     public SensorGyroscope GyroscopeSensor = null;
     private SensorGyroscope InstantiatedGyroscope;
-    private bool Microphone = false; // True if the user click on 
+    private bool Microphone = false; // True if the user clicks on 
                                      // "microphone" checkbox.
     private GameObject BalanceSphere; // Is the sphere under the platform of the "BalanceChallenge".
     
