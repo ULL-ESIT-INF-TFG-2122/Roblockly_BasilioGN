@@ -41,7 +41,7 @@ public class RobotMotionController1 : MonoBehaviour
         }
             moveInput = transform.TransformDirection(moveInput); // Used to transform robot direction from local into world space.
             robotRigidbody.MovePosition(transform.position + moveInput * Time.deltaTime * velocity);
-            rotateWheels(velocity);
+            RotateWheels(velocity);
     }
 
     /// <summary>
@@ -143,7 +143,7 @@ public class RobotMotionController1 : MonoBehaviour
     /// Rotates the robot wheels. Is called when the robot is in motion.
     /// </summary>
     /// <param name="velocity"> The velocity to rotate the wheels.</param>
-    private void rotateWheels(float velocity)
+    private void RotateWheels(float velocity)
     {
         frontDriverTransform.Rotate(velocity * 10 * Time.deltaTime, 0, 0);
         frontPassengerTransform.Rotate(velocity * 10 * Time.deltaTime, 0, 0);
