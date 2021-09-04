@@ -1,5 +1,6 @@
 /**
 * Universidad de La Laguna
+* Project:  Roblockly
 * Author: Basilio Gómez Navarro
 * Email: alu0101049151@ull.edu.es
 * Date: 07/05/2021
@@ -22,9 +23,6 @@ public class IndividualSelectionSceneManager1 : MonoBehaviour
     private GameObject CurrentRobot; // Is the robot that is currently rotating 
                                      // on the platform
     public float RotationSpeed = 5;
-
-    public delegate void SetSceneActive(bool activeCanvas);
-    public static SetSceneActive SetActiveSceneCanvas;
     
     void Start()
     {
@@ -32,7 +30,16 @@ public class IndividualSelectionSceneManager1 : MonoBehaviour
     }
 
     void Update()
-    {   // Procedure to rotate the platform and the robot on it.
+    {
+        RotatePlatform();
+    }
+
+    /// <summary>
+    /// Method called from the Update function to rotate the plantform where 
+    /// the robots are on.
+    /// </summary>
+    private void RotatePlatform()
+    {
         CurrentRobot = GameObject.FindWithTag("CurrentRobot");
         Platform.transform.Rotate(Vector3.up * RotationSpeed * Time.deltaTime);
         CurrentRobot.transform.Rotate(Vector3.up * RotationSpeed * Time.deltaTime);
@@ -44,8 +51,6 @@ public class IndividualSelectionSceneManager1 : MonoBehaviour
     /// </summary>
     public void GoBack ()
     {
-        //GlobalSceneManager.SwitchOnSecene3(false);
-        // Load the previous level in the queue (in this case, is the scene 0, called "MainMenu").
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
     }
 
@@ -55,10 +60,6 @@ public class IndividualSelectionSceneManager1 : MonoBehaviour
     /// </summary>
     public void GoForward ()
     {
-        //GlobalSceneManager.SwitchOnSecene3(true);
-        //CanvasManager.canvasManagerInstance.gameObject.SetActive(true);
-        // SetActiveSceneCanvas(true);
-        // Load the next level in the queue (in this case, is the scene 1, called "IndividualSensorSelection").
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }

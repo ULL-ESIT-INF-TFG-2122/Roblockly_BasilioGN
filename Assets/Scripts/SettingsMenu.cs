@@ -1,3 +1,14 @@
+/**
+* Universidad de La Laguna"
+* Project:  Roblockly
+* Author: Basilio Gómez Navarro
+* Email: alu0101049151@ull.edu.es
+* Date: 25/07/2021
+* File: AddedSensorBoxScript.cs : This file contains the class used to manage 
+*       the behaviour of the settings menu, accessible from any scene 
+*       except the main menu.
+*/
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,6 +16,10 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
+/// <summary>
+/// Start is called on the frame when a script is enabled just before
+/// any of the Update methods is called the first time.
+/// </summary>
 public class SettingsMenu : MonoBehaviour
 {
     public GameObject statisticsPanel;
@@ -24,6 +39,10 @@ public class SettingsMenu : MonoBehaviour
         statisticsManager = GameObject.FindWithTag("StatisticsManager");
     }
 
+    /// <summary>
+    /// This method is called when the user clicks on "Estadísticas" button of 
+    /// the settings menu.
+    /// </summary>    
     public void StatisticsPanelActivation()
     {
         if (statisticsPanel.activeSelf)
@@ -35,6 +54,10 @@ public class SettingsMenu : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// This method is called when the user clicks on any achieved challenge 
+    /// button in the statistics section fo the settings menu.
+    /// </summary>  
     public void StatisticsInfoPanelActivation()
     {
         if (statisticsInfoPanel.activeSelf)
@@ -76,7 +99,9 @@ public class SettingsMenu : MonoBehaviour
     /// Given a key of an element from ChallengesSolutions dictionary, returns 
     // the text to be displayed on the buttons of "StatisticsPanel" GUI.
     /// </summary>
-    /// <param name="challengeName"> The string with the key to be "translated" </param>
+    /// <param name="challengeName"> The string with the key to be "translated" 
+    /// </param>
+    /// <returns> The text to set inside the challenge button </returns>
     private string GetChallengeButtonText(string challengeName)
     {
         string challengeButtonText;
@@ -114,6 +139,10 @@ public class SettingsMenu : MonoBehaviour
         return challengeButtonText;
     }
 
+    /// <summary>
+    /// Loads the statistics information to display on the statistics info 
+    /// panel of the selected achieved challenge .
+    /// </summary>
     public void LoadSelectedButtonStatistics()
     {
         // Getting the button text content to get the key to look for.
@@ -130,18 +159,27 @@ public class SettingsMenu : MonoBehaviour
         StatisticsInfoPanelActivation();
     }
 
+    /// <summary>
+    /// Loads the title of statistics info panel
+    /// </summary>
     private void LoadStatisticsTittle(string buttonText)
     {
         // Setting "RetoTitle" text field:
         challengeTitle.GetComponent<Text>().text = buttonText;
     }
 
+    /// <summary>
+    /// Loads the best value of the less time spent in solving the challenge.
+    /// </summary>
     private void LoadBestTimeInfo(string challengeKey)
     {
         // Setting "MejorTiempoText" text field:
         bestTimeText.transform.GetChild(0).GetComponent<Text>().text = GetBestTime(challengeKey);
     }
 
+    /// <summary>
+    /// Loads the least blocks solution and all its info.
+    /// </summary>
     private void LoadLeastBlocksSolution(string challengeKey)
     {
         List<string> solutionInfo = GetLeastBlocks(challengeKey);
@@ -154,6 +192,9 @@ public class SettingsMenu : MonoBehaviour
         leastBlocksSolutionText.transform.GetChild(2).transform.GetChild(0).GetComponent<Text>().text = solutionInfo[2];
     }
 
+    /// <summary>
+    /// Loads the value of the average time spent in solving the challenge.
+    /// </summary>
     private void LoadAverageTime(string challengeKey)
     {
         List<float> auxAverageTime = GetAverageTime(challengeKey);
@@ -169,6 +210,9 @@ public class SettingsMenu : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// This method calculates the least time spent in solving the challenge.
+    /// </summary>
     private string GetBestTime(string challengeKey)
     {
         int i = 0;
@@ -184,6 +228,9 @@ public class SettingsMenu : MonoBehaviour
         return " ";
     }
 
+    /// <summary>
+    /// Calculates the least blocks solution for the challenge.
+    /// </summary>
     private List<string> GetLeastBlocks(string challengeKey)
     {
         int i = 0;
@@ -212,6 +259,9 @@ public class SettingsMenu : MonoBehaviour
         return solutionInfo;
     }
 
+    /// <summary>
+    /// Calculates the average time spent in solve the challenge. 
+    /// </summary>
     private List<float> GetAverageTime(string challengeKey)
     {
 
@@ -232,6 +282,9 @@ public class SettingsMenu : MonoBehaviour
         return averageTime;
     }
 
+    /// <summary>
+    /// Method called when the user clicks on "Cancelar" button.
+    /// </summary>
     public void CancelMenu()
     {
         if (gameObject.activeSelf)
@@ -240,6 +293,9 @@ public class SettingsMenu : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Method called when the user clicks on "Volver a menú inicial" button.
+    /// </summary>
     public void BackToMainMenu()
     {
         if (GameObject.FindWithTag("SelectedRobot") != null)
@@ -250,6 +306,10 @@ public class SettingsMenu : MonoBehaviour
         SceneManager.LoadScene("MainMenu");
     }
 
+    /// <summary>
+    /// Method called when the user clicks on "Volver a menú inicial" button
+    /// to destroy the current selected robot.
+    /// </summary>
     private void DestroySelectedRobot()
     {
         GameObject auxRobot = GameObject.FindWithTag("SelectedRobot");

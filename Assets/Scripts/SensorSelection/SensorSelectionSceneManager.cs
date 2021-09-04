@@ -1,5 +1,6 @@
 ﻿/**
 * Universidad de La Laguna
+* Project: Roblockly
 * Author: Basilio Gómez Navarro
 * Email: alu0101049151@ull.edu.es
 * Date: 05/06/2021
@@ -19,22 +20,10 @@ using UnityEngine.UI;
 /// </summary>
 public class SensorSelectionSceneManager : MonoBehaviour
 {
-    //public delegate void SetEnableCanvas(bool isActiveCanvas);
-    //public static SetEnableCanvas SetCanvasActive;
-    //private GameObject canvas;
     private GameObject selectedRobot;
     private GameObject rotatingPlatform;
     private bool settedUp = false;
     public GameObject gyroscopeCheck;
-
-    /// <summary>
-    /// Start is called on the frame when a script is enabled just before
-    /// any of the Update methods is called the first time.
-    /// </summary>
-    void Start()
-    {
-        //canvas = GameObject.Find("SensorBackContinueUI");
-    }
 
     /// <summary>
     /// Update is called every frame, if the MonoBehaviour is enabled.
@@ -72,8 +61,6 @@ public class SensorSelectionSceneManager : MonoBehaviour
     {   
         Finder.RemoveElementByTag("SelectedRobot");
         DestroySelectedRobot();
-        //GlobalSceneManager.SwitchOnSecene3(false);
-        //SetCanvasActive(false);
         // Load the previous level in the queue (in this case, is the scene 1, called "IndividualSelectionMenu").
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
     }
@@ -84,12 +71,17 @@ public class SensorSelectionSceneManager : MonoBehaviour
     /// </summary>
     public void GoForward ()
     {
-        //GlobalSceneManager.SwitchOnSecene3(false);
-        // Load the next level in the queue (in this case, is the scene 3, called "RobotProgramming").
+        // Load the selected challenge scene getting the selected challenge 
+        // scene index in the player preferences.
         int sceneIndex = PlayerPrefs.GetInt("SelectedChallenge");
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + sceneIndex);
     }
 
+
+    /// <summary>
+    /// Method used to delete de selected robot gameobject to allow a new 
+    /// in selection "IndividualSelectionMenu".
+    /// </summary>
     private void DestroySelectedRobot()
     {
         GameObject auxRobot = GameObject.FindWithTag("SelectedRobot");

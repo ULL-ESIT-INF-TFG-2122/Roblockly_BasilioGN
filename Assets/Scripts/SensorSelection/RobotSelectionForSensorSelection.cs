@@ -22,6 +22,15 @@ public class RobotSelectionForSensorSelection : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        SetUpRobot();
+    }
+
+    /// <summary>
+    /// Method to instantiate the selected robot in previous scene and make it 
+    /// not destroyable when change between next scenes. 
+    /// </summary>
+    private void SetUpRobot()
+    {
         robotIndex = PlayerPrefs.GetInt("RobotSelected");
 
         for (int i = 0; i < transform.childCount; i++)
@@ -31,7 +40,6 @@ public class RobotSelectionForSensorSelection : MonoBehaviour
                 selectedRobot = Instantiate(transform.GetChild(i).gameObject, 
                     transform.GetChild(i).gameObject.transform.position, transform.GetChild(i).gameObject.transform.rotation);
                     selectedRobot.gameObject.tag = "SelectedRobot";
-                //selectedRobot.SetActive(true);
                 selectedRobot.GetComponent<RobotManager>().Kinematic(true);
             }
         }
@@ -39,7 +47,6 @@ public class RobotSelectionForSensorSelection : MonoBehaviour
         if (!Finder.CheckContains("SelectedRobot"))
         {
             selectedRobot.SetActive(true);
-            //Debug.Log("Ha entrado en el if de la instancia");
             DontDestroyOnLoad(selectedRobot);
             Finder.AddObject(selectedRobot);
         }

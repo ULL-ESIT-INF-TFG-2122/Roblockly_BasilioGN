@@ -1,5 +1,6 @@
 ﻿/**
 * Universidad de La Laguna
+* Project: Roblockly
 * Author: Basilio Gómez Navarro
 * Email: alu0101049151@ull.edu.es
 * Date: 11/06/2021
@@ -11,6 +12,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Class used to manage the rotation of the robot dragging it with the mouse.
+/// </summary>
 public class RotateRobot : MonoBehaviour
 {
     public float RotationSpeed = 50;
@@ -21,11 +25,15 @@ public class RotateRobot : MonoBehaviour
     /// </summary>
     void OnMouseDrag()
     {
-        float rotX = Input.GetAxis("Mouse X") * RotationSpeed * Mathf.Deg2Rad;
-        //float rotY = Input.GetAxis("Mouse Y") * RotationSpeed * Mathf.Deg2Rad;
-
-        transform.Rotate(Vector3.up, -rotX);
-        //transform.Rotate(Vector3.right, rotY);
+        RotateWithMouse();
     }
 
+    /// <summary>
+    /// Allows the user rotate the robot when drag ir with the mouse.
+    /// </summary>
+    private void RotateWithMouse() 
+    {
+        float rotX = Input.GetAxis("Mouse X") * RotationSpeed * Mathf.Deg2Rad;
+        transform.Rotate(Vector3.up, -rotX);
+    }
 }

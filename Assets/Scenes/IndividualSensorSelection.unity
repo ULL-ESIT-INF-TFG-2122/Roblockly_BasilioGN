@@ -1567,7 +1567,6 @@ GameObject:
   - component: {fileID: 791499458}
   - component: {fileID: 791499457}
   - component: {fileID: 791499456}
-  - component: {fileID: 791499459}
   m_Layer: 5
   m_Name: SensorBackContinueUICanvas
   m_TagString: Untagged
@@ -1663,19 +1662,6 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
---- !u!114 &791499459
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 791499454}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f88ac2395b0efe42961d87efd5b5412, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  RotationSpeed: 30
 --- !u!1 &830370690
 GameObject:
   m_ObjectHideFlags: 0

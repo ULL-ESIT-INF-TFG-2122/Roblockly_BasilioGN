@@ -47,6 +47,12 @@ public class StatisticsManager : MonoBehaviour
         return usedBlocks;
     }
 
+    
+    public Dictionary<string, List<ChallengeSolution>> GetChallengesSolutions()
+    {
+        return challengesSolutions;
+    }
+
     /// <summary>
     /// Adds a new solution for a specific challenge if it exists as a key of
     /// "challengesSolutions" or adds it as new element to the dictionary.
@@ -65,17 +71,16 @@ public class StatisticsManager : MonoBehaviour
         }
     }
 
-    public Dictionary<string, List<ChallengeSolution>> GetChallengesSolutions()
-    {
-        return challengesSolutions;
-    }
-
+    /// <summary>
+    /// Looks for the best time and best blocks number solution. It is done in the same function to save doing the same loop twice.
+    /// </summary>
     public void SetBestTimeBlocksSoloution()
     {
         foreach (var currentSolution in challengesSolutions)
         {
             int minTimeIndex = 0;
-            int minBlocksIndex = 0; // Index of the solution with minimum blocks.
+            int minBlocksIndex = 0;
+
             currentSolution.Value[minBlocksIndex].SetBestBlocks(true);
             currentSolution.Value[minTimeIndex].SetBestTime(true);
             if (currentSolution.Value.Count > 1)

@@ -1,12 +1,13 @@
 ﻿/**
 * Universidad de La Laguna
+* Project: Roblockly
 * Author: Basilio Gómez Navarro
 * Email: alu0101049151@ull.edu.es
 * Date: 20/07/2021
 * File: Finder.cs : This file contains the "Finder" class 
 *       implementation which is used to manage the status of objects that
 *       have to remain between the different scenes, as is the case of the 
-*       "selectedRobot" 
+*       "selectedRobot". 
 */
 
 using System.Collections;
