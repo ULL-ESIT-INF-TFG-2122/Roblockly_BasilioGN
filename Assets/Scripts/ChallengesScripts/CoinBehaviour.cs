@@ -16,8 +16,9 @@ using UnityEngine;
 /// This class manages the coin rotation and the collection of statistical data 
 /// when the robot collides with the coin.
 /// </summary>
-public class CoinRotation : MonoBehaviour
+public class CoinBehaviour : MonoBehaviour
 {
+    // This delegathe is used to stop timer from the TimerBehaviour class.
     public delegate void SetTimerOff();
     public static SetTimerOff StopTimer;
     public float rotationSpeed = 60.0f;

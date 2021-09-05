@@ -27,7 +27,7 @@ public class TimerBehaviour : MonoBehaviour
     void Start()
     {
         StartTimer();
-        CoinRotation.StopTimer = TimerFinish;
+        CoinBehaviour.StopTimer = TimerFinish;
     }
 
     // Update is called once per frame
