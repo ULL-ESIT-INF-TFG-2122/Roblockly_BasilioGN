@@ -29,6 +29,8 @@ public class SensorIR : SensorGeneric
     void Start()
     {
         SnapController.SetLinkedToARobotOn += base.SetLinkSensor;
+        SnapControllerDefender.SetLinkedToARobotOn += base.SetLinkSensor;
+        SnapControllerHummer.SetLinkedToARobotOn += base.SetLinkSensor;
         sensorLED = gameObject.transform.Find("Sensor/LED_Green");
     }
   

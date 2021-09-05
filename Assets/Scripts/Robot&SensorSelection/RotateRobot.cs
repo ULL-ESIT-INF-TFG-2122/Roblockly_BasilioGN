@@ -16,7 +16,7 @@ using UnityEngine;
 /// </summary>
 public class RotateRobot : MonoBehaviour
 {
-    public float RotationSpeed = 50;
+    public float RotationSpeed = 150;
 
     /// <summary>
     /// OnMouseDrag is called when the user has clicked on a GUIElement or 

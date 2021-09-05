@@ -22,6 +22,8 @@ public class SensorTouch : SensorGeneric
     void Start()
     {
         SnapController.SetLinkedToARobotOn += base.SetLinkSensor;
+        SnapControllerDefender.SetLinkedToARobotOn += base.SetLinkSensor;
+        SnapControllerHummer.SetLinkedToARobotOn += base.SetLinkSensor;
     }
 
     /// <summary>

@@ -37,6 +37,7 @@ public class RobotSelectionForSensorSelection : MonoBehaviour
         {
             if (transform.GetChild(i) && (i == robotIndex))
             {
+                Debug.Log("Número de indice: " + i);
                 selectedRobot = Instantiate(transform.GetChild(i).gameObject, 
                     transform.GetChild(i).gameObject.transform.position, transform.GetChild(i).gameObject.transform.rotation);
                     selectedRobot.gameObject.tag = "SelectedRobot";

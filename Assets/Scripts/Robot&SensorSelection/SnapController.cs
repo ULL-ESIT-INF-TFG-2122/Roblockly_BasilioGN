@@ -20,11 +20,11 @@ public class SnapController : MonoBehaviour
 {                                       
     public List<Transform> SnapPoints; // Contains all the snap points of each 
                                        // robot.
-    public float SnapRange = 2.0f;
+    public float SnapRange = 15.0f;
     DragObject[] SensorsToDrag; // Contains all the draggable
                                 // sensors;
 
-    /*// The delegate below is used to indicate that a new sensor has been linked to the robot. Is used in the scripts from the "SensorsScripts" directory*/
+    /*The delegate below is used to indicate that a new sensor has been linked to the robot. Is used in the scripts from the "SensorsScripts" directory*/
     public delegate void SetLinkedToARobotDelegate(bool status);
     public static event SetLinkedToARobotDelegate SetLinkedToARobotOn;
 

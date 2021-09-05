@@ -32,7 +32,7 @@ public class SensorSelectionSceneManager : MonoBehaviour
         if (selectedRobot == null) // Late start
         {
             selectedRobot = GameObject.FindWithTag("SelectedRobot");
-            SetUpSelectedRobot();
+            //SetUpSelectedRobot();
             gyroscopeCheck.GetComponent<CheckGyroscope>().CheckActivated();
         }
     }
