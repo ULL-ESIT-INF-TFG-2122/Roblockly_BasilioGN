@@ -86,11 +86,11 @@ public class ChallengeSolution : MonoBehaviour
         return progress;
     }
 
-    public void SetProgress(float newProgress)
-    {
-        progress = newProgress;
-    }
-
+    /// <summary>
+    /// Method used to calculate the progress of the user to solve a challenge.
+    /// </summary>
+    /// <param name="challengeKey"> The challenge key to calculate the progress.
+    /// </param>
     public void CalculateProgress(string challengeKey)
     {
         int optimalSolution = optimalSolutionsForEachChallenge[challengeKey];
