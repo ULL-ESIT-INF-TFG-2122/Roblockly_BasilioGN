@@ -17,7 +17,6 @@ using UnityEngine;
 
 public class ChallengeSolution : MonoBehaviour
 {
-    private string solutionID;
     private bool bestTime; // Indicates if the solution has been solved in the shortest time.
     private bool bestBlocks; // Indicates if the solution has been solved with the least number of blocks.
     private string solutionTime; // Time elapsed to solve the challenge in string format.
@@ -31,16 +30,6 @@ public class ChallengeSolution : MonoBehaviour
         {"Color", 4}, 
         {"Gyroscope", 5}
     };
-
-    public string GetSolutionID()
-    {
-        return solutionID;
-    }
-
-    public void SetSolutionID(string newSolutionID)
-    {
-        solutionID = newSolutionID;
-    }
 
     public bool GetBestTime()
     {
