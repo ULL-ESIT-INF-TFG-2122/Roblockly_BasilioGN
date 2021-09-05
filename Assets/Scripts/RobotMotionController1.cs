@@ -82,7 +82,6 @@ public class RobotMotionController1 : MonoBehaviour
     {
         if (timeToMove > 0)
         {
-            //float elapsedTime = Time.time;
             float elapsedTime = 0.0f;
             while(elapsedTime <= timeToMove)
             {
@@ -94,20 +93,6 @@ public class RobotMotionController1 : MonoBehaviour
         }
         yield return null;
     }
-
-    /*/// <summary>
-    /// Moves the robot backward at the speed passed by parameters.
-    /// </summary>
-    /// <param name="velocity"> The velocity to move the robot backward.</param>
-    private void MoveBackwardRobot(float velocity)
-    {
-        Vector3 moveInput = new Vector3(0, 0, -DEFAULT_DISTANCE);
-        robotRigidbody.MovePosition(transform.position + moveInput * Time.deltaTime * velocity);
-        if (DEFAULT_DISTANCE != 0)
-        {
-            rotateWheels(velocity);
-        }
-    }*/
 
     /// <summary>
     /// Rotates the robot over its Y axis a specific angle.
@@ -164,40 +149,5 @@ public class RobotMotionController1 : MonoBehaviour
     {
         angleRotated = 0.0f;
     }
-/*    /// <summary>
-    /// Update is called every frame, if the MonoBehaviour is enabled.
-    /// </summary>
-    void Update()
-    {
-        /*if (aux == 0)
-        {
-            Debug.Log("Ha entrado en el if");
-            StartCoroutine(RotateRobot(90));
-            aux++;
-        }*/
-        /*if (Input.GetKeyDown("space"))
-        {
-            //StopRobot();
-            //StopAllCoroutines();
-            //print("Stopped all Coroutines: " + Time.time);
-        }
-    }
-
-    int aux = 0;
-    /// <summary>
-    /// This function is called every fixed framerate frame, if the 
-    /// MonoBehaviour is enabled.
-    /// </summary>
-    private void FixedUpdate()
-    {
-        /*if (aux == 0)
-        {
-            
-        } /*else {
-            StopRobot();
-        }*/
-        //aux++;
-        //MoveBackwardRobot(1);
-    //}
 }
 
