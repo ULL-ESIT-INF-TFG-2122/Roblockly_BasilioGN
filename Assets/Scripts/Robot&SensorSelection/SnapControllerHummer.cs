@@ -83,7 +83,7 @@ public class SnapControllerHummer : MonoBehaviour
     /// <param name="sensorToDrag"> The dragged sensor to snap to the robot.</param>
     private void SnapSensor(DragObject sensorToDrag)
     {
-                float ClosestDistance = -1;
+        float ClosestDistance = -1;
         Transform ClosestSnapPoint = null;
         foreach (Transform currentSnapPoint in SnapPoints)
         {
@@ -198,17 +198,17 @@ public class SnapControllerHummer : MonoBehaviour
             case "TopFrontSnapCenter":
                 offset = 1.5f;
                 sensorToDrag.transform.position = new Vector3(XPosCoord, YPosCoord + offset, ZPosCoord);
-                sensorToDrag.transform.Rotate(0.0f, 90.0f, -60.0f);
+                sensorToDrag.transform.Rotate(0.0f, 90.0f, -40.0f);
                 break;
             case "TopFrontSnapRight":
                 offset = 1.5f;
                 sensorToDrag.transform.position = new Vector3(XPosCoord, YPosCoord + offset, ZPosCoord);
-                sensorToDrag.transform.Rotate(0.0f, 90.0f, -60.0f);
+                sensorToDrag.transform.Rotate(0.0f, 90.0f, -90.0f);
                 break;
             case "TopFrontSnapLeft":
                 offset = 1.5f;
                 sensorToDrag.transform.position = new Vector3(XPosCoord, YPosCoord + offset, ZPosCoord);
-                sensorToDrag.transform.Rotate(0.0f, 90.0f, -60.0f);
+                sensorToDrag.transform.Rotate(0.0f, 90.0f, -90.0f);
                 break;
             case "BackSnap":
                 offset = 3f;
@@ -218,12 +218,12 @@ public class SnapControllerHummer : MonoBehaviour
             case "LeftSnap":
                 offset = 1.5f;
                 sensorToDrag.transform.position = new Vector3(XPosCoord, YPosCoord + offset, ZPosCoord);
-                sensorToDrag.transform.Rotate(0.0f, 5.0f, -60.0f);
+                sensorToDrag.transform.Rotate(0.0f, 0.0f, -50.0f);
                 break;
             case "RightSnap":
                 offset = 1.5f;
                 sensorToDrag.transform.position = new Vector3(XPosCoord, YPosCoord + offset, ZPosCoord);
-                sensorToDrag.transform.Rotate(0.0f, 90.0f, -60.0f);
+                sensorToDrag.transform.Rotate(0.0f, 90.0f, -50.0f);
                 break;
             default: // Set up the sensor to the front by default;
                 offset = 1.5f;
@@ -258,17 +258,17 @@ public class SnapControllerHummer : MonoBehaviour
             case "TopFrontSnapCenter":
                 offset = 0.5f;
                 sensorToDrag.transform.position = new Vector3(XPosCoord, YPosCoord + offset, ZPosCoord);
-                sensorToDrag.transform.Rotate(0.0f, 90.0f, -60.0f);
+                sensorToDrag.transform.Rotate(0.0f, 90.0f, -50.0f);
                 break;
             case "TopFrontSnapRight":
                 offset = 0.5f;
                 sensorToDrag.transform.position = new Vector3(XPosCoord, YPosCoord + offset, ZPosCoord);
-                sensorToDrag.transform.Rotate(0.0f, 90.0f, -60.0f);
+                sensorToDrag.transform.Rotate(0.0f, 90.0f, -90.0f);
                 break;
             case "TopFrontSnapLeft":
                 offset = 0.5f;
                 sensorToDrag.transform.position = new Vector3(XPosCoord, YPosCoord + offset, ZPosCoord);
-                sensorToDrag.transform.Rotate(0.0f, 90.0f, -60.0f);
+                sensorToDrag.transform.Rotate(0.0f, 90.0f, -90.0f);
                 break;
             case "BackSnap":
                 offset = 1.5f;

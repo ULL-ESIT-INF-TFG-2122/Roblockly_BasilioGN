@@ -3,10 +3,10 @@
 * Project: Roblockly
 * Author: Basilio Gómez Navarro
 * Email: alu0101049151@ull.edu.es
-* File: SnapControllerDefender.cs : This file contains the 
-*       "SnapControllerDefender" class implementation. This class is
-*       used to manage the snap point to affix the selected sensors
-*       to Defender robot type.
+* File: SnapControllerHummer.cs : This file contains the 
+*       "SnapControllerHummer" class implementation. This class is
+*       used to manage the snap point to fix the selected sensors
+*       to Hummer robot type.
 */
 
 using System.Collections;
@@ -16,7 +16,7 @@ using UnityEngine;
 /// <summary>
 /// Class used to manage the different snap points of each robot.
 /// </summary>
-public class SnapControllerDefender : MonoBehaviour
+public class SnapControllerHunter : MonoBehaviour
 {                                       
     public List<Transform> SnapPoints; // Contains all the snap points of each 
                                        // robot.
@@ -24,7 +24,7 @@ public class SnapControllerDefender : MonoBehaviour
     DragObject[] SensorsToDrag; // Contains all the draggable
                                 // sensors;
 
-    /* The delegate below is used to indicate that a new sensor has been linked to the robot. Is used in the scripts from the "SensorsScripts" directory*/
+    /*The delegate below is used to indicate that a new sensor has been linked to the robot. Is used in the scripts from the "SensorsScripts" directory*/
     public delegate void SetLinkedToARobotDelegate(bool status);
     public static event SetLinkedToARobotDelegate SetLinkedToARobotOn;
 
@@ -99,6 +99,7 @@ public class SnapControllerDefender : MonoBehaviour
                            // point has been used.
         if (UsedSnapPoints.Count > 0) // Check if any snap point has been used.
         {
+            //Debug.Log("UsedSanpPoints.Count: " + UsedSnapPoints.Count);
             for (int i = 0; i < UsedSnapPoints.Count; i++)
             {
                 if(UsedSnapPoints[i] == ClosestSnapPoint)
@@ -109,8 +110,8 @@ public class SnapControllerDefender : MonoBehaviour
         }
         if (!used) // If the Closest Sanp Point is free
         {
-            // Debug.Log("ClosestSnapPoint = " + ClosestSnapPoint);
-            // Debug.Log("ClosestDistance = " + ClosestDistance);
+            Debug.Log("ClosestSnapPoint = " + ClosestSnapPoint);
+            Debug.Log("ClosestDistance = " + ClosestDistance);
             if ((ClosestSnapPoint != null) && (ClosestDistance <= SnapRange))
             { // If the snap was successful:
                 UsedSnapPoints.Add(ClosestSnapPoint);
@@ -197,17 +198,17 @@ public class SnapControllerDefender : MonoBehaviour
             case "TopFrontSnapCenter":
                 offset = 1.5f;
                 sensorToDrag.transform.position = new Vector3(XPosCoord, YPosCoord + offset, ZPosCoord);
-                sensorToDrag.transform.Rotate(0.0f, 90.0f, -70.0f);
+                sensorToDrag.transform.Rotate(0.0f, 90.0f, -90.0f);
                 break;
             case "TopFrontSnapRight":
                 offset = 1.5f;
                 sensorToDrag.transform.position = new Vector3(XPosCoord, YPosCoord + offset, ZPosCoord);
-                sensorToDrag.transform.Rotate(0.0f, 90.0f, -70.0f);
+                sensorToDrag.transform.Rotate(0.0f, 90.0f, -90.0f);
                 break;
             case "TopFrontSnapLeft":
                 offset = 1.5f;
                 sensorToDrag.transform.position = new Vector3(XPosCoord, YPosCoord + offset, ZPosCoord);
-                sensorToDrag.transform.Rotate(0.0f, 90.0f, -70.0f);
+                sensorToDrag.transform.Rotate(0.0f, 90.0f, -90.0f);
                 break;
             case "BackSnap":
                 offset = 3f;
@@ -227,7 +228,7 @@ public class SnapControllerDefender : MonoBehaviour
             default: // Set up the sensor to the front by default;
                 offset = 1.5f;
                 sensorToDrag.transform.position = new Vector3(XPosCoord, YPosCoord + offset, ZPosCoord);
-                sensorToDrag.transform.Rotate(0.0f, 90.0f, -60.0f);
+                sensorToDrag.transform.Rotate(0.0f, 90.0f, -90.0f);
                 break;
         }
     }
@@ -257,17 +258,17 @@ public class SnapControllerDefender : MonoBehaviour
             case "TopFrontSnapCenter":
                 offset = 0.5f;
                 sensorToDrag.transform.position = new Vector3(XPosCoord, YPosCoord + offset, ZPosCoord);
-                sensorToDrag.transform.Rotate(0.0f, 90.0f, -70.0f);
+                sensorToDrag.transform.Rotate(0.0f, 90.0f, -90.0f);
                 break;
             case "TopFrontSnapRight":
                 offset = 0.5f;
                 sensorToDrag.transform.position = new Vector3(XPosCoord, YPosCoord + offset, ZPosCoord);
-                sensorToDrag.transform.Rotate(0.0f, 90.0f, -70.0f);
+                sensorToDrag.transform.Rotate(0.0f, 90.0f, -90.0f);
                 break;
             case "TopFrontSnapLeft":
                 offset = 0.5f;
                 sensorToDrag.transform.position = new Vector3(XPosCoord, YPosCoord + offset, ZPosCoord);
-                sensorToDrag.transform.Rotate(0.0f, 90.0f, -70.0f);
+                sensorToDrag.transform.Rotate(0.0f, 90.0f, -90.0f);
                 break;
             case "BackSnap":
                 offset = 1.5f;
@@ -277,12 +278,12 @@ public class SnapControllerDefender : MonoBehaviour
             case "LeftSnap":
                 offset = 0.5f;
                 sensorToDrag.transform.position = new Vector3(XPosCoord, YPosCoord + offset, ZPosCoord);
-                sensorToDrag.transform.Rotate(0.0f, 0.0f, -80.0f);
+                sensorToDrag.transform.Rotate(0.0f, 0.0f, -90.0f);
                 break;
             case "RightSnap":
                 offset = 0.5f;
                 sensorToDrag.transform.position = new Vector3(XPosCoord, YPosCoord + offset, ZPosCoord);
-                sensorToDrag.transform.Rotate(0.0f, 90.0f, -80.0f);
+                sensorToDrag.transform.Rotate(0.0f, 90.0f, -90.0f);
                 break;
             default: // Set up the sensor to the front by default;
                 offset = 1.5f;
@@ -317,17 +318,17 @@ public class SnapControllerDefender : MonoBehaviour
             case "TopFrontSnapCenter":
                 offset = -1.0f;
                 sensorToDrag.transform.position = new Vector3(XPosCoord, YPosCoord + offset, ZPosCoord);
-                sensorToDrag.transform.Rotate(110.0f, 0.0f, 180.0f);
+                sensorToDrag.transform.Rotate(120.0f, 0.0f, 180.0f);
                 break;
             case "TopFrontSnapRight":
                 offset = -1.0f;
                 sensorToDrag.transform.position = new Vector3(XPosCoord, YPosCoord + offset, ZPosCoord);
-                sensorToDrag.transform.Rotate(150.0f, 0.0f, 180.0f);
+                sensorToDrag.transform.Rotate(120.0f, 0.0f, 180.0f);
                 break;
             case "TopFrontSnapLeft":
                 offset = -1.0f;
                 sensorToDrag.transform.position = new Vector3(XPosCoord, YPosCoord + offset, ZPosCoord);
-                sensorToDrag.transform.Rotate(150.0f, 0.0f, 180.0f);
+                sensorToDrag.transform.Rotate(120.0f, 0.0f, 180.0f);
                 break;
             case "BackSnap":
                 offset = -1.0f;

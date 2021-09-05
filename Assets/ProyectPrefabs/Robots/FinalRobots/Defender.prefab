@@ -514,7 +514,7 @@ MonoBehaviour:
   - {fileID: 5757978411917709927}
   - {fileID: 6700486632610094072}
   - {fileID: 7513417617017535113}
-  SnapRange: 15
+  SnapRange: 30
 --- !u!114 &4031271983481935136
 MonoBehaviour:
   m_ObjectHideFlags: 0
