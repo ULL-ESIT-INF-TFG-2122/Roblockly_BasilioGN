@@ -74,7 +74,16 @@ public class SnapController : MonoBehaviour
     /// </summary>
     private void OnDragEnded(DragObject sensorToDrag)
     {
-        float ClosestDistance = -1;
+        SnapSensor(sensorToDrag);
+    }
+
+    /// <summary>
+    /// This function is called when sensor drag ends. 
+    /// </summary>
+    /// <param name="sensorToDrag"> The dragged sensor to snap to the robot.</param>
+    private void SnapSensor(DragObject sensorToDrag)
+    {
+                float ClosestDistance = -1;
         Transform ClosestSnapPoint = null;
         foreach (Transform currentSnapPoint in SnapPoints)
         {
@@ -99,47 +108,18 @@ public class SnapController : MonoBehaviour
                 }
             }
         }
-
         if (!used) // If the Closest Sanp Point is free
         {
             //Debug.Log("ClosestSnapPoint = " + ClosestSnapPoint);
             //Debug.Log("ClosestDistance = " + ClosestDistance);
-
             if ((ClosestSnapPoint != null) && (ClosestDistance <= SnapRange))
             { // If the snap was successful:
                 UsedSnapPoints.Add(ClosestSnapPoint);
                 sensorToDrag.GetComponent<SensorGeneric>().SetSnappedPoint(ClosestSnapPoint);
                 //Debug.Log("Ha hecho el snap");
-                switch (sensorToDrag.name)
-                {
-                    case "SensorUS(Clone)":
-                        SetUltrasoundSensor(sensorToDrag, ClosestSnapPoint);
-                        sensorToDrag.GetComponent<SensorUS>().SetSensorName(ClosestSnapPoint.tag);
-                        this.GetComponent<RobotManager>().AddUsedSensor(sensorToDrag.name, "SensorUS"); // Adds the sensor type to the usedSensors Dictionary in RobotManager.cs
-                        break;
-                    case "SensorTouch(Clone)":
-                        SetTouchSensor(sensorToDrag, ClosestSnapPoint);
-                        sensorToDrag.GetComponent<SensorTouch>().SetSensorName(ClosestSnapPoint.tag);
-                        this.GetComponent<RobotManager>().AddUsedSensor(sensorToDrag.name, "SensorTouch");
-                        break;
-                    case "SensorIR(Clone)":
-                        SetInfraredColorSensor(sensorToDrag, ClosestSnapPoint);
-                        sensorToDrag.GetComponent<SensorIR>().SetSensorName(ClosestSnapPoint.tag);
-                        this.GetComponent<RobotManager>().AddUsedSensor(sensorToDrag.name, "SensorIR");
-                        break;
-                    case "SensorColor(Clone)":
-                        SetInfraredColorSensor(sensorToDrag, ClosestSnapPoint);
-                        sensorToDrag.GetComponent<SensorColor>().SetSensorName(ClosestSnapPoint.tag);
-                        this.GetComponent<RobotManager>().AddUsedSensor(sensorToDrag.name, "SensorColor");
-                        break;
-                    default:
-                        Debug.Log("There aren't any sensor of this type");
-                        break;
-                }
+                SetSnappedSensor(sensorToDrag, ClosestSnapPoint);
                 sensorToDrag.transform.parent = gameObject.transform; // Adds the sensor as a child of the robot.
                 SetLinkedToARobotOn(true);
-                //Debug.Log(sensorToDrag.GetComponent<SensorGeneric>().gameObject.transform.name);
-                //Debug.Log(sensorToDrag.name);
             }
             else // If the sensor doesn't snaps any point.
             {
@@ -151,6 +131,44 @@ public class SnapController : MonoBehaviour
         {
             ActivateSnapPoints(false); // Turn off color in the snap points.
             Destroy(sensorToDrag.gameObject);
+        }
+    }
+
+    /// <summary>
+    /// This method set the snapped sensor position, name and adds it to the 
+    /// Added used sensors dictionary.
+    /// </summary>
+    /// <param name="sensorToDrag"> The dragged sensor to snap to the robot.
+    /// </param>
+    /// <param name="ClosestSnapPoint"> The closest snap point to the dragged 
+    /// sensor.</param>
+    private void SetSnappedSensor(DragObject sensorToDrag, Transform ClosestSnapPoint)
+    {
+        switch (sensorToDrag.name)
+        {
+            case "SensorUS(Clone)":
+                SetUltrasoundSensor(sensorToDrag, ClosestSnapPoint);
+                sensorToDrag.GetComponent<SensorUS>().SetSensorName(ClosestSnapPoint.tag);
+                this.GetComponent<RobotManager>().AddUsedSensor(sensorToDrag.name, "SensorUS"); // Adds the sensor type to the usedSensors Dictionary in RobotManager.cs
+                break;
+            case "SensorTouch(Clone)":
+                SetTouchSensor(sensorToDrag, ClosestSnapPoint);
+                sensorToDrag.GetComponent<SensorTouch>().SetSensorName(ClosestSnapPoint.tag);
+                this.GetComponent<RobotManager>().AddUsedSensor(sensorToDrag.name, "SensorTouch");
+                break;
+            case "SensorIR(Clone)":
+                SetInfraredColorSensor(sensorToDrag, ClosestSnapPoint);
+                sensorToDrag.GetComponent<SensorIR>().SetSensorName(ClosestSnapPoint.tag);
+                this.GetComponent<RobotManager>().AddUsedSensor(sensorToDrag.name, "SensorIR");
+                break;
+            case "SensorColor(Clone)":
+                SetInfraredColorSensor(sensorToDrag, ClosestSnapPoint);
+                sensorToDrag.GetComponent<SensorColor>().SetSensorName(ClosestSnapPoint.tag);
+                this.GetComponent<RobotManager>().AddUsedSensor(sensorToDrag.name, "SensorColor");
+                break;
+            default:
+                Debug.Log("There aren't any sensor of this type");
+                break;
         }
     }
 
@@ -336,9 +354,11 @@ public class SnapController : MonoBehaviour
     }
 
     /// <summary>
-    /// This method is used to set up the position of any Touch sensor 
-    /// when it is snapped to the robot.
+    /// This method is used to set free a snap point when a sensor is removed 
+    /// from him.
     /// </summary>
+    /// <param name="snappedPoint"> The snap point to set free.
+    /// </param>
     private void SetFreeSnapPoint(Transform snappedPoint)
     {
         for (int i = 0; i < UsedSnapPoints.Count; i++)
@@ -354,17 +374,17 @@ public class SnapController : MonoBehaviour
     /// This method is used to activate and deactivate the snap points when the 
     /// user drags and drops a sensor. 
     /// </summary>
+    /// <param name="activation"> True if want to actiate the snap points.
+    /// </param>
     private void ActivateSnapPoints(bool activation)
     {
         if (activation)
         {
-            //Debug.Log("Activation: true");
             for (int i = 0; i < SnapPoints.Count; i++)
             {
                 SnapPoints[i].GetComponent<Renderer>().material.SetColor("_Color", new Color(1, 0, 0, 1)); // Change color to red.
             }
         } else {
-            //Debug.Log("Activation: false");
             for (int i = 0; i < SnapPoints.Count; i++)
             {
                 SnapPoints[i].GetComponent<Renderer>().material.SetColor("_Color", new Color(0, 0, 0, 0)); // Changes back the color to transparent.
