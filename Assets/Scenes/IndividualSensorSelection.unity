@@ -2335,19 +2335,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 3298274929349304598}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1399292618
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1399292617}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f88ac2395b0efe42961d87efd5b5412, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  RotationSpeed: 150
 --- !u!136 &1399292619
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -3793,6 +3780,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -1.4080001
       objectReference: {fileID: 0}
+    - target: {fileID: 7149931462589726660, guid: c57067936ea5c474aa0480cca3e67e4f,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7149931462589726682, guid: c57067936ea5c474aa0480cca3e67e4f,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7149931462589832070, guid: c57067936ea5c474aa0480cca3e67e4f,
         type: 3}
       propertyPath: m_Name
@@ -3802,6 +3799,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8970908578567632075, guid: c57067936ea5c474aa0480cca3e67e4f,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c57067936ea5c474aa0480cca3e67e4f, type: 3}

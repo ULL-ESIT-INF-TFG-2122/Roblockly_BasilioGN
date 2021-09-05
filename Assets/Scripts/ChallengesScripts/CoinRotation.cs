@@ -1,12 +1,27 @@
+/**
+* Universidad de La Laguna"
+* Project:  Roblockly
+* Author: Basilio Gómez Navarro
+* Email: alu0101049151@ull.edu.es
+* Date: 27/07/2021
+* File: CoinRotation.cs: This file contains the class used to manage 
+*       the behaviour of the coin located at the end of the challenges.
+*/
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// This class manages the coin rotation and the collection of statistical data 
+/// when the robot collides with the coin.
+/// </summary>
 public class CoinRotation : MonoBehaviour
 {
     public delegate void SetTimerOff();
     public static SetTimerOff StopTimer;
     public float rotationSpeed = 60.0f;
+
     /// <summary>
     /// Update is called every frame, if the MonoBehaviour is enabled.
     /// </summary>
@@ -15,6 +30,9 @@ public class CoinRotation : MonoBehaviour
         RotateCoin();
     }
 
+    /// <summary>
+    /// Performs the rotation of the coin every frame.
+    /// </summary>
     private void RotateCoin()
     {
         gameObject.transform.Rotate(Vector3.forward * rotationSpeed * Time.deltaTime);
@@ -23,8 +41,20 @@ public class CoinRotation : MonoBehaviour
     /// <summary>
     /// OnTriggerEnter is called when the Collider other enters the trigger.
     /// </summary>
-    /// <param name="other">The other Collider involved in this collision.</param>
+    /// <param name="other">The other Collider involved in this collision.
+    /// </param>
     void OnTriggerEnter(Collider other)
+    {
+        SetFinishInformation(other);
+    }
+
+    /// <summary>
+    /// This method is called when the robot collides with the coin.
+    /// </summary>
+    /// <param name="other">The other object is the robot collider involved in 
+    /// the collision
+    /// </param>
+    private void SetFinishInformation(Collider other)
     {
         Debug.Log("Ha entrado en el trigger enter");
         if (other.gameObject.tag == "SelectedRobot" ||

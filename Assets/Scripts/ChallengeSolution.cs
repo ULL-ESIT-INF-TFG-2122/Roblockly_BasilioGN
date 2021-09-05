@@ -1,4 +1,15 @@
-// Used in Statistics manager script.
+/**
+* Universidad de La Laguna"
+* Project: Roblockly
+* Author: Basilio Gómez Navarro
+* Email: alu0101049151@ull.edu.es
+* File: ChallegeSolution.cs: This file contains the class used to encapsulate 
+*       the information relative to a solution when the user solve a challenge.
+*       An object of this class is created when the robot collides with the 
+*       coin at the end of each challenge.
+*       The information allocated in the objects of this class is used in the
+*       StatisticsManager class.
+*/
 
 using System.Collections;
 using System.Collections.Generic;

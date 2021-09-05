@@ -1,12 +1,16 @@
 /**
 * Universidad de La Laguna
+* Project: Roblockly
 * Author: Basilio Gómez Navarro
 * Email: alu0101049151@ull.edu.es
-* Date: 18/08/2021
-* File: LabyrinthSeceneManager.cs : This file contains the 
-*       "LabyrinthSceneManager" class implementation which allows the 
+* Date: 20/08/2021
+* File: ColorSceneManager.cs : This file contains the 
+*       "ColorSceneManager" class implementation which allows the 
 *        configuration of some stuff of the scene as:
 *           - Set the position of the selectedRobot gameobject.
+*           - Manage the size of the chellenge viewer.
+*           - Run the logic of the buttos to go backward or reset robot 
+*             position.
 */
 
 using System.Collections;

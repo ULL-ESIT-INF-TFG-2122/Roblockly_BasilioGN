@@ -3,7 +3,6 @@
 * Project:  Roblockly
 * Author: Basilio Gómez Navarro
 * Email: alu0101049151@ull.edu.es
-* Date: 25/07/2021
 * File: AddedSensorBoxScript.cs : This file contains the class used to manage 
 *       the behaviour of the settings menu, accessible from any scene 
 *       except the main menu.

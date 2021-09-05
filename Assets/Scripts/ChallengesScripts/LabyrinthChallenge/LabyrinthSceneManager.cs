@@ -1,5 +1,6 @@
 /**
 * Universidad de La Laguna
+* Project: Roblockly
 * Author: Basilio Gómez Navarro
 * Email: alu0101049151@ull.edu.es
 * Date: 26/07/2021
@@ -7,6 +8,9 @@
 *       "LabyrinthSceneManager" class implementation which allows the 
 *        configuration of some stuff of the scene as:
 *           - Set the position of the selectedRobot gameobject.
+*           - Manage the size of the chellenge viewer.
+*           - Run the logic of the buttos to go backward or reset robot 
+*             position.
 */
 
 using System.Collections;

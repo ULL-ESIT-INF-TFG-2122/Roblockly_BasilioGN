@@ -1,6 +1,21 @@
+/**
+* Universidad de La Laguna"
+* Project:  Roblockly
+* Author: Basilio Gómez Navarro
+* Email: alu0101049151@ull.edu.es
+* File: StatisticsManager.cs: This file contains the class used to allocate and 
+*       manage of all the challenges solutions statistics information.
+*/
+
+/// <summary>
+/// This class is used to allocate and manage the statistics information of all 
+/// the solved challenges.
+
+/// </summary>
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
 
 public class StatisticsManager : MonoBehaviour
 {
@@ -24,11 +39,17 @@ public class StatisticsManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Increase the number of blocks by one unit
+    /// </summary>
     public void IncreaseUsedBlocks()
     {
         usedBlocks++;
     }
 
+    /// <summary>
+    /// Decrease the number of blocks by one unit
+    /// </summary>
     public void DecreaseUsedBlocks()
     {
         if (usedBlocks > 0)
@@ -37,6 +58,9 @@ public class StatisticsManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Reset the number of used blocks
+    /// </summary>
     public void CleanUsedBlocks()
     {
         usedBlocks = 0;
@@ -89,6 +113,7 @@ public class StatisticsManager : MonoBehaviour
                 {
                     if (currentSolution.Value[i].GetBlocksNumber() <    
                         currentSolution.Value[minBlocksIndex].GetBlocksNumber())
+                        
                     {
                         currentSolution.Value[minBlocksIndex].SetBestBlocks(false);
                         currentSolution.Value[i].SetBestBlocks(true);
