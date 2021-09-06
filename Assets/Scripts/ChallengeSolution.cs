@@ -25,10 +25,10 @@ public class ChallengeSolution : MonoBehaviour
     private float progress; // Percentage of proximity to the optimal solution of the challenge.
 
     private Dictionary<string, int> optimalSolutionsForEachChallenge = new Dictionary<string, int>() {
-        {"Labyrinth", 2}, 
-        {"IR", 3}, 
-        {"Color", 4}, 
-        {"Gyroscope", 5}
+        {"Labyrinth", 12}, 
+        {"IR", 18}, 
+        {"Color", 24}, 
+        {"Gyroscope", 9}
     };
 
     public bool GetBestTime()
