@@ -83,6 +83,10 @@ public class CoinBehaviour : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Is used to calculate the key from the current scene name.
+    /// </summary>
+    /// <return> The challange key </returns>
     private string CalculateChallengeKey()
     {
         string challengeKey;
