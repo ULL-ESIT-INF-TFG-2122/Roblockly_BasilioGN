@@ -318,17 +318,17 @@ public class SnapControllerHummer : MonoBehaviour
             case "TopFrontSnapCenter":
                 offset = -1.0f;
                 sensorToDrag.transform.position = new Vector3(XPosCoord, YPosCoord + offset, ZPosCoord);
-                sensorToDrag.transform.Rotate(110.0f, 0.0f, 180.0f);
+                sensorToDrag.transform.Rotate(160.0f, 0.0f, 180.0f);
                 break;
             case "TopFrontSnapRight":
                 offset = -1.0f;
                 sensorToDrag.transform.position = new Vector3(XPosCoord, YPosCoord + offset, ZPosCoord);
-                sensorToDrag.transform.Rotate(150.0f, 0.0f, 180.0f);
+                sensorToDrag.transform.Rotate(130.0f, 0.0f, 180.0f);
                 break;
             case "TopFrontSnapLeft":
                 offset = -1.0f;
                 sensorToDrag.transform.position = new Vector3(XPosCoord, YPosCoord + offset, ZPosCoord);
-                sensorToDrag.transform.Rotate(150.0f, 0.0f, 180.0f);
+                sensorToDrag.transform.Rotate(130.0f, 0.0f, 180.0f);
                 break;
             case "BackSnap":
                 offset = -1.0f;

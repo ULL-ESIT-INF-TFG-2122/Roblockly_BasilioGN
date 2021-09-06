@@ -46,18 +46,34 @@ public class ColorSceneManager : MonoBehaviour
     /// </summary>
     public void SetUpSelectedRobot()
     {
+        float XPosCoord;
+        float YPosCoord;
+        float ZPosCoord;
         if (selectedRobot == null)
         {
             selectedRobot = GameObject.FindWithTag("SelectedRobot");            
         }
         selectedRobot.transform.position = startPoint.position;
-        float XPosCoord = selectedRobot.transform.position.x;
-        float YPosCoord = selectedRobot.transform.position.y;
-        float ZPosCoord = selectedRobot.transform.position.z;   
-        selectedRobot.transform.position = new Vector3(XPosCoord, YPosCoord + 10, ZPosCoord);
         selectedRobot.transform.rotation = startPoint.rotation;
         selectedRobot.GetComponent<RobotManager>().Kinematic(true); // Enables robot physics again.
         selectedRobot.GetComponent<RobotMotionController1>().ResetAngleRotated();
+        if (selectedRobot.name.Contains("Hunter"))
+        {
+            XPosCoord = selectedRobot.transform.position.x;
+            YPosCoord = selectedRobot.transform.position.y;
+            ZPosCoord = selectedRobot.transform.position.z;   
+            selectedRobot.transform.position = new Vector3(XPosCoord, YPosCoord + 22, ZPosCoord);
+        } else if (selectedRobot.name.Contains("Kaiju")) {
+            XPosCoord = selectedRobot.transform.position.x;
+            YPosCoord = selectedRobot.transform.position.y;
+            ZPosCoord = selectedRobot.transform.position.z;   
+            selectedRobot.transform.position = new Vector3(XPosCoord, YPosCoord + 10, ZPosCoord);
+        } else {
+            XPosCoord = selectedRobot.transform.position.x;
+            YPosCoord = selectedRobot.transform.position.y;
+            ZPosCoord = selectedRobot.transform.position.z;   
+            selectedRobot.transform.position = new Vector3(XPosCoord, YPosCoord + 2, ZPosCoord);
+        }
     }
 
     /// <summary>

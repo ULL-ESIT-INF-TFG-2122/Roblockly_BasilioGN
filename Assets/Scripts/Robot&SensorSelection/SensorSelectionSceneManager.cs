@@ -32,7 +32,7 @@ public class SensorSelectionSceneManager : MonoBehaviour
         if (selectedRobot == null) // Late start
         {
             selectedRobot = GameObject.FindWithTag("SelectedRobot");
-            //SetUpSelectedRobot();
+            SetUpSelectedRobot();
             gyroscopeCheck.GetComponent<CheckGyroscope>().CheckActivated();
         }
     }
@@ -43,13 +43,25 @@ public class SensorSelectionSceneManager : MonoBehaviour
     /// </summary>
     void SetUpSelectedRobot()
     {
+        float XPosCoord;
+        float YPosCoord;
+        float ZPosCoord;
         rotatingPlatform = GameObject.Find("RotatingPlatform");
         selectedRobot.transform.position = rotatingPlatform.transform.position;
-        float XPosCoord = selectedRobot.transform.position.x;
-        float YPosCoord = selectedRobot.transform.position.y;
-        float ZPosCoord = selectedRobot.transform.position.z;   
-        selectedRobot.transform.position = new Vector3(XPosCoord - 10, YPosCoord + 10, ZPosCoord + 10);
         selectedRobot.transform.rotation = rotatingPlatform.transform.rotation;
+        if (selectedRobot.name.Contains("Hunter"))
+        {
+            XPosCoord = selectedRobot.transform.position.x;
+            YPosCoord = selectedRobot.transform.position.y;
+            ZPosCoord = selectedRobot.transform.position.z;   
+            selectedRobot.transform.position = new Vector3(XPosCoord - 10, YPosCoord + 25, ZPosCoord + 10);
+        } else 
+        {
+            XPosCoord = selectedRobot.transform.position.x;
+            YPosCoord = selectedRobot.transform.position.y;
+            ZPosCoord = selectedRobot.transform.position.z;   
+            selectedRobot.transform.position = new Vector3(XPosCoord - 10, YPosCoord + 10, ZPosCoord + 10);
+        }
     }
 
     /// <summary>
