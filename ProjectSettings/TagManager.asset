@@ -39,6 +39,7 @@ TagManager:
   - PorcentajeDeAcercamiento
   - RetoTitle
   - Timer
+  - SceneManager
   layers:
   - Default
   - TransparentFX

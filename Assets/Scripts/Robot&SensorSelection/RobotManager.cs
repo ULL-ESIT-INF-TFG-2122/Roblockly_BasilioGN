@@ -155,6 +155,13 @@ public class RobotManager : MonoBehaviour
     {
         GameObject sensorToFind;
         string sensorNameToFind = "Sensor " + touchSensorToFind + ": Contacto";
+        if (!CheckSensorExist(sensorNameToFind))
+        {   
+            string error = "No has colocado ningún sensor en la posición " + touchSensorToFind;
+            GameObject errorPanel = GameObject.Find("Canvas").transform.Find("ErrorPanel").gameObject;
+            errorPanel.GetComponent<ErrorPanel>().ShowErrorSensorPosition(error);
+            return false;
+        }
         sensorToFind = transform.Find(sensorNameToFind).gameObject;
         return sensorToFind.GetComponent<SensorTouch>().GetContact();
     }
@@ -172,6 +179,13 @@ public class RobotManager : MonoBehaviour
     {
         GameObject sensorToFind;
         string sensorNameToFind = "Sensor " + iRSensorToFind + ": Infrarrojo";
+        if (!CheckSensorExist(sensorNameToFind))
+        {   
+            string error = "No has colocado ningún sensor en la posición " + iRSensorToFind;
+            GameObject errorPanel = GameObject.Find("Canvas").transform.Find("ErrorPanel").gameObject;
+            errorPanel.GetComponent<ErrorPanel>().ShowErrorSensorPosition(error);
+            return false;
+        }
         sensorToFind = transform.Find(sensorNameToFind).gameObject;
         return sensorToFind.GetComponent<SensorIR>().DetectColor(colorToDetect);
     }
@@ -191,6 +205,13 @@ public class RobotManager : MonoBehaviour
     {
         GameObject sensorToFind;
         string sensorNameToFind = "Sensor " + colorSensorToFind + ": Color";
+        if (!CheckSensorExist(sensorNameToFind))
+        {   
+            string error = "No has colocado ningún sensor en la posición " + colorSensorToFind;
+            GameObject errorPanel = GameObject.Find("Canvas").transform.Find("ErrorPanel").gameObject;
+            errorPanel.GetComponent<ErrorPanel>().ShowErrorSensorPosition(error);
+            return false;
+        }
         sensorToFind = transform.Find(sensorNameToFind).gameObject;
         return sensorToFind.GetComponent<SensorColor>().DetectColor(colorToDetect);
     }
@@ -206,6 +227,13 @@ public class RobotManager : MonoBehaviour
     {
         GameObject sensorToFind;
         string sensorNameToFind = "Sensor " + uSSensorToFind + ": Ultrasonido";
+        if (!CheckSensorExist(sensorNameToFind))
+        {   
+            string error = "No has colocado ningún sensor en la posición " + uSSensorToFind;
+            GameObject errorPanel = GameObject.Find("Canvas").transform.Find("ErrorPanel").gameObject;
+            errorPanel.GetComponent<ErrorPanel>().ShowErrorSensorPosition(error);
+            return Mathf.Infinity;
+        }
         sensorToFind = transform.Find(sensorNameToFind).gameObject;
         float distance = sensorToFind.GetComponent<SensorUS>().GetDistance();
         return distance;
@@ -225,6 +253,24 @@ public class RobotManager : MonoBehaviour
         {
             string status = InstantiatedGyroscope.GyroscopeBehavior();
             if (status == direction)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /// <summary>
+    /// Checks if a specific sensor is in a specific position on the robot.
+    /// </summary>
+    /// <param name="SensorNameToFind"> The name of the sensor to check.
+    /// </param>
+    /// <return> True if the sensor is making contact, false if no </returns>
+    private bool CheckSensorExist(string SensorNameToFind)
+    {
+        for (int i = 0; i < transform.childCount; i++)
+        {
+            if (transform.GetChild(i).gameObject.name == SensorNameToFind)
             {
                 return true;
             }

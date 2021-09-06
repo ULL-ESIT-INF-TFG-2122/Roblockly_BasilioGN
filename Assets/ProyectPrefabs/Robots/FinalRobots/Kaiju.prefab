@@ -314,7 +314,7 @@ GameObject:
   - component: {fileID: 251235207412958077}
   m_Layer: 0
   m_Name: Snap3
-  m_TagString: TopFrontSnapLeft
+  m_TagString: TopFrontSnapRight
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -531,7 +531,7 @@ GameObject:
   - component: {fileID: 2632018469185936959}
   m_Layer: 0
   m_Name: Snap2
-  m_TagString: TopFrontSnapRight
+  m_TagString: TopFrontSnapLeft
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

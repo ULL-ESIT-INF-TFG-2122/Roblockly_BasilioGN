@@ -724,7 +724,7 @@ PrefabInstance:
     - target: {fileID: 4767875351919587482, guid: 3a38b9e910c6e414ab234836b298e1e6,
         type: 3}
       propertyPath: m_TagString
-      value: TopFrontSnapRight
+      value: TopFrontSnapLeft
       objectReference: {fileID: 0}
     - target: {fileID: 5363522327252897308, guid: 3a38b9e910c6e414ab234836b298e1e6,
         type: 3}
@@ -804,7 +804,7 @@ PrefabInstance:
     - target: {fileID: 4767875351919587482, guid: 3a38b9e910c6e414ab234836b298e1e6,
         type: 3}
       propertyPath: m_TagString
-      value: TopFrontSnapLeft
+      value: TopFrontSnapRight
       objectReference: {fileID: 0}
     - target: {fileID: 5363522327252897308, guid: 3a38b9e910c6e414ab234836b298e1e6,
         type: 3}
