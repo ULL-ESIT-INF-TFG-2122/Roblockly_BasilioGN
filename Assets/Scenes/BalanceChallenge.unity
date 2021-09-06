@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 3
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 0}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 72deae4d18418f94688abef8e8483df0, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.8608867, g: 0.6700512, b: 0.51653314, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -892,16 +892,16 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 449010312}
-  m_LocalRotation: {x: 0.07469425, y: 0.70315063, z: -0.078080505, w: 0.70278263}
+  m_LocalRotation: {x: 0.061507944, y: 0.7044907, z: -0.0648867, w: 0.7040593}
   m_LocalPosition: {x: 0, y: 0, z: -36}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: 12.403, y: 90, z: -0.276}
+  m_LocalEulerAnglesHint: {x: 10.255, y: 90.011, z: -0.274}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1955, y: 1646.7}
+  m_AnchoredPosition: {x: 2174, y: 1601}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &449010315
@@ -1789,6 +1789,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 893898836}
     m_Modifications:
+    - target: {fileID: 7467393726473267363, guid: b62c9e374c2b2734f86b2eaeb2530d9d,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2066066946}
+    - target: {fileID: 7467393726473267363, guid: b62c9e374c2b2734f86b2eaeb2530d9d,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: GoBack
+      objectReference: {fileID: 0}
+    - target: {fileID: 7467393726473267363, guid: b62c9e374c2b2734f86b2eaeb2530d9d,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: GyroscopeSceneManager, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 7467393726980830033, guid: b62c9e374c2b2734f86b2eaeb2530d9d,
         type: 3}
       propertyPath: m_Pivot.x
@@ -1904,6 +1919,12 @@ PrefabInstance:
 --- !u!224 &951565341 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7467393726980830033, guid: b62c9e374c2b2734f86b2eaeb2530d9d,
+    type: 3}
+  m_PrefabInstance: {fileID: 951565340}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &951565342 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7467393726980830034, guid: b62c9e374c2b2734f86b2eaeb2530d9d,
     type: 3}
   m_PrefabInstance: {fileID: 951565340}
   m_PrefabAsset: {fileID: 0}
@@ -2571,7 +2592,7 @@ Transform:
   m_GameObject: {fileID: 1712861693}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 2487, y: 1477.9, z: 99.55755}
-  m_LocalScale: {x: 160.3862, y: 1, z: 135.98656}
+  m_LocalScale: {x: 160.3862, y: 1, z: 386.6506}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 4
@@ -2800,6 +2821,7 @@ MonoBehaviour:
   maximizeButtonBig: {fileID: 837686631}
   smallChallengeViewer: {fileID: 118285297}
   bigChallengeViewer: {fileID: 56733421}
+  errorPanel: {fileID: 951565342}
 --- !u!1001 &530913903373039272
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -3,7 +3,6 @@
 * Project: Roblockly
 * Author: Basilio Gómez Navarro
 * Email: alu0101049151@ull.edu.es
-* Date: 23/08/2021
 * File: LabyrinthSeceneManager.cs : This file contains the 
 *       "LabyrinthSceneManager" class implementation which allows the 
 *        configuration of some stuff of the scene as:
@@ -30,6 +29,8 @@ public class GyroscopeSceneManager : MonoBehaviour
     public GameObject maximizeButtonBig;
     public GameObject smallChallengeViewer;
     public GameObject bigChallengeViewer;
+    public GameObject errorPanel;
+    
     private GameObject platform;
     private Vector3 platformInitialPos; // Is the platform where the robot have to stay.
 
@@ -42,6 +43,7 @@ public class GyroscopeSceneManager : MonoBehaviour
         platform = GameObject.Find("Platform").gameObject;
         platformInitialPos = platform.transform.position;
         SetUpSelectedRobot();
+        CheckError();
     }
 
     /// <summary>
@@ -64,6 +66,29 @@ public class GyroscopeSceneManager : MonoBehaviour
         selectedRobot.GetComponent<RobotMotionController1>().ResetAngleRotated();
         platform.transform.position = platformInitialPos;
         platform.GetComponent<Rigidbody>().isKinematic = true;
+    }
+
+    private void CheckError()
+    {
+        if (CheckSensors())
+        {
+            errorPanel.GetComponent<ErrorPanel>().ShowErrorGyroscope();
+        }
+    }
+
+    private bool CheckSensors()
+    {
+        bool error = false;
+        string currentName;
+        for (int i = 0; i < selectedRobot.transform.childCount; i++)
+        {
+            currentName = selectedRobot.transform.GetChild(i).name;
+            if (currentName.Contains("Color") || currentName.Contains("Infrarrojo") || currentName.Contains("Ultrasonido") || currentName.Contains("Contacto"))
+            {
+                error = true;
+            }
+        }
+        return error;
     }
 
     public void DisableRobotKinematic()

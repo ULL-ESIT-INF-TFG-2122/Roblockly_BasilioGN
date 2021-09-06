@@ -32,6 +32,21 @@ public class ErrorPanel : MonoBehaviour
     }
 
     /// <summary>
+    /// Displays an error on the error panel of the scene.
+    /// </summary>
+    /// <param name="errorToShow"> The content of the error to show.
+    /// </param>
+    public void ShowErrorGyroscope()
+    {
+        UBlockly.CSharp.Runner.Stop();
+        if (!gameObject.activeSelf)
+        {
+            gameObject.SetActive(true);
+        }
+        errorPanel.transform.GetChild(1).GetComponent<Text>().text = "El robot no puede tener otro tipo de sensor que no sea el giróscopo";
+    }
+
+    /// <summary>
     /// Deactivate the error panel when the user hits the button "Aceptar" on 
     /// the panel
     /// </summary>

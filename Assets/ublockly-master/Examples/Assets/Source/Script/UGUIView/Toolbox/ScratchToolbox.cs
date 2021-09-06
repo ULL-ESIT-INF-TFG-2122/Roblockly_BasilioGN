@@ -129,7 +129,7 @@ namespace UBlockly.UGUI
             GameObject selectedRobot = GameObject.FindWithTag("SelectedRobot");
             foreach (string blockType in blockTypes)
             {
-                //Debug.Log("blockType: " + blockType);
+                Debug.Log("blockType: " + blockType);
                 switch (blockType)
                 {
                     case "sensors_ir_detect_white":
@@ -176,6 +176,18 @@ namespace UBlockly.UGUI
                         break;
                     case "sensors_gyroscope_direction":
                         if (selectedRobot.GetComponent<RobotManager>().CheckSensor("Gyroscope"))
+                        {
+                            NewBlockView(blockType, contentTrans);
+                        }
+                        break;
+                    case "move_turn_robot":
+                        if (!selectedRobot.GetComponent<RobotManager>().CheckSensor("Gyroscope"))
+                        {
+                            NewBlockView(blockType, contentTrans);
+                        }
+                        break;
+                    case "move_turn_robot_angle":
+                        if (!selectedRobot.GetComponent<RobotManager>().CheckSensor("Gyroscope"))
                         {
                             NewBlockView(blockType, contentTrans);
                         }
