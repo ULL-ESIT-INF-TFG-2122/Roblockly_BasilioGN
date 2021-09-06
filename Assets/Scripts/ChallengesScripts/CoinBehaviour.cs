@@ -11,6 +11,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 /// <summary>
 /// This class manages the coin rotation and the collection of statistical data 
@@ -57,24 +58,52 @@ public class CoinBehaviour : MonoBehaviour
     /// </param>
     private void SetFinishInformation(Collider other)
     {
-        Debug.Log("Ha entrado en el trigger enter");
-        if (other.gameObject.tag == "SelectedRobot" ||
-            other.gameObject.name == "Contact")
+        if (gameObject.activeSelf)
         {
-            GameObject selectedRobot = GameObject.FindWithTag("SelectedRobot").gameObject;
-            selectedRobot.GetComponent<RobotMotionController1>().StopRobotNow();
-            gameObject.SetActive(false);
-            ChallengeSolution newSolution = new ChallengeSolution();
-            // Add time elapsed to complet the challenge:
-            newSolution.SetSolutionTime(GameObject.FindWithTag("Timer").GetComponent<TimerBehaviour>().GetTimeString());
-            // Add time elapsed to complet the challenge in string format:
-            newSolution.SetSolutionTimeFloat(GameObject.FindWithTag("Timer").GetComponent<TimerBehaviour>().TimerFunction());
-            // Set the number of used blocks to complete this solution:
-            newSolution.SetBlocksNumber(GameObject.FindWithTag("StatisticsManager").GetComponent<StatisticsManager>().GetUsedBlocks());
-            // Set of the progress in this solution:
-            newSolution.CalculateProgress("Labyrinth");
-            GameObject.FindWithTag("StatisticsManager").GetComponent<StatisticsManager>().AddNewChallengeSolution("Labyrinth", newSolution);
-            StopTimer();
+            Debug.Log("Ha entrado en el trigger enter");
+            if (other.gameObject.tag == "SelectedRobot" ||
+                other.gameObject.name == "Contact")
+            {
+                GameObject selectedRobot = GameObject.FindWithTag("SelectedRobot").gameObject;
+                selectedRobot.GetComponent<RobotMotionController1>().StopRobotNow();
+                gameObject.SetActive(false);
+                ChallengeSolution newSolution = new ChallengeSolution();
+                // Add time elapsed to complet the challenge:
+                newSolution.SetSolutionTime(GameObject.FindWithTag("Timer").GetComponent<TimerBehaviour>().GetTimeString());
+                // Add time elapsed to complet the challenge in string format:
+                newSolution.SetSolutionTimeFloat(GameObject.FindWithTag("Timer").GetComponent<TimerBehaviour>().TimerFunction());
+                // Set the number of used blocks to complete this solution:
+                newSolution.SetBlocksNumber(GameObject.FindWithTag("StatisticsManager").GetComponent<StatisticsManager>().GetUsedBlocks());
+                // Set of the progress in this solution:
+                string challengeKey = CalculateChallengeKey();
+                newSolution.CalculateProgress(challengeKey);
+                GameObject.FindWithTag("StatisticsManager").GetComponent<StatisticsManager>().AddNewChallengeSolution(challengeKey, newSolution);
+                StopTimer();
+            }
         }
+    }
+
+    private string CalculateChallengeKey()
+    {
+        string challengeKey;
+        switch (SceneManager.GetActiveScene().name)
+        {
+            case "LabyrinthChallenge":
+                challengeKey = "Labyrinth";
+                break;
+            case "IRChallenge":
+                challengeKey = "IR";
+                break;
+            case "ColorChallenge":
+                challengeKey = "Color";
+                break;
+            case "BalanceChallenge":
+                challengeKey = "Gyroscope";
+                break;
+            default:
+                challengeKey = "NotChallengeDetected";
+                break;
+        }
+        return challengeKey;
     }
 }
