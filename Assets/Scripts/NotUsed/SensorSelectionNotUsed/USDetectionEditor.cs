@@ -2,7 +2,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEditor;
 
-[CustomEditor (typeof (USDetection))]
+/*[CustomEditor (typeof (USDetection))]
 public class USDetectionEditor : Editor
 {
     void OnSceneGUI()
@@ -22,4 +22,4 @@ public class USDetectionEditor : Editor
             Handles.DrawLine(usDetection.transform.position, detectableObject.position);
         }
     }
-}
+}*/

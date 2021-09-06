@@ -46,6 +46,7 @@ public class IRSceneManager : MonoBehaviour
     /// </summary>
     public void SetUpSelectedRobot()
     {
+        UBlockly.CSharp.Runner.Stop();
         float XPosCoord;
         float YPosCoord;
         float ZPosCoord;

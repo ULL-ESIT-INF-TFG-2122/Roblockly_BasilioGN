@@ -52,6 +52,7 @@ public class GyroscopeSceneManager : MonoBehaviour
     /// </summary>
     public void SetUpSelectedRobot()
     {
+        UBlockly.CSharp.Runner.Stop();
         if (selectedRobot == null)
         {
             selectedRobot = GameObject.FindWithTag("SelectedRobot");            
