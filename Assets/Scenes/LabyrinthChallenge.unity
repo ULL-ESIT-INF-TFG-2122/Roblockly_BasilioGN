@@ -2598,7 +2598,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7d1d5b3d7b168941a983a2e207b3a1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startPoint: {fileID: 1704993382}
+  startPoint: {fileID: 707886298}
   maximizeButtonSmall: {fileID: 721080239}
   maximizeButtonBig: {fileID: 837686631}
   smallChallengeViewer: {fileID: 1238435122}

@@ -27,7 +27,7 @@ public class CheckMicrophone : MonoBehaviour
         if (!gameObject.activeSelf)
         {
             gameObject.SetActive(true);
-            CheckboxMicrophone();   
+            //CheckboxMicrophone();   
         } else {
             gameObject.SetActive(false);
         }

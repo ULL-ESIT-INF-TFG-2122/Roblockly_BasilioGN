@@ -28,6 +28,7 @@ public class SettingsMenu : MonoBehaviour
     public GameObject leastBlocksSolutionText;
     public GameObject averageTimeText;
     private GameObject statisticsManager;
+    private List<string> createdButtons = new List<string>();
 
     /// <summary>
     /// Start is called on the frame when a script is enabled just before
@@ -78,12 +79,14 @@ public class SettingsMenu : MonoBehaviour
         {
             foreach (var challengeSolution in auxSolutions)
             {
+                string buttonText = GetChallengeButtonText(challengeSolution.Key);
                 int i = 1;
                 bool found = false;
                 while(!found && (i < 5))
                 {
-                    if (!statisticsPanel.transform.GetChild(i).gameObject.activeSelf)
+                    if ((!statisticsPanel.transform.GetChild(i).gameObject.activeSelf) && !CheckIfButtonHasBeenCreated(buttonText))
                     {
+                        createdButtons.Add(buttonText);
                         found = true;
                         statisticsPanel.transform.GetChild(i).gameObject.SetActive(true);
                         statisticsPanel.transform.GetChild(i).transform.GetChild(0).GetComponent<Text>().text = GetChallengeButtonText(challengeSolution.Key);
@@ -92,6 +95,25 @@ public class SettingsMenu : MonoBehaviour
                 }
             }
         }
+    }
+
+
+    /// <summary>
+    /// Checks if a button with the same text has been already created.
+    /// </summary>
+    /// <param name="textOfTheButton"> The text to check. </param>
+    /// <returns> True if the button has been created, false if no. </returns>
+    private bool CheckIfButtonHasBeenCreated(string textOfTheButton)
+    {
+        if (createdButtons == null) return false;
+        for (int i = 0; i < createdButtons.Count; i++)
+        {
+            if (textOfTheButton == createdButtons[i])
+            {
+                return true;
+            }
+        }
+        return false;
     }
 
     /// <summary>
