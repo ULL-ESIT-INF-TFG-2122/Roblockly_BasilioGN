@@ -11,7 +11,7 @@ namespace UBlockly
             int velocityToMove = int.Parse(velocityString);
             GameObject selectedRobot = GameObject.FindWithTag("SelectedRobot");
         
-            yield return selectedRobot.GetComponent<RobotMotionController1>().MoveVerticalRobotInfinite(velocityToMove * 10.0f, true);
+            yield return selectedRobot.GetComponent<RobotMotionController>().MoveVerticalRobotInfinite(velocityToMove * 10.0f, true);
         }
     }
     [CodeInterpreter(BlockType = "move_robot_backward")]
@@ -21,7 +21,7 @@ namespace UBlockly
             int velocityToMove = int.Parse(velocityString);
             GameObject selectedRobot = GameObject.FindWithTag("SelectedRobot");
         
-            yield return selectedRobot.GetComponent<RobotMotionController1>().MoveVerticalRobotInfinite(velocityToMove * 10.0f, false);
+            yield return selectedRobot.GetComponent<RobotMotionController>().MoveVerticalRobotInfinite(velocityToMove * 10.0f, false);
         }
     }
 
@@ -34,7 +34,7 @@ namespace UBlockly
             float timeToMove = float.Parse(timeString);
             GameObject selectedRobot = GameObject.FindWithTag("SelectedRobot");
         
-            yield return selectedRobot.GetComponent<RobotMotionController1>().MoveVerticalRobotTime(velocityToMove * 10.0f, timeToMove, true);
+            yield return selectedRobot.GetComponent<RobotMotionController>().MoveVerticalRobotTime(velocityToMove * 10.0f, timeToMove, true);
         }
     }
 
@@ -47,7 +47,7 @@ namespace UBlockly
             int timeToMove = int.Parse(timeString);
             GameObject selectedRobot = GameObject.FindWithTag("SelectedRobot");
         
-            yield return selectedRobot.GetComponent<RobotMotionController1>().MoveVerticalRobotTime(velocityToMove * 10.0f, timeToMove, false);
+            yield return selectedRobot.GetComponent<RobotMotionController>().MoveVerticalRobotTime(velocityToMove * 10.0f, timeToMove, false);
         }
     }
 
@@ -58,7 +58,7 @@ namespace UBlockly
             //float angleToRotate = float.Parse(block.GetFieldValue("ANGLE"));
             string directionToRotate = block.GetFieldValue("DIRECTION");
             GameObject selectedRobot = GameObject.FindWithTag("SelectedRobot");
-            yield return selectedRobot.GetComponent<RobotMotionController1>().RotateRobot(90.0f, directionToRotate);
+            yield return selectedRobot.GetComponent<RobotMotionController>().RotateRobot(90.0f, directionToRotate);
         }
     }
 
@@ -69,7 +69,7 @@ namespace UBlockly
             float angleToRotate = float.Parse(block.GetFieldValue("ANGLE"));
             string directionToRotate = block.GetFieldValue("DIRECTION");
             GameObject selectedRobot = GameObject.FindWithTag("SelectedRobot");
-            yield return selectedRobot.GetComponent<RobotMotionController1>().RotateRobot(angleToRotate, directionToRotate);
+            yield return selectedRobot.GetComponent<RobotMotionController>().RotateRobot(angleToRotate, directionToRotate);
         }
     }
 
@@ -78,7 +78,7 @@ namespace UBlockly
         protected override IEnumerator Execute(Block block)
         {
             GameObject selectedRobot = GameObject.FindWithTag("SelectedRobot");
-            yield return selectedRobot.GetComponent<RobotMotionController1>().StopRobot();
+            yield return selectedRobot.GetComponent<RobotMotionController>().StopRobot();
         }
     }
 

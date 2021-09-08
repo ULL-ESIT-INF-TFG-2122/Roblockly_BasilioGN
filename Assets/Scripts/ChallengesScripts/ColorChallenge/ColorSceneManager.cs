@@ -57,7 +57,7 @@ public class ColorSceneManager : MonoBehaviour
         selectedRobot.transform.position = startPoint.position;
         selectedRobot.transform.rotation = startPoint.rotation;
         selectedRobot.GetComponent<RobotManager>().Kinematic(true); // Enables robot physics again.
-        selectedRobot.GetComponent<RobotMotionController1>().ResetAngleRotated();
+        selectedRobot.GetComponent<RobotMotionController>().ResetAngleRotated();
         if (selectedRobot.name.Contains("Hunter"))
         {
             XPosCoord = selectedRobot.transform.position.x;

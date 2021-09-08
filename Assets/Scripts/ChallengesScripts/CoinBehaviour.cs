@@ -65,7 +65,7 @@ public class CoinBehaviour : MonoBehaviour
                 other.gameObject.name == "Contact")
             {
                 GameObject selectedRobot = GameObject.FindWithTag("SelectedRobot").gameObject;
-                selectedRobot.GetComponent<RobotMotionController1>().StopRobotNow();
+                selectedRobot.GetComponent<RobotMotionController>().StopRobotNow();
                 gameObject.SetActive(false);
                 ChallengeSolution newSolution = new ChallengeSolution();
                 // Add time elapsed to complet the challenge:

@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RobotMotionController : MonoBehaviour
+public class RobotMotionController2 : MonoBehaviour
 {
     private float horizontaInput;
     private float verticalInput;

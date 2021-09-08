@@ -3,7 +3,6 @@
 * Project:  Roblockly
 * Author: Basilio Gómez Navarro
 * Email: alu0101049151@ull.edu.es
-* Date: 07/05/2021
 * File: IndividualSelectionSceneManager.cs : This file contains the 
 *       "IndividualSelectionSceneManager" class implementation. This class is
 *       used to manage the selection of the robots for the individual 
@@ -17,7 +16,7 @@ using UnityEngine.SceneManagement;
 /// <summary>
 /// Class used to manage the "Individual Robot Selection" scene.
 /// </summary>
-public class IndividualSelectionSceneManager1 : MonoBehaviour
+public class IndividualSelectionSceneManager : MonoBehaviour
 {
     private GameObject Platform; // Is the rotating platform.
     private GameObject CurrentRobot; // Is the robot that is currently rotating 

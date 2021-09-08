@@ -1,8 +1,8 @@
 ﻿/**
 * Universidad de La Laguna
+* Project: Roblockly
 * Author: Basilio Gómez Navarro
 * Email: alu0101049151@ull.edu.es
-* Date: 08/05/2021
 * File: RobotSelection.cs : This file contains the 
 *       "RobotSelection" class implementation. This class is
 *       used to manage the change of different robots on the rotating platform.
@@ -30,8 +30,9 @@ public class RobotSelection : MonoBehaviour
         // If robotIndex is greater or equal to the number of RobotHolder 
         // children, recalculate de index again to allow the user can click on 
         // the arrow buttons like it hasn't got an end.
-        if (robotIndex >= transform.childCount) 
+        if ((robotIndex >= transform.childCount) || (robotIndex < 0))
         {
+            robotIndex = Mathf.Abs(robotIndex); // If is negative (<0)
             robotIndex = robotIndex % transform.childCount;
         }
 

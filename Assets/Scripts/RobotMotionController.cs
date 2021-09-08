@@ -3,7 +3,7 @@
 * Project:  Roblockly
 * Author: Basilio Gómez Navarro
 * Email: alu0101049151@ull.edu.es
-* File: RobotMotionController1.cs : This file contains the class used to manage 
+* File: RobotMotionController.cs : This file contains the class used to manage 
 *       movement logic of the robots.
 */
 
@@ -11,7 +11,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RobotMotionController1 : MonoBehaviour
+public class RobotMotionController : MonoBehaviour
 {
     private Rigidbody robotRigidbody;
     private const int DEFAULT_DISTANCE = 1;

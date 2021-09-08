@@ -64,7 +64,7 @@ public class GyroscopeSceneManager : MonoBehaviour
         selectedRobot.transform.position = new Vector3(XPosCoord, YPosCoord + 10, ZPosCoord);
         selectedRobot.transform.rotation = startPoint.rotation;
         selectedRobot.GetComponent<RobotManager>().Kinematic(true);
-        selectedRobot.GetComponent<RobotMotionController1>().ResetAngleRotated();
+        selectedRobot.GetComponent<RobotMotionController>().ResetAngleRotated();
         platform.transform.position = platformInitialPos;
         platform.GetComponent<Rigidbody>().isKinematic = true;
     }
