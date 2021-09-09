@@ -150,7 +150,7 @@ public class SettingsMenu : MonoBehaviour
             case "Reto del sendero de colores":
                 challengeButtonText = "Color";
                 break;
-            case "Reto de la plataforma móvi":
+            case "Reto de la plataforma móvil":
                 challengeButtonText = "Gyroscope";
                 break;
             default:
