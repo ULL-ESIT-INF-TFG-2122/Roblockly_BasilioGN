@@ -369,6 +369,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 893898836}
     m_Modifications:
+    - target: {fileID: 1769928102826943269, guid: fce984f6f45bb954c9fcffc70dea213e,
+        type: 3}
+      propertyPath: SettingsMenu
+      value: 
+      objectReference: {fileID: 1618128043}
     - target: {fileID: 7160266691327419714, guid: fce984f6f45bb954c9fcffc70dea213e,
         type: 3}
       propertyPath: m_Name
@@ -2301,6 +2306,12 @@ PrefabInstance:
 --- !u!224 &1618128042 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7367315830690944620, guid: 53bf4e358a40c5a409d62ce59d02773e,
+    type: 3}
+  m_PrefabInstance: {fileID: 1618128041}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1618128043 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7367315830690944623, guid: 53bf4e358a40c5a409d62ce59d02773e,
     type: 3}
   m_PrefabInstance: {fileID: 1618128041}
   m_PrefabAsset: {fileID: 0}
